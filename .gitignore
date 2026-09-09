@@ -2,3 +2,9 @@
 build/
 *.tmp
 ~*
+
+# LCSC / EasyEDA 由来のライブラリは公開リポジトリに同梱しない（ライセンス未確認）
+# README の easyeda2kicad コマンドで各自が生成する
+lib/lcsc/
+lib/logicana.pretty/
+lib/logicana.3dshapes/
