@@ -683,9 +683,12 @@ def build(sch: Sch):
     sw1 = sch.place("logicana:SW_SP3T_SK13D07VG5", "SW1", G(60, 138), 0, value="SK13D07VG5", footprint=FP["SW1"], lcsc="C393948",
                     description="SP3T slide switch, THT right-angle, SHORTING type. Contact order +3V3 / EXT / +5V so +3V3 and +5V never bridge (SPEC §5.4, KIT §1.2.3)")
     com = sw1.pin(1)
-    sch.route(com, add(com, -4, 0), add(com, -10, 0))
+    sch.route(com, add(com, -4, 0), add(com, -6, 0), add(com, -10, 0))
     sch.power("VREF", add(com, -4, 0))
     sch.flag(add(com, -10, 0), UP)
+    # C27: VREF レールのバルク 1µF（SW1 コモン直近・Manager 判断 2026-09-20 Q2=(b)・SPEC §5.4）
+    c27 = C(sch, "C27", add(com, -6, 3), "1µF", desc="1µF X5R 0402, VREF bulk next to SW1 common (SPEC §5.4, Manager 2026-09-20)")
+    sch.pin_power(c27, 2, "GND")
     p2, p3, p4 = sw1.pin(2), sw1.pin(3), sw1.pin(4)
     sch.wire(p2, add(p2, 6, 0))
     sch.power("+3V3", add(p2, 6, 0))
@@ -711,7 +714,7 @@ def build(sch: Sch):
     # 領域 2: RP2040 / フラッシュ / 水晶 / BOOT・RUN / テストパッド     （中央）
     # ================================================================================
     sch.text("2. MCU", G(112, 12), 2.0)
-    sch.text("U1 RP2040 + U2 W25Q128 (QSPI) + X1 12MHz ; 100nF x10 (C1-C10) + 1uF x2 (C21/C22) ; BOOT = SW2, RUN = SW3", G(112, 15), 1.27)
+    sch.text("U1 RP2040 + U2 W25Q128 (QSPI) + X1 12MHz ; 100nF x10 (C1-C10) + 1uF x2 (C21/C22) ; BOOT = SW2, RUN = SW3 ; SWD on TP8/TP9", G(112, 15), 1.27)
 
     u1 = sch.place("MCU_RaspberryPi:RP2040", "U1", G(160, 92), 0, footprint=FP["QFN56"], lcsc="C2040",
                    description="Raspberry Pi RP2040, QFN-56 7x7mm (SPEC §10 #1)")
@@ -742,8 +745,8 @@ def build(sch: Sch):
     sch.pin_label(u1, "51", "QSPI_SD3", 4)
     sch.pin_label(u1, "20", "XIN", 4)
     sch.pin_label(u1, "21", "XOUT", 4)
-    sch.nc(u1.pin("24"))                             # SWCLK（KIT §5-15 未決）
-    sch.nc(u1.pin("25"))                             # SWDIO
+    sch.pin_label(u1, "24", "SWCLK", 4)              # KIT §5-15: SWD を出す（TP8 / TP9・Manager 2026-09-20）
+    sch.pin_label(u1, "25", "SWDIO", 4)
     # 上側 電源。IOVDD(1,10,22,33,42,49) と DVDD(23,50) はシンボル上で同一点に重なる
     sch.pin_power(u1, "43", "+3V3", 3)               # ADC_AVDD
     sch.pin_power(u1, "48", "+3V3", 5)               # USB_VDD
@@ -823,10 +826,12 @@ def build(sch: Sch):
     sch.pin_label(r24, 2, "TXU_OE")
 
     # --- テストパッド GP16〜GP22（SPEC §6 J5。TestPoint シンボルは TP 参照子）
-    for i, n in enumerate(range(16, 23)):
-        tp = sch.place("Connector:TestPoint", f"TP{i + 1}", G(136 + 5 * i, 144), 0, value=f"GP{n}", footprint=FP["TP"],
-                       description=f"Test pad 1.0mm, GP{n} (SPEC §6 J5 test pads for dgatf UART/config)")
-        sch.pin_label(tp, 1, f"GP{n}", 2)
+    tps = [(f"TP{i + 1}", f"GP{n}", f"Test pad 1.0mm, GP{n} (SPEC §6 J5 test pads for dgatf UART/config)") for i, n in enumerate(range(16, 23))]
+    tps += [("TP8", "SWCLK", "Test pad 1.0mm, SWCLK (KIT §5-15: SWD brought out, Manager 2026-09-20)"),
+            ("TP9", "SWDIO", "Test pad 1.0mm, SWDIO (KIT §5-15: SWD brought out, Manager 2026-09-20)")]
+    for i, (ref, net, desc) in enumerate(tps):
+        tp = sch.place("Connector:TestPoint", ref, G(136 + 5 * i, 144), 0, value=net, footprint=FP["TP"], description=desc)
+        sch.pin_label(tp, 1, net, 2)
 
     # --- J4 アナログ 3ch（DNF）
     j4 = sch.place("Connector_Generic:Conn_01x03", "J4", G(190, 152), 0, value="ADC 1x3 (DNF)", footprint=FP["H1x03"], dnp=True,
@@ -891,7 +896,7 @@ def build(sch: Sch):
         "SW1 (SK13D07VG5) is a SHORTING slide switch: +3V3 (pin 2) and +5V (pin 4) are never adjacent; EXT (pin 3) sits between. Do not slide with EXT connected.",
         "USB path: J1 -> U8 (USBLC6) -> R19/R20 27R -> RP2040. No external pull-ups (RP2040 internal). CC1/CC2: 5.1k each to GND.",
         "Crystal: 1k damping on the XOUT side (R21), XIN direct. 15pF x2 at the crystal pins. RP2040 TESTEN tied to GND (datasheet).",
-        "DNF: R23 (10k QSPI_SS pull-up), J4 (analog header). SWCLK/SWDIO not brought out (KIT §5-15, open item).",
+        "DNF: R23 (10k QSPI_SS pull-up), J4 (analog header). SWD on test pads TP8 (SWCLK) / TP9 (SWDIO). C27 = 1uF bulk on VREF.",
     ]
     for i, t in enumerate(notes):
         sch.text(t, G(10, 200 + 3 * i), 1.5)
@@ -908,9 +913,90 @@ def _netclass(name, track, clearance, via, drill, priority, dp_w=0.2, dp_gap=0.2
             "via_diameter": via, "via_drill": drill, "wire_width": 6}
 
 
+# .kicad_pro に入れる DRC 値（KIT §3.2）
+DESIGN_RULES = {
+    "max_error": 0.005,
+    "min_clearance": 0.15,
+    "min_connection": 0.0,
+    "min_copper_edge_clearance": 0.3,
+    "min_groove_width": 0.0,
+    "min_hole_clearance": 0.25,
+    "min_hole_to_hole": 0.25,
+    "min_microvia_diameter": 0.2,
+    "min_microvia_drill": 0.1,
+    "min_resolved_spokes": 2,
+    "min_silk_clearance": 0.0,
+    "min_text_height": 0.8,
+    "min_text_thickness": 0.15,
+    "min_through_hole_diameter": 0.25,      # KiCad はビアドリルもこの値で見る（KIT §3.2 ビア 0.45/0.25）。THT の実穴は全部 0.7 以上
+    "min_track_width": 0.15,
+    "min_via_annular_width": 0.1,
+    "min_via_diameter": 0.45,
+    "solder_mask_to_copper_clearance": 0.0,
+    "use_height_for_length_calcs": True,
+}
+DESIGN_DEFAULTS = {
+    "apply_defaults_to_fp_barcodes": False, "apply_defaults_to_fp_dimensions": False, "apply_defaults_to_fp_fields": False,
+    "apply_defaults_to_fp_shapes": False, "apply_defaults_to_fp_text": False,
+    "board_outline_line_width": 0.05, "copper_line_width": 0.2, "copper_text_italic": False,
+    "copper_text_size_h": 1.5, "copper_text_size_v": 1.5, "copper_text_thickness": 0.3, "copper_text_upright": False,
+    "courtyard_line_width": 0.05, "dimension_precision": 4, "dimension_units": 3,
+    "dimensions": {"arrow_length": 1270000, "extension_offset": 500000, "keep_text_aligned": True, "suppress_zeroes": True,
+                   "text_position": 0, "units_format": 0},
+    "fab_line_width": 0.1, "fab_text_italic": False, "fab_text_size_h": 1.0, "fab_text_size_v": 1.0,
+    "fab_text_thickness": 0.15, "fab_text_upright": False,
+    "other_line_width": 0.1, "other_text_italic": False, "other_text_size_h": 1.0, "other_text_size_v": 1.0,
+    "other_text_thickness": 0.15, "other_text_upright": False,
+    "pads": {"drill": 0.8, "height": 1.27, "width": 2.54},
+    "silk_line_width": 0.15, "silk_text_italic": False, "silk_text_size_h": 1.0, "silk_text_size_v": 1.0,
+    "silk_text_thickness": 0.15, "silk_text_upright": False,
+    "zones": {"border_display_style": 2, "border_hatch_pitch": 0.5, "corner_radius": 0.0, "corner_smoothing": 0,
+              "fill_mode": 0, "hatch_gap": 1.5, "hatch_orientation": 0.0, "hatch_smoothing_level": 0,
+              "hatch_smoothing_value": 0.1, "hatch_thickness": 1.0, "min_clearance": 0.2, "min_island_area": 10.0,
+              "min_thickness": 0.25, "pad_connection": 1, "remove_islands": 1, "thermal_relief_gap": 0.3,
+              "thermal_relief_spoke_width": 0.3},
+}
+RULE_SEVERITIES = {
+    "annular_width": "error", "clearance": "error", "connection_width": "warning", "copper_edge_clearance": "error",
+    "copper_sliver": "warning", "courtyards_overlap": "error", "creepage": "error", "diff_pair_gap_out_of_range": "error",
+    "diff_pair_uncoupled_length_too_long": "error", "drill_out_of_range": "error", "duplicate_footprints": "warning",
+    "extra_footprint": "warning", "footprint": "error", "footprint_filters_mismatch": "ignore",
+    "footprint_symbol_field_mismatch": "warning", "footprint_symbol_mismatch": "warning", "footprint_type_mismatch": "ignore",
+    "hole_clearance": "error", "hole_to_hole": "warning", "holes_co_located": "warning", "invalid_outline": "error",
+    "isolated_copper": "warning", "item_on_disabled_layer": "error", "items_not_allowed": "error",
+    "length_out_of_range": "error", "lib_footprint_issues": "warning", "lib_footprint_mismatch": "warning",
+    "malformed_courtyard": "error", "microvia_drill_out_of_range": "error", "mirrored_text_on_front_layer": "warning",
+    "missing_courtyard": "ignore", "missing_footprint": "warning", "missing_tuning_profile": "warning",
+    "net_conflict": "warning", "nonmirrored_text_on_back_layer": "warning", "npth_inside_courtyard": "error",
+    "padstack": "warning", "pth_inside_courtyard": "error", "shorting_items": "error", "silk_edge_clearance": "warning",
+    "silk_over_copper": "warning", "silk_overlap": "warning", "skew_out_of_range": "error", "solder_mask_bridge": "error",
+    "starved_thermal": "error", "text_height": "warning", "text_on_edge_cuts": "error", "text_thickness": "warning",
+    "through_hole_pad_without_hole": "error", "too_many_vias": "error", "track_angle": "error", "track_dangling": "warning",
+    "track_segment_length": "error", "unconnected_items": "error", "unresolved_variable": "error",
+    "via_dangling": "warning", "zones_intersect": "error",
+}
+
+
+def board_design_settings() -> dict:
+    """基板側の Board Setup（KIT §3.2 の DRC 値ほか）。.kicad_pro の board.design_settings に入る"""
+    ds = {}
+    ds["defaults"] = DESIGN_DEFAULTS
+    ds["diff_pair_dimensions"] = [{"gap": 0.15, "via_gap": 0.25, "width": 0.3}]      # KIT §3.4 USB 90Ω
+    ds["drc_exclusions"] = []
+    ds["meta"] = {"version": 2}
+    ds["rule_severities"] = RULE_SEVERITIES
+    ds["rules"] = DESIGN_RULES
+    ds["track_widths"] = [0.0, 0.2, 0.3, 0.5]
+    ds["via_dimensions"] = [{"diameter": 0.0, "drill": 0.0}, {"diameter": 0.45, "drill": 0.25}, {"diameter": 0.65, "drill": 0.35}]
+    ds["zones_allow_external_fillets"] = False
+    return ds
+
+
+
 def kicad_pro() -> str:
     pro = {
-        "board": {"3dviewports": [], "ipc2581": {"bom_rev": "", "dist": "", "distpn": "", "internal_id": "", "mfg": "", "mpn": "", "sch_revision": ""},
+        "board": {"3dviewports": [], "design_settings": board_design_settings(),
+                  "ipc2581": {"bom_rev": "", "dist": "", "distpn": "", "internal_id": "", "mfg": "", "mpn": "", "sch_revision": ""},
                   "layer_pairs": [], "layer_presets": [], "viewports": []},
         "boards": [],
         "component_class_settings": {"assignments": [], "meta": {"version": 0}, "sheet_component_classes": {"enabled": False}},

@@ -50,7 +50,7 @@
 | `/D15` | OK | 2 | 2 |  |
 | `+5V` | OK | 8 | 8 |  |
 | `+3V3` | OK | 35 | 35 |  |
-| `VREF` | OK | 10 | 10 |  |
+| `VREF` | OK | 11 | 11 |  |
 | `/DVDD` | OK | 6 | 6 |  |
 | `/USB_DP` | OK | 5 | 5 |  |
 | `/USB_DP_MCU` | OK | 2 | 2 |  |
@@ -82,10 +82,12 @@
 | `/GP27_ADC1` | OK | 2 | 2 |  |
 | `/GP28_ADC2` | OK | 2 | 2 |  |
 | `/VREF_EXT` | OK | 2 | 2 |  |
-| `GND` | OK | 69 | 69 |  |
+| `/SWCLK` | OK | 2 | 2 |  |
+| `/SWDIO` | OK | 2 | 2 |  |
+| `GND` | OK | 70 | 70 |  |
 | `Net-(D1-A)` | OK | 2 | 2 |  |
 | `Net-(D2-A)` | OK | 2 | 2 |  |
 | `Net-(D3-A)` | OK | 2 | 2 |  |
 
-期待ネット 86 / 実ネット 102 / NG 0 / 期待表に無いネット 0: []
-no_connect による unconnected ネット 16: `unconnected-(J1-SBU1-PadA8)`, `unconnected-(J1-SBU2-PadB8)`, `unconnected-(SW1-MNT-Pad5)`, `unconnected-(SW1-MNT-Pad6)`, `unconnected-(U1-GPIO24-Pad36)`, `unconnected-(U1-GPIO29{slash}ADC3-Pad41)`, `unconnected-(U1-SWCLK-Pad24)`, `unconnected-(U1-SWDIO-Pad25)`, `unconnected-(U3-NC-Pad6)`, `unconnected-(U3-NC-Pad9)`, `unconnected-(U4-NC-Pad6)`, `unconnected-(U4-NC-Pad9)`, `unconnected-(U5-NC-Pad6)`, `unconnected-(U5-NC-Pad9)`, `unconnected-(U6-NC-Pad6)`, `unconnected-(U6-NC-Pad9)`
+期待ネット 88 / 実ネット 102 / NG 0 / 期待表に無いネット 0: []
+no_connect による unconnected ネット 14: `unconnected-(J1-SBU1-PadA8)`, `unconnected-(J1-SBU2-PadB8)`, `unconnected-(SW1-MNT-Pad5)`, `unconnected-(SW1-MNT-Pad6)`, `unconnected-(U1-GPIO24-Pad36)`, `unconnected-(U1-GPIO29{slash}ADC3-Pad41)`, `unconnected-(U3-NC-Pad6)`, `unconnected-(U3-NC-Pad9)`, `unconnected-(U4-NC-Pad6)`, `unconnected-(U4-NC-Pad9)`, `unconnected-(U5-NC-Pad6)`, `unconnected-(U5-NC-Pad9)`, `unconnected-(U6-NC-Pad6)`, `unconnected-(U6-NC-Pad9)`

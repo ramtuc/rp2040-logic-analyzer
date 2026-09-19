@@ -152,10 +152,14 @@ def main() -> int:
     ok = c1[0] and c2[0] and c3[0] and c1[1] == "+3V3" and c2[1] == "VREF" and c3[1] == "/LED_STATUS" and ("U1", "37") in nets["/LED_STATUS"]
     item(14, "D1 = +3V3、D2 = VREF、D3 = LED_STATUS(GP25)、各 1kΩ", ok, f"D1←{c1[1]} / D2←{c2[1]} / D3←{c3[1]}")
 
-    # 15. SWD
-    swclk, swdio = net_of(nets, "U1", 24), net_of(nets, "U1", 25)
-    item(15, "SWD を出すか決める（SPEC §6 に無い）", None,
-         f"SWCLK→{swclk} / SWDIO→{swdio}。未決のため no_connect で明示。テストパッド 2 点の追加は handoff で提案")
+    # 15. SWD（Manager 2026-09-20: TP8 = SWCLK / TP9 = SWDIO で「出す」に決着）
+    ok = parts("/SWCLK") == ["TP8", "U1"] and parts("/SWDIO") == ["TP9", "U1"]
+    item(15, "SWD を出す（決定: TP8 = SWCLK・TP9 = SWDIO のテストパッド）", ok,
+         f"SWCLK: {parts('/SWCLK')} / SWDIO: {parts('/SWDIO')}")
+
+    # 補: VREF バルク 1µF（Manager 2026-09-20 Q2 = (b)・SPEC §5.4）
+    ok = comps["C27"]["value"] == "1µF" and net_of(nets, "C27", 1) == "VREF" and net_of(nets, "C27", 2) == "GND"
+    item("補", "VREF レールに 1µF バルク（C27・SW1 コモン直近）", ok, f"C27: {net_of(nets,'C27',1)}–{net_of(nets,'C27',2)}")
 
     # 補: RUN に外付け無し
     ok = parts("/RUN") == ["SW3", "U1"] and net_of(nets, "SW3", 3) == "GND"

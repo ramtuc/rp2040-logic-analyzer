@@ -21,3 +21,6 @@ hardware/out/erc.json
 hardware/out/svg/
 __pycache__/
 *.pyc
+# freerouting の中間ファイル
+hardware/out/route/*.dsn
+hardware/out/route/*.ses

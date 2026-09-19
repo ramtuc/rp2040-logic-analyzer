@@ -14,7 +14,8 @@
 | 12 | SW1: ピン1 = VREF(コモン)・2 = +3V3・3 = EXT・4 = +5V（+3V3 と +5V が隣接しない） | **PASS** | SW1 {1: 'VREF', 2: '+3V3', 3: '/VREF_EXT', 4: '+5V', 5: 'unconnected-(SW1-MNT-Pad5)', 6: 'unconnected-(SW1-MNT-Pad6)'}（5/6 = 固定ラグ・未接続） |
 | 13 | R1–R16 = 100Ω、J2 と TXU0104 A ピンの間（1kΩ ではない） | **PASS** | R1–R16 すべて 100Ω・CHn_IN(J2 奇数ピン)↔CHn_A |
 | 14 | D1 = +3V3、D2 = VREF、D3 = LED_STATUS(GP25)、各 1kΩ | **PASS** | D1←+3V3 / D2←VREF / D3←/LED_STATUS |
-| 15 | SWD を出すか決める（SPEC §6 に無い） | **要決定** | SWCLK→unconnected-(U1-SWCLK-Pad24) / SWDIO→unconnected-(U1-SWDIO-Pad25)。未決のため no_connect で明示。テストパッド 2 点の追加は handoff で提案 |
+| 15 | SWD を出す（決定: TP8 = SWCLK・TP9 = SWDIO のテストパッド） | **PASS** | SWCLK: ['TP8', 'U1'] / SWDIO: ['TP9', 'U1'] |
+| 補 | VREF レールに 1µF バルク（C27・SW1 コモン直近） | **PASS** | C27: VREF–GND |
 | 補 | RUN(26) に外付け部品なし（SW3 で GND に落とすだけ） | **PASS** | RUN: ['SW3', 'U1'] |
 
-PASS 15 / FAIL 0 / 要決定 1
+PASS 17 / FAIL 0 / 要決定 0

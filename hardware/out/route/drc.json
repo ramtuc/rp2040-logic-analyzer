@@ -1,0 +1,887 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-09-20T08:24:13",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error"
+    ],
+    "kicad_version": "10.0.3",
+    "schematic_parity": [],
+    "source": "rp2040-logic-analyzer.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 1 [/CC1] - R17 ( F.Cu 上)",
+                    "pos": {
+                        "x": 157.49,
+                        "y": 130.5
+                    },
+                    "uuid": "958f7a3a-eeb7-593c-a8f0-d53d15f80e10"
+                },
+                {
+                    "description": "パッド A5 [/CC1] - J1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 157.805,
+                        "y": 123.25
+                    },
+                    "uuid": "93953890-acba-456b-bb6d-b1e79179ffa0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 24 [/SWCLK] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 128.0
+                    },
+                    "uuid": "70648ea6-5c03-5da2-aade-235ded29ca5b"
+                },
+                {
+                    "description": "パッド 1 [/GP17] - TP2 ( F.Cu 上)",
+                    "pos": {
+                        "x": 136.5,
+                        "y": 141.5
+                    },
+                    "uuid": "c7a53b80-2670-4411-8770-45df62759000"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "PTHパッド 4 [+5V] (SW1)",
+                    "pos": {
+                        "x": 107.35,
+                        "y": 117.0
+                    },
+                    "uuid": "e635a992-4485-45e3-98d7-f3ae25077c15"
+                },
+                {
+                    "description": "配線 [+5V] ( F.Cu 上、長さ: 1.9092 mm )",
+                    "pos": {
+                        "x": 150.85,
+                        "y": 138.3
+                    },
+                    "uuid": "110f9844-7c03-47a7-90f2-b775a013d0e2"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "配線 [+5V] ( F.Cu 上、長さ: 2.0000 mm )",
+                    "pos": {
+                        "x": 152.85,
+                        "y": 138.3
+                    },
+                    "uuid": "ffd916cf-b62c-498d-9ea2-7d944f759925"
+                },
+                {
+                    "description": "パッド 5 [+5V] - U8 ( F.Cu 上)",
+                    "pos": {
+                        "x": 154.6375,
+                        "y": 129.5
+                    },
+                    "uuid": "2385b603-5731-5db3-ad32-dfd9963b170e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド B9 [+5V] - J1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 157.805,
+                        "y": 124.45
+                    },
+                    "uuid": "70539c09-2020-4a42-a156-43d1513170d0"
+                },
+                {
+                    "description": "パッド B4 [+5V] - J1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 157.805,
+                        "y": 119.55
+                    },
+                    "uuid": "51b193ee-c8c2-4ee6-8d8c-14b79a2c1520"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド B9 [+5V] - J1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 157.805,
+                        "y": 124.45
+                    },
+                    "uuid": "70539c09-2020-4a42-a156-43d1513170d0"
+                },
+                {
+                    "description": "パッド 5 [+5V] - U8 ( F.Cu 上)",
+                    "pos": {
+                        "x": 154.6375,
+                        "y": 129.5
+                    },
+                    "uuid": "2385b603-5731-5db3-ad32-dfd9963b170e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 25 [/SWDIO] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 128.4
+                    },
+                    "uuid": "9c468b53-e4cd-551a-ad4f-b80e05165b28"
+                },
+                {
+                    "description": "パッド 1 [/GP17] - TP2 ( F.Cu 上)",
+                    "pos": {
+                        "x": 136.5,
+                        "y": 141.5
+                    },
+                    "uuid": "c7a53b80-2670-4411-8770-45df62759000"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 35 [/TXU_OE] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 130.8,
+                        "y": 130.4375
+                    },
+                    "uuid": "02da543f-f658-51ae-89ec-116cdf438e07"
+                },
+                {
+                    "description": "配線 [/TXU_OE] ( F.Cu 上、長さ: 1.8833 mm )",
+                    "pos": {
+                        "x": 134.18,
+                        "y": 117.1034
+                    },
+                    "uuid": "3770753d-2fa9-4ba6-8286-63e05357cbd1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 27 [/GP16] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 129.2
+                    },
+                    "uuid": "56a2655d-3711-5863-bb8f-7e234681065e"
+                },
+                {
+                    "description": "パッド 1 [/GP17] - TP2 ( F.Cu 上)",
+                    "pos": {
+                        "x": 136.5,
+                        "y": 141.5
+                    },
+                    "uuid": "c7a53b80-2670-4411-8770-45df62759000"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 14 [/D11] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 128.4,
+                        "y": 123.5625
+                    },
+                    "uuid": "dad7d780-c882-508f-b84c-6f9ce4a64f56"
+                },
+                {
+                    "description": "パッド 10 [/D11] - U5 ( F.Cu 上)",
+                    "pos": {
+                        "x": 135.48,
+                        "y": 116.4625
+                    },
+                    "uuid": "4d0224a4-d34a-5233-81cc-a718b925daec"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 13 [/D10] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 128.8,
+                        "y": 123.5625
+                    },
+                    "uuid": "37ab4c8c-7784-5904-9d7f-7aa8ce145deb"
+                },
+                {
+                    "description": "パッド 11 [/D10] - U5 ( F.Cu 上)",
+                    "pos": {
+                        "x": 136.13,
+                        "y": 116.4625
+                    },
+                    "uuid": "844886e9-9dba-5bc1-914b-88e979713c77"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 12 [/D9] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 129.2,
+                        "y": 123.5625
+                    },
+                    "uuid": "9c776791-f165-5cca-8da2-f9268b2e15ce"
+                },
+                {
+                    "description": "パッド 12 [/D9] - U5 ( F.Cu 上)",
+                    "pos": {
+                        "x": 136.78,
+                        "y": 116.4625
+                    },
+                    "uuid": "a8d3ba73-2f78-520f-865b-3b8d713bf48b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 11 [/D8] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 129.6,
+                        "y": 123.5625
+                    },
+                    "uuid": "b0e11fe2-a8ca-507f-9698-4cf5d448d9b0"
+                },
+                {
+                    "description": "パッド 13 [/D8] - U5 ( F.Cu 上)",
+                    "pos": {
+                        "x": 137.43,
+                        "y": 116.4625
+                    },
+                    "uuid": "ab717c47-707a-543e-91f2-9a28415d2ee1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 52 [/QSPI_SCLK] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 134.4375,
+                        "y": 126.0
+                    },
+                    "uuid": "2aee0c6e-9cd2-5f5e-b5df-60274e681620"
+                },
+                {
+                    "description": "パッド 6 [/QSPI_SCLK] - U2 ( F.Cu 上)",
+                    "pos": {
+                        "x": 148.0875,
+                        "y": 125.435
+                    },
+                    "uuid": "e751a014-b7ae-5588-b285-aae4472e933f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 51 [/QSPI_SD3] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 134.4375,
+                        "y": 126.4
+                    },
+                    "uuid": "e1e3b585-4eb2-5961-a70c-caaf21a3605c"
+                },
+                {
+                    "description": "パッド 7 [/QSPI_SD3] - U2 ( F.Cu 上)",
+                    "pos": {
+                        "x": 148.0875,
+                        "y": 124.165
+                    },
+                    "uuid": "9beefde7-f17d-5da6-bbe9-75c63e543ea9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 31 [/GP20] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 129.2,
+                        "y": 130.4375
+                    },
+                    "uuid": "ab368908-ed4b-5db0-8e0f-da0a6810b342"
+                },
+                {
+                    "description": "パッド 1 [/GP17] - TP2 ( F.Cu 上)",
+                    "pos": {
+                        "x": 136.5,
+                        "y": 141.5
+                    },
+                    "uuid": "c7a53b80-2670-4411-8770-45df62759000"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 1 [/LED_STATUS] - R27 ( F.Cu 上)",
+                    "pos": {
+                        "x": 125.49,
+                        "y": 141.5
+                    },
+                    "uuid": "77c0917e-575a-5aa4-8aae-4b4869e4711d"
+                },
+                {
+                    "description": "パッド 37 [/LED_STATUS] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 131.6,
+                        "y": 130.4375
+                    },
+                    "uuid": "ee9fad0a-156a-5724-9a35-da15291519c9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 32 [/GP21] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 129.6,
+                        "y": 130.4375
+                    },
+                    "uuid": "eb050b00-6e11-5e98-be9a-9bbd762c3c81"
+                },
+                {
+                    "description": "パッド 1 [/GP17] - TP2 ( F.Cu 上)",
+                    "pos": {
+                        "x": 136.5,
+                        "y": 141.5
+                    },
+                    "uuid": "c7a53b80-2670-4411-8770-45df62759000"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 13 [/D0] - U3 ( F.Cu 上)",
+                    "pos": {
+                        "x": 117.11,
+                        "y": 116.4625
+                    },
+                    "uuid": "842afdc2-9044-5ec0-a3d9-89fab4fa5614"
+                },
+                {
+                    "description": "パッド 2 [/D0] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 133.2,
+                        "y": 123.5625
+                    },
+                    "uuid": "68be5a41-0934-5449-8b67-f35554e7a59c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 12 [/D1] - U3 ( F.Cu 上)",
+                    "pos": {
+                        "x": 116.46,
+                        "y": 116.4625
+                    },
+                    "uuid": "7ee4cca6-8d92-59c1-816c-8cb4e273e618"
+                },
+                {
+                    "description": "パッド 3 [/D1] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 132.8,
+                        "y": 123.5625
+                    },
+                    "uuid": "e990f431-78a8-514a-be1c-56b5c74cfc16"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 11 [/D2] - U3 ( F.Cu 上)",
+                    "pos": {
+                        "x": 115.81,
+                        "y": 116.4625
+                    },
+                    "uuid": "b502208c-092d-5733-8846-a4ce89f37466"
+                },
+                {
+                    "description": "パッド 4 [/D2] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 132.4,
+                        "y": 123.5625
+                    },
+                    "uuid": "5798cab2-f12e-5ca1-b5e6-88fd136bc25f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 10 [/D3] - U3 ( F.Cu 上)",
+                    "pos": {
+                        "x": 115.16,
+                        "y": 116.4625
+                    },
+                    "uuid": "3b322623-449e-51c8-b1ab-e6e7c85a6add"
+                },
+                {
+                    "description": "パッド 5 [/D3] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 132.0,
+                        "y": 123.5625
+                    },
+                    "uuid": "e3005fd0-3e91-537a-8529-a4df295a9b9f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 13 [/D4] - U4 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.27,
+                        "y": 116.4625
+                    },
+                    "uuid": "947fb94d-0944-5283-adb1-0ef5d963b181"
+                },
+                {
+                    "description": "パッド 6 [/D4] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 131.6,
+                        "y": 123.5625
+                    },
+                    "uuid": "13df264e-6000-5ec5-a72c-97ccbdf626c5"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 12 [/D5] - U4 ( F.Cu 上)",
+                    "pos": {
+                        "x": 126.62,
+                        "y": 116.4625
+                    },
+                    "uuid": "e7f874c3-896b-5bb4-bf02-b95a0c88e04a"
+                },
+                {
+                    "description": "パッド 7 [/D5] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 131.2,
+                        "y": 123.5625
+                    },
+                    "uuid": "2743453b-4192-50fc-ba27-9aeb91a70bfb"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 10 [/D7] - U4 ( F.Cu 上)",
+                    "pos": {
+                        "x": 125.32,
+                        "y": 116.4625
+                    },
+                    "uuid": "e5b02103-1c8c-5cf0-bc85-8547f515b1aa"
+                },
+                {
+                    "description": "パッド 9 [/D7] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 130.4,
+                        "y": 123.5625
+                    },
+                    "uuid": "76527405-a948-5ea6-ac49-63c74de73f07"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 15 [/D12] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 124.4
+                    },
+                    "uuid": "e09eae7d-073d-584b-981c-7ce2022ce232"
+                },
+                {
+                    "description": "パッド 13 [/D12] - U6 ( F.Cu 上)",
+                    "pos": {
+                        "x": 147.59,
+                        "y": 116.4625
+                    },
+                    "uuid": "bd8ad39c-1ed2-5e27-a245-5c21c276665c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 16 [/D13] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 124.8
+                    },
+                    "uuid": "b73249ae-7e15-51e1-a95e-9489de3a0e32"
+                },
+                {
+                    "description": "パッド 12 [/D13] - U6 ( F.Cu 上)",
+                    "pos": {
+                        "x": 146.94,
+                        "y": 116.4625
+                    },
+                    "uuid": "8f60930f-d687-59d1-b3ec-9392fb8600fb"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 17 [/D14] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 125.2
+                    },
+                    "uuid": "7fc343aa-f070-5849-a673-56bae50a432a"
+                },
+                {
+                    "description": "パッド 11 [/D14] - U6 ( F.Cu 上)",
+                    "pos": {
+                        "x": 146.29,
+                        "y": 116.4625
+                    },
+                    "uuid": "6fc89d08-4bfc-5a58-9d52-1c8dbf7ae556"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 18 [/D15] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 125.6
+                    },
+                    "uuid": "5bc68c8a-d8aa-5ce6-aa58-a84b4c95f730"
+                },
+                {
+                    "description": "パッド 10 [/D15] - U6 ( F.Cu 上)",
+                    "pos": {
+                        "x": 145.64,
+                        "y": 116.4625
+                    },
+                    "uuid": "c2a6152f-23e6-5752-9691-a861c160c083"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 20 [/XIN] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 126.4
+                    },
+                    "uuid": "37346778-5ef6-58c7-81b4-09fe407603f1"
+                },
+                {
+                    "description": "配線 [/XIN] ( F.Cu 上、長さ: 0.6398 mm )",
+                    "pos": {
+                        "x": 120.2802,
+                        "y": 123.5
+                    },
+                    "uuid": "adaa05e1-e9c9-4ab3-ab6c-b5ee048f6939"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 1 [/XOUT] - R21 ( F.Cu 上)",
+                    "pos": {
+                        "x": 123.49,
+                        "y": 131.5
+                    },
+                    "uuid": "ece335d8-ce46-5e12-9437-c6289c6b6e1e"
+                },
+                {
+                    "description": "パッド 21 [/XOUT] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 126.8
+                    },
+                    "uuid": "098346ba-f063-5a84-bf94-12863b552fb4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 23 [/DVDD] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 127.6
+                    },
+                    "uuid": "8fb662c2-c090-58a9-ab98-9c0715dcb1cd"
+                },
+                {
+                    "description": "パッド 1 [/DVDD] - C7 ( F.Cu 上)",
+                    "pos": {
+                        "x": 126.3,
+                        "y": 129.88
+                    },
+                    "uuid": "3b6ffe9a-41ac-5c6d-880a-70daec35b3a1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 50 [/DVDD] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 134.4375,
+                        "y": 126.8
+                    },
+                    "uuid": "fd3f1979-cde1-59e2-8047-591c7489f940"
+                },
+                {
+                    "description": "パッド 45 [/DVDD] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 134.4375,
+                        "y": 128.8
+                    },
+                    "uuid": "f124f2d5-7d09-562f-9acf-ee73cd2dad16"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 50 [/DVDD] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 134.4375,
+                        "y": 126.8
+                    },
+                    "uuid": "fd3f1979-cde1-59e2-8047-591c7489f940"
+                },
+                {
+                    "description": "パッド 23 [/DVDD] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 127.6
+                    },
+                    "uuid": "8fb662c2-c090-58a9-ab98-9c0715dcb1cd"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 45 [/DVDD] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 134.4375,
+                        "y": 128.8
+                    },
+                    "uuid": "f124f2d5-7d09-562f-9acf-ee73cd2dad16"
+                },
+                {
+                    "description": "配線 [/DVDD] ( F.Cu 上、長さ: 1.0561 mm )",
+                    "pos": {
+                        "x": 143.52,
+                        "y": 133.1561
+                    },
+                    "uuid": "599a388f-68ab-4817-ba46-3860b039ccba"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "配線 [/RUN] ( F.Cu 上、長さ: 6.0000 mm )",
+                    "pos": {
+                        "x": 123.5,
+                        "y": 139.65
+                    },
+                    "uuid": "eb77ab1d-e967-4f01-820c-b0255d41a312"
+                },
+                {
+                    "description": "パッド 26 [/RUN] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 128.8
+                    },
+                    "uuid": "ba595342-029e-5d9f-a9ca-eaaa01ec36a6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 34 [/GP22] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 130.4,
+                        "y": 130.4375
+                    },
+                    "uuid": "ff0ce0c5-7cdc-5f78-a38c-5e9b255f0ad2"
+                },
+                {
+                    "description": "パッド 1 [/GP17] - TP2 ( F.Cu 上)",
+                    "pos": {
+                        "x": 136.5,
+                        "y": 141.5
+                    },
+                    "uuid": "c7a53b80-2670-4411-8770-45df62759000"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": []
+}

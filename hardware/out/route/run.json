@@ -1,0 +1,11 @@
+{
+  "seconds": 178.1,
+  "returncode": 0,
+  "tracks_before": 197,
+  "tracks_after": 699,
+  "locked_segments_original": 112,
+  "locked_segments_after": 112,
+  "locked_unchanged": true,
+  "jar": "C:\\Users\\shun\\Documents\\KiCad\\10.0\\3rdparty\\plugins\\app_freerouting_kicad-plugin\\jar\\freerouting-2.2.4.jar",
+  "passes": 30
+}

@@ -1,0 +1,67 @@
+2026-09-20 08:20:30.679 INFO   Freerouting v2.2.4 (build-date: 2026-05-13)
+2026-09-20 08:20:32.358 INFO   Opening 'E:\prog\rp2040-logic-analyzer\hardware\out\route\rp2040-logic-analyzer.dsn'...
+2026-09-20 08:20:32.383 INFO   New version available: v2.4.1
+2026-09-20 08:20:32.966 WARN   Non-ansi character 'Ω' found at position 3583 just after 'R1'.
+2026-09-20 08:20:32.967 WARN   Non-ansi character 'Ω' found at position 3634 just after 'R2'.
+2026-09-20 08:20:32.967 WARN   Non-ansi character 'Ω' found at position 3685 just after 'R3'.
+2026-09-20 08:20:32.967 WARN   Non-ansi character 'Ω' found at position 3736 just after 'R4'.
+2026-09-20 08:20:32.967 WARN   Non-ansi character 'Ω' found at position 3787 just after 'R5'.
+2026-09-20 08:20:32.967 WARN   Non-ansi character 'Ω' found at position 3838 just after 'R6'.
+2026-09-20 08:20:32.967 WARN   Non-ansi character 'Ω' found at position 3889 just after 'R7'.
+2026-09-20 08:20:32.967 WARN   Non-ansi character 'Ω' found at position 3940 just after 'R8'.
+2026-09-20 08:20:32.967 WARN   Non-ansi character 'Ω' found at position 3991 just after 'R9'.
+2026-09-20 08:20:32.967 WARN   Non-ansi character 'Ω' found at position 4043 just after 'R10'.
+2026-09-20 08:20:32.967 WARN   Non-ansi character 'Ω' found at position 4095 just after 'R11'.
+2026-09-20 08:20:32.967 WARN   Non-ansi character 'Ω' found at position 4147 just after 'R12'.
+2026-09-20 08:20:32.967 WARN   Non-ansi character 'Ω' found at position 4199 just after 'R13'.
+2026-09-20 08:20:32.968 WARN   Non-ansi character 'Ω' found at position 4251 just after 'R14'.
+2026-09-20 08:20:32.968 WARN   Non-ansi character 'Ω' found at position 4303 just after 'R15'.
+2026-09-20 08:20:32.968 WARN   Non-ansi character 'Ω' found at position 4355 just after 'R16'.
+2026-09-20 08:20:32.968 WARN   Non-ansi character 'Ω' found at position 4406 just after 'R22'.
+2026-09-20 08:20:32.968 WARN   Non-ansi character 'Ω' found at position 4458 just after 'R23'.
+2026-09-20 08:20:32.968 WARN   Non-ansi character 'Ω' found at position 4510 just after 'R24'.
+2026-09-20 08:20:32.968 WARN   Non-ansi character 'Ω' found at position 4617 just after 'R17'.
+2026-09-20 08:20:32.968 WARN   Non-ansi character 'Ω' found at position 4669 just after 'R18'.
+2026-09-20 08:20:32.970 WARN   Non-ansi character 'Ω' found at position 4719 just after 'R21'.
+2026-09-20 08:20:32.970 WARN   Non-ansi character 'Ω' found at position 4769 just after 'R25'.
+2026-09-20 08:20:32.970 WARN   Non-ansi character 'Ω' found at position 4819 just after 'R26'.
+2026-09-20 08:20:32.970 WARN   Non-ansi character 'Ω' found at position 4869 just after 'R27'.
+2026-09-20 08:20:32.970 WARN   Non-ansi character 'Ω' found at position 4976 just after 'R19'.
+2026-09-20 08:20:32.970 WARN   Non-ansi character 'Ω' found at position 5028 just after 'R20'.
+2026-09-20 08:20:33.049 WARN   DSN file 'rp2040-logic-analyzer.dsn' was loaded with 1 warning(s).
+2026-09-20 08:20:40.081 INFO   [CBB637\23BDC0] Starting routing of 'rp2040-logic-analyzer' on 23 threads...
+2026-09-20 08:20:48.006 INFO   [CBB637\23BDC0] Auto-router pass #1 on board '4a9383cda7f18d85c7c759eb065f49a8' was completed in 7.84 seconds with the score of 799.32 (110 unrouted).
+2026-09-20 08:20:52.632 INFO   [CBB637\23BDC0] Auto-router pass #2 on board 'fa5efcd44209cad78509b29a66ba8600' was completed in 4.59 seconds with the score of 829.17 (96 unrouted).
+2026-09-20 08:20:57.277 INFO   [CBB637\23BDC0] Auto-router pass #3 on board '2fc9f84ed9987cfd49c858120b4ca359' was completed in 4.62 seconds with the score of 851.96 (85 unrouted).
+2026-09-20 08:21:01.546 INFO   [CBB637\23BDC0] Auto-router pass #4 on board '15e51b5febecfe2453431dbe66c27b91' was completed in 4.24 seconds with the score of 852.13 (85 unrouted).
+2026-09-20 08:21:06.232 INFO   [CBB637\23BDC0] Auto-router pass #5 on board '5d66dbcf1f5b96b3a4196f8099ea41ef' was completed in 4.65 seconds with the score of 857.67 (82 unrouted).
+2026-09-20 08:21:11.134 INFO   [CBB637\23BDC0] Auto-router pass #6 on board '57ae0827fa7c1d39bcc468755388f1e9' was completed in 4.87 seconds with the score of 861.31 (80 unrouted).
+2026-09-20 08:21:15.877 INFO   [CBB637\23BDC0] Auto-router pass #7 on board '49a7ceff56304fc406dd0cfc3f0683e8' was completed in 4.71 seconds with the score of 861.47 (80 unrouted).
+2026-09-20 08:21:20.327 INFO   [CBB637\23BDC0] Auto-router pass #8 on board 'e923216522144397b3610f55dd31857a' was completed in 4.42 seconds with the score of 861.47 (80 unrouted).
+2026-09-20 08:21:24.605 INFO   [CBB637\23BDC0] Auto-router pass #9 on board 'e923216522144397b3610f55dd31857a' was completed in 4.26 seconds with the score of 860.01 (81 unrouted).
+2026-09-20 08:21:29.790 INFO   [CBB637\23BDC0] Auto-router pass #10 on board 'af499940f2db9fdcfdfeeae15d793f49' was completed in 5.16 seconds with the score of 867.54 (77 unrouted).
+2026-09-20 08:21:34.043 INFO   [CBB637\23BDC0] Auto-router pass #11 on board 'af23afc0c1202fe284c81066187c49ae' was completed in 4.22 seconds with the score of 865.50 (78 unrouted).
+2026-09-20 08:21:38.464 INFO   [CBB637\23BDC0] Auto-router pass #12 on board '0a52f803e74588152a5d507760161743' was completed in 4.39 seconds with the score of 871.29 (75 unrouted).
+2026-09-20 08:21:43.410 INFO   [CBB637\23BDC0] Auto-router pass #13 on board 'b125e980db5358be838da174b38465a9' was completed in 4.92 seconds with the score of 865.73 (78 unrouted).
+2026-09-20 08:21:48.650 INFO   [CBB637\23BDC0] Auto-router pass #14 on board '9dda014df1be6634381800e392e72eb5' was completed in 5.21 seconds with the score of 873.32 (74 unrouted).
+2026-09-20 08:21:53.669 INFO   [CBB637\23BDC0] Auto-router pass #15 on board 'ae8240f651e6d4a64f02cae73ba88d47' was completed in 4.99 seconds with the score of 865.49 (78 unrouted).
+2026-09-20 08:21:58.480 INFO   [CBB637\23BDC0] Auto-router pass #16 on board 'ab5e11669c3ab4c1a5ddceb1f39d3f5f' was completed in 4.78 seconds with the score of 875.16 (73 unrouted).
+2026-09-20 08:22:02.890 INFO   [CBB637\23BDC0] Auto-router pass #17 on board 'c5955ce262fbde624911488b14b165fe' was completed in 4.38 seconds with the score of 871.22 (75 unrouted).
+2026-09-20 08:22:07.735 INFO   [CBB637\23BDC0] Auto-router pass #18 on board '9e7f96262b932a06bd6b7955115d4bb8' was completed in 4.82 seconds with the score of 873.14 (74 unrouted).
+2026-09-20 08:22:11.731 INFO   [CBB637\23BDC0] Auto-router pass #19 on board '1c4c18a0503213a6a8dca6012b97fcb9' was completed in 3.97 seconds with the score of 873.11 (74 unrouted).
+2026-09-20 08:22:16.719 INFO   [CBB637\23BDC0] Auto-router pass #20 on board 'c5955ce262fbde624911488b14b165fe' was completed in 0.00 seconds with the score of 875.16 (73 unrouted).
+2026-09-20 08:22:20.955 INFO   [CBB637\23BDC0] Auto-router pass #21 on board 'c5955ce262fbde624911488b14b165fe' was completed in 4.21 seconds with the score of 871.28 (75 unrouted).
+2026-09-20 08:22:26.256 INFO   [CBB637\23BDC0] Auto-router pass #22 on board '787b2fa604864f5e52084d084597fcd1' was completed in 5.27 seconds with the score of 873.37 (74 unrouted).
+2026-09-20 08:22:30.684 INFO   [CBB637\23BDC0] Auto-router pass #23 on board '56f4848b545a39a87d8606c3c77fe26e' was completed in 4.40 seconds with the score of 874.86 (73 unrouted).
+2026-09-20 08:22:35.255 INFO   [CBB637\23BDC0] Auto-router pass #24 on board '044254ecaae6dcf462f3c1bfed848047' was completed in 4.54 seconds with the score of 875.28 (73 unrouted).
+2026-09-20 08:22:39.714 INFO   [CBB637\23BDC0] Auto-router pass #25 on board 'b54e1da47b3bc9c9e45be7227a48e022' was completed in 4.43 seconds with the score of 871.14 (75 unrouted).
+2026-09-20 08:22:44.442 INFO   [CBB637\23BDC0] Auto-router pass #26 on board '9d9c6623ff02ee7e5db2f361eb589f4f' was completed in 4.70 seconds with the score of 877.32 (72 unrouted).
+2026-09-20 08:22:48.694 INFO   [CBB637\23BDC0] Auto-router pass #27 on board 'd785324ddc1b6d1af779fb268224645c' was completed in 4.22 seconds with the score of 867.22 (77 unrouted).
+2026-09-20 08:22:53.817 INFO   [CBB637\23BDC0] Auto-router pass #28 on board 'cce487f1316aa46185a66fe07a64881d' was completed in 5.09 seconds with the score of 877.32 (72 unrouted).
+2026-09-20 08:22:58.121 INFO   [CBB637\23BDC0] Auto-router pass #29 on board 'eaf31b83fff959086db56e1cbeb29f87' was completed in 4.28 seconds with the score of 871.14 (75 unrouted).
+2026-09-20 08:23:02.801 INFO   [CBB637\23BDC0] Auto-router pass #30 on board '0cd6d0c3a672d86c66ef7c5cdd5dbabd' was completed in 4.65 seconds with the score of 877.31 (72 unrouted).
+2026-09-20 08:23:02.842 INFO   [CBB637\23BDC0] Auto-router session completed: started with 221 unrouted nets, completed in 2 minutes 22.76 seconds, final score: 877.32 (72 unrouted).
+2026-09-20 08:23:02.975 WARN   [CBB637\23BDC0] after autoroute: 8 traces not 45 degree
+2026-09-20 08:23:26.953 INFO   Saving 'E:\prog\rp2040-logic-analyzer\hardware\out\route\rp2040-logic-analyzer.ses'...
+C:\Program Files\Eclipse Adoptium\jdk-25.0.3.9-hotspot\bin\java.EXE -jar C:\Users\shun\Documents\KiCad\10.0\3rdparty\plugins\app_freerouting_kicad-plugin\jar\freerouting-2.2.4.jar -de E:\prog\rp2040-logic-analyzer\hardware\out\route\rp2040-logic-analyzer.dsn -do E:\prog\rp2040-logic-analyzer\hardware\out\route\rp2040-logic-analyzer.ses -host KiCad -mp 30 -inc Plane_GND,Plane_3V3
+
