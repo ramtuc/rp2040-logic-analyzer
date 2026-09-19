@@ -8,3 +8,14 @@ build/
 lib/lcsc/
 lib/logicana.pretty/
 lib/logicana.3dshapes/
+
+# KiCad が勝手に作るもの・kicad-cli の中間出力（hardware/out の PDF・CSV・md は残す）
+*.kicad_prl
+*.lck
+*-backups/
+_autosave-*
+fp-info-cache
+hardware/out/*.net
+hardware/out/*.xml
+hardware/out/erc.json
+hardware/out/svg/

@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "logicana")(type "KiCad")(uri "${KIPRJMOD}/../lib/logicana.kicad_sym")(options "")(descr "self-drawn, tracked: TXU0104PWR / SW_SP3T_SK13D07VG5 / SW_Push_TS1187A / VREF"))
+  (lib (name "lcsc")(type "KiCad")(uri "${KIPRJMOD}/../lib/lcsc/lcsc.kicad_sym")(options "")(descr "easyeda2kicad imports, gitignored (see README)"))
+)
