@@ -4,7 +4,8 @@
 
 - 対象 KiCad: **10.0**（`C:\Program Files\KiCad\10.0`。所在表は**このインストールの実ファイルを直接検索して確認した**もので、他バージョンでは名前が違うことがある）
 - 取り込んだライブラリ: `E:\prog\rp2040-logic-analyzer\lib\`
-- 作成日: 2026-09-09
+- KiCad プロジェクト: `hardware/rp2040-logic-analyzer.kicad_pro`（**回路図第 1 版は生成スクリプト `tools/gen_schematic.py` の出力**。kicad-cli 10.0.3 の ERC = error 0 / warning 0・§4.1 のネット 86 本と照合 86/86。再現手順は README）
+- 作成日: 2026-09-09 ／ **更新: 2026-09-20**（回路図第 1 版 `hardware/rp2040-logic-analyzer.kicad_sch` の実態に合わせて §1.1・§1.2.1・§1.2.4・§1.3・§1.4・§1.5・§2.1・§4.1・§4.2・§5-15・§7 を改訂）
 
 ---
 
@@ -24,22 +25,24 @@
 | 7 | J1 | USB-C 16P（C165948） | `Connector:USB_C_Receptacle_USB2.0_16P` | **`Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12`** ← C165948 の型番そのものが標準にある |
 | 8 | J2 | ピンヘッダ 2×16 | `Connector_Generic:Conn_02x16_Odd_Even` | `Connector_PinHeader_2.54mm:PinHeader_2x16_P2.54mm_Vertical` |
 | 9, 10 | J3, J4 | ピンヘッダ 1×3 | `Connector_Generic:Conn_01x03` | `Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical` |
-| — | J5 | テストパッド（GP16〜22） | `Connector:TestPoint` | `TestPoint:TestPoint_Pad_1.0x1.0mm` |
+| — | TP1–TP9 | テストパッド（TP1–TP7 = GP16〜22、**TP8 = SWCLK、TP9 = SWDIO**） | `Connector:TestPoint`（**1 点 1 シンボル**・参照子は TP。旧「J5」を改めた・2026-09-20） | `TestPoint:TestPoint_Pad_1.0x1.0mm` |
 | 13 | D1–D3 | LED 赤 0603（C2286） | `Device:LED` | `LED_SMD:LED_0603_1608Metric` |
 | 14–21 | R1–R27 | 抵抗 0402 | `Device:R` | `Resistor_SMD:R_0402_1005Metric` |
 | 22–25 | C1–C24 | コンデンサ 0402 | `Device:C` | `Capacitor_SMD:C_0402_1005Metric` |
 | 26 | C25, C26 | コンデンサ 0805 | `Device:C` | `Capacitor_SMD:C_0805_2012Metric` |
 
-**部分的に足りるもの（シンボルはある／フットプリントは型番固有なので取り込みが要る）**
+**標準では足りないもの（シンボルは自作 `logicana`／フットプリントは型番固有なので取り込みが要る）— 2026-09-20 差し替え**
 
 | SPEC BOM # | 参照 | 部品 | シンボル | フットプリント |
 |:---|:---|:---|:---|:---|
-| 11 | SW1 | スライドスイッチ C393948 | `Switch:SW_SP3T`（**標準にあるが既定フットプリント無し**） | **取り込み**（§1.2） |
-| 12 | SW2, SW3 | タクトスイッチ C318884 | `Switch:SW_Push`（**同上**） | **取り込み**（§1.2） |
+| 11 | SW1 | スライドスイッチ C393948 | **`logicana:SW_SP3T_SK13D07VG5`**（自作・§1.2.4。**1 = COM、2/3/4 = スライダ順の接点、5/6 = 固定ラグ**） | `lcsc:SW-TH_SK13D07VG5`（**取り込み**・§1.2。シンボルの Footprint プロパティに設定済み） |
+| 12 | SW2, SW3 | タクトスイッチ C318884 | **`logicana:SW_Push_TS1187A`**（自作・§1.2.4。**1+2 と 3+4 が内部導通の 4 パッド**） | `lcsc:SW-SMD_4P-L5.1-W5.1-P3.70-LS6.5-TL_H1.5`（**取り込み**・§1.2。同上） |
+
+> 標準の `Switch:SW_SP3T` / `Switch:SW_Push` は**使わない**。ERC を通ったまま配線が壊れる（理由は §1.2.4）。
 
 ### 1.2 標準に無い／LCSC から取り込んだ部品
 
-**不足は 3 件**（シンボル 1・型番固有フットプリント 2）。**うち本命の TXU0104PWR は自作に切り替えた**（§1.2.1）。残る 2 件（スイッチのフットプリント）は `easyeda2kicad` で取り込む。
+**不足はシンボル 3（TXU0104PWR・スイッチ 2 種）＋ 型番固有フットプリント 2（スイッチ 2 種）。シンボル 3 個はすべて自作に切り替えた**（§1.2.1・§1.2.4）。残る 2 件（スイッチのフットプリント）は `easyeda2kicad` で取り込む。
 
 **取り込んだファイルの置き場は `lib/lcsc/` に移した。ここは `.gitignore` 済みで、公開リポジトリには入らない**（理由は §1.5）。KiCad からは通常どおり参照できる。
 
@@ -54,7 +57,7 @@
 
 ### 1.2.1 TXU0104PWR のシンボルは自作した
 
-LCSC 由来のファイルを公開リポジトリに同梱しない方針（§1.5）になったので、**本命の TXU0104PWR だけは TI データシートから自分で起こした**。`lib/logicana.kicad_sym` にはこの 1 個だけが入っている（**このファイルだけが追跡対象**）。
+LCSC 由来のファイルを公開リポジトリに同梱しない方針（§1.5）になったので、**本命の TXU0104PWR は TI データシートから自分で起こした**。格納先は `lib/logicana.kicad_sym`（**`lib/` 配下ではこのファイルだけが追跡対象**）。2026-09-20 の回路図第 1 版で、このファイルに**スイッチ 2 種のシンボル（§1.2.4）と電源シンボル `VREF`** を追記し、計 4 シンボルになっている。
 
 | 項目 | 内容 |
 |:---|:---|
@@ -113,6 +116,17 @@ KiCad 側は IPC-7351 の公称値で **TI の例より 0.05〜0.075mm 小さい
 
 こうすれば **+3V3 と +5V は決して隣り合わない**。橋渡しが起きるのは「3V3 ↔ EXT」と「EXT ↔ 5V」で、EXT は未接続が既定なので実害が無い。**EXT に外部電源を挿したままスライドさせない**ことだけシルクか記事で伝える。
 
+### 1.2.4 スイッチのシンボルは自作に差し替えた（2026-09-20・回路図第 1 版で確定）
+
+KiCad 標準の `Switch:SW_SP3T` / `Switch:SW_Push` を §1.2 のフットプリントと組み合わせると、**ERC を通ったまま配線が壊れる**。シンボルのピン番号がそのままパッド番号に対応するので、番号付けが現物のパッド配置と食い違う部品では誤配線が ERC に出ない。
+
+| 参照 | 標準シンボルの問題 | 自作シンボル（`lib/logicana.kicad_sym`） |
+|:---|:---|:---|
+| SW1 | `Switch:SW_SP3T` は**コモンがピン 3**（描画で確認: 左の単独ピンが 3、右が 1/2/4）。物理はピン 1 がコモン（§1.2.2）なので、番号どおり繋ぐと**コモンがパッド 3 に行く** | **`SW_SP3T_SK13D07VG5`** — ピン番号 = 物理パッド番号。**1 = COM、2/3/4 = スライダ順の接点、5/6 = 固定ラグ（MNT・未接続）**。回路図第 1 版の接続は pin1 = `VREF` / pin2 = `+3V3` / pin3 = `VREF_EXT` / pin4 = `+5V`（§5-12 の並びどおり） |
+| SW2, SW3 | `Switch:SW_Push` は 2 ピン。TS-1187A は 4 パッドで、**パッド 1–2（A–B）が内部で常時導通、3–4（C–D）が反対側**（XKB 図面 TS-1187A-X-X-X の回路図・LCSC 配布 PDF で確認。EasyEDA シンボルの A–B 結線とも一致）。2 ピンシンボルを 4 パッドに当てるとピン 1/2 → パッド 1/2 になり、**押していなくても常時短絡**（RUN / BOOT が GND に張り付く＝永久リセット） | **`SW_Push_TS1187A`** — 1+2 を同一点に、3+4 を同一点にスタックした 4 ピン。4 パッド全部にネットが付き、接点の対（1+2 ↔ 3+4）だけがスイッチになる |
+
+どちらも `ki_fp_filters` を `lcsc` のフットプリント名に合わせ、Footprint プロパティに §1.2 の型番固有フットプリントを設定済み。`kicad-cli sym upgrade`（「更新されていません」＝ 10.0 形式として正常）と `sym export svg`（3/3 成功）で読めることを確認している。LCSC 由来のシンボル（`lcsc:SK13D07VG5` / `lcsc:TS-1187A-B-A-B`）は照合にだけ使い、回路図には埋め込まない（§1.5 の方針）。
+
 ### 1.3 取り込みを再現する手順
 
 ```
@@ -136,7 +150,7 @@ lib/lcsc/lcsc.pretty/        フットプリント（1 部品 1 ファイル）
 lib/lcsc/lcsc.3dshapes/      3D モデル
 ```
 
-> **`--project-relative` を必ず付ける。** 付けないと 3D モデルのパスが**絶対パスで埋め込まれ**、リポジトリを別の場所に置いた瞬間に 3D が出なくなる。付ければ `${KIPRJMOD}/lib/lcsc/lcsc.3dshapes/...` になる（取り込み済みのものは確認済み）。
+> **`--project-relative` を必ず付ける。** 付けないと 3D モデルのパスが**絶対パスで埋め込まれ**、リポジトリを別の場所に置いた瞬間に 3D が出なくなる。付ければ `${KIPRJMOD}/lib/lcsc/lcsc.3dshapes/...` になる（取り込み済みのものは確認済み）。**ただしプロジェクトは `hardware/` 配下なので（§1.4）、フットプリントを基板に取り込む段でこのパスを `${KIPRJMOD}/../lib/lcsc/lcsc.3dshapes/...` に書き換える。** 3D 表示だけの問題で製造データには影響しない。
 
 > **必須の後処理**: easyeda2kicad v1.0.1 が書き出すフットプリントは **KiCad 5 時代の `(module ...)` 形式**（`tedit` 付き）。KiCad 10 でも読めるが、そのままだと保存のたびに変換が走る。**一度だけ次を実行して KiCad 10 形式に上げておく**（実行済み・戻り値 0、`(footprint ... (version 20260206))` に変換されたことを確認済み）。
 >
@@ -147,15 +161,15 @@ lib/lcsc/lcsc.3dshapes/      3D モデル
 
 ### 1.4 ライブラリの登録
 
-プロジェクトを `E:\prog\rp2040-logic-analyzer\` 直下に作れば、**プロジェクト固有**（グローバルではない）で登録するのが後々楽。
+プロジェクトは **`hardware/rp2040-logic-analyzer.kicad_pro`**（リポジトリ直下ではなく `hardware/` 配下・2026-09-20 確定）。登録は**プロジェクト固有**（グローバルではない）で、`hardware/sym-lib-table` と `hardware/fp-lib-table` に生成済み。`${KIPRJMOD}` が `hardware/` を指すので、パスはすべて **`${KIPRJMOD}/../lib/...`** になる。
 
 | 種別 | メニュー | ニックネーム | パス | git |
 |:---|:---|:---|:---|:---|
-| シンボル（**自作**） | 設定 → シンボルライブラリを管理 → **プロジェクト固有**タブ | `logicana` | `${KIPRJMOD}/lib/logicana.kicad_sym` | **追跡する** |
-| シンボル（LCSC 由来） | 同上 | `lcsc` | `${KIPRJMOD}/lib/lcsc/lcsc.kicad_sym` | `.gitignore` |
-| フットプリント（LCSC 由来） | 設定 → フットプリントライブラリを管理 → **プロジェクト固有**タブ | `lcsc` | `${KIPRJMOD}/lib/lcsc/lcsc.pretty` | `.gitignore` |
+| シンボル（**自作**） | 設定 → シンボルライブラリを管理 → **プロジェクト固有**タブ | `logicana` | `${KIPRJMOD}/../lib/logicana.kicad_sym` | **追跡する** |
+| シンボル（LCSC 由来） | 同上 | `lcsc` | `${KIPRJMOD}/../lib/lcsc/lcsc.kicad_sym` | `.gitignore` |
+| フットプリント（LCSC 由来） | 設定 → フットプリントライブラリを管理 → **プロジェクト固有**タブ | `lcsc` | `${KIPRJMOD}/../lib/lcsc/lcsc.pretty` | `.gitignore` |
 
-3D モデルのパスは `--project-relative` で `${KIPRJMOD}/...` になっているので、リポジトリを別の場所へ移しても壊れない。
+3D モデルのパスも同じく `${KIPRJMOD}/../lib/lcsc/lcsc.3dshapes/...` にする。easyeda2kicad が埋め込むのは `${KIPRJMOD}/lib/...`（ルート前提）なので、**フットプリントを基板に取り込む段で `../` を足す**（§1.3）。`${KIPRJMOD}` 相対である限り、リポジトリを別の場所へ移しても壊れない。
 
 ### 1.5 ライセンス — **2026-09-09 に方針確定**
 
@@ -164,7 +178,7 @@ lib/lcsc/lcsc.3dshapes/      3D モデル
 | 対象 | ライセンス | この基板での扱い |
 |:---|:---|:---|
 | **KiCad 標準ライブラリ**（symbols / footprints / 3dmodels） | **CC-BY-SA 4.0 ＋ 例外条項** | 公式 License ページが「ライブラリを使って作った電子設計が Adapted Material に当たるとしても著作権者は権利を放棄する」旨を明記しており、**この基板を CERN-OHL-P-2.0 で出すことと衝突しない**。ただし**ライブラリ自体を再配布するなら CC-BY-SA 4.0 と帰属表示が必要**。→ **`lib/` に標準ライブラリのコピーを置かない**（参照するだけ） |
-| **`lib/logicana.kicad_sym`（TXU0104PWR・自作）** | **この基板と同じ CERN-OHL-P-2.0** | TI SCES937B Table 4-1 のピン割り当てを読んで自分で描いたもの。**追跡・同梱する** |
+| **`lib/logicana.kicad_sym`（TXU0104PWR・SW_SP3T_SK13D07VG5・SW_Push_TS1187A・VREF の 4 個・自作）** | **この基板と同じ CERN-OHL-P-2.0** | TI SCES937B Table 4-1 とメーカー図面（SK13D07VG5 / TS-1187A）のピン割り当てを読んで自分で描いたもの。**追跡・同梱する** |
 | **easyeda2kicad.py**（ツール） | **AGPL-3.0**（パッケージメタデータで確認） | ツールを実行しただけで出力物にライセンスは及ばない |
 | **`lib/lcsc/`（LCSC / EasyEDA 由来）** | **明示的なオープンライセンスを確認できなかった（未確認）** | **`.gitignore` 済み・同梱しない。** 読者は README のコマンドで各自生成する |
 | **3D モデル（`.step` / `.wrl`）** | 同上 | **同梱しない**（`lib/lcsc/` ごと除外）。容量も 14MB あり、リポジトリに載せる意味が薄い |
@@ -186,6 +200,8 @@ lib/lcsc/lcsc.3dshapes/      3D モデル
 | 2（代替） | `LCSC` / `JLC` / `MPN` / `Mpn` / `mpn` |
 
 > **DNF 部品**（R23 の QSPI_SS プルアップ、J4 の DNF）は `LCSC Part #` を**空にする**か、シンボルプロパティの **Do not populate (DNP)** を立てる。Fabrication Toolkit には「Exclude DNP components from BOM」のオプションがある。
+
+**フィールド名は `LCSC Part #` に統一する（2026-09-20 確定）。** 回路図第 1 版は全部品にこの名前で入れてあり、kicad-cli の `sch export bom --fields "Reference,Value,Footprint,LCSC Part #,QUANTITY,DNP"`（経路 B 相当・README の再現手順）でも列に出ることを確認済み。R23 は DNP ＋ `LCSC Part #` 空、J4 も DNP で、JLCPCB 向け `bom-jlcpcb.csv` からは除外される。
 
 ### 2.2 出力の 2 経路
 
@@ -348,16 +364,20 @@ JLCPCB 公式 capabilities ページの多層基板・外層 1oz の値。**括�
 | リセット | `RUN` | SW3 → GND |
 | **レベル変換の出力許可** | **`TXU_OE`** | **GP23** ＋ 10kΩ で **`+3V3` へ**プルアップ（§5-10） |
 | ステータス LED | `LED_STATUS` | GP25 → R27 → D3 |
-| テストパッド | `GP16` 〜 `GP22` | J5（7 点） |
+| **VREF の外部入力** | **`VREF_EXT`** | SW1 pin3 ↔ J3 pin2（J3 pin1/3 は GND）。2026-09-20 命名 |
+| テストパッド | `GP16` 〜 `GP22` | TP1〜TP7（1 点 1 シンボル・7 点） |
+| **SWD** | **`SWCLK` `SWDIO`** | U1 pin24 / pin25 → **TP8 / TP9**（2026-09-20 決定・§5-15） |
 | アナログ | `GP26_ADC0` `GP27_ADC1` `GP28_ADC2` | J4（DNF） |
-| グラウンド | `GND` | 全面 |
+| グラウンド | `GND` | 全面。**J1 SHIELD → GND 直結**（Pico と同じ扱い）、**U1 TESTEN(19) → GND**（RP2040 データシートのピン説明「Factory test mode enable. Ground on user boards」） |
 
 ### 4.2 階層シート分割案
+
+> **回路図第 1 版（2026-09-20）は平面 1 シート（A3）で生成した。** 結線はローカルラベル（§4.1 の名前そのまま）で決まるので、GUI で整形するときに以下の分割へ移してもネットは変わらない。以下は分割する場合の案。
 
 ```
 rp2040-logic-analyzer.kicad_sch          ルート（シートシンボルだけを置く）
 ├── 01_power.kicad_sch                   J1(USB-C) / U8(ESD) / U7(LDO) / SW1(VREF 3択) / D1 / D2
-├── 02_mcu.kicad_sch                     U1(RP2040) / U2(Flash) / X1 / SW2 / SW3 / D3 / J5
+├── 02_mcu.kicad_sch                     U1(RP2040) / U2(Flash) / X1 / SW2 / SW3 / D3 / TP1〜TP9
 ├── 03_frontend.kicad_sch  ×4 インスタンス  U3〜U6（TXU0104 1 個ぶん = 4ch）
 └── 04_connectors.kicad_sch              J2(2×16 プローブヘッダ) / J3(VREF EXT) / J4(アナログ DNF)
 ```
@@ -406,7 +426,7 @@ rp2040-logic-analyzer.kicad_sch          ルート（シートシンボルだけ
 | 12 | **VREF 切り替えの並び順** ★ | SW1 の**ピン 1 がコモン**＝`VREF`。**ピン 2 = +3V3 / ピン 3 = EXT(J3) / ピン 4 = +5V の順で必ず並べる。** SK13D07VG5 は **shorting（make-before-break）型**で、切り替え途中に隣接接点が短絡する。+3V3 と +5V を隣り合わせると **LDO 出力と USB VBUS が直結**し、3.3V レールが RP2040 の絶対最大 3.63V を超えうる。**EXT を真ん中に挟むだけで回避できる**（§1.2.3） |
 | 13 | **入力直列抵抗** | R1–R16（100Ω）は **J2 と TXU0104 の A ピンの間**。**1kΩ にしない**（SPEC §5.3: Cio 4pF に対して 100Ω なら 0.4ns、1kΩ だと 4ns で 100MS/s に効く） |
 | 14 | **LED 3 個の行き先** | D1 = `+3V3`、D2 = **`VREF`**、D3 = `LED_STATUS`(GP25)。各 1kΩ。**D2 が VREF に付いているのは「スイッチの入れ忘れを目で見る」ため**で、EXT 1.8V では暗くなるのが正常 |
-| 15 | **SWD を出すか決める** | SPEC §6 のコネクタ表に **SWD が無い**。RP2040 は SWCLK / SWDIO を持ち、ファームのデバッグでは要る。**J5 のテストパッドに 2 点足すか、出さないと決めるか、どちらかを意識的に選んで記録する**（黙って落とさない） |
+| 15 | **SWD を出すか決める** | **決着（2026-09-20）: 出す。TP8 = `SWCLK`（U1 pin24）、TP9 = `SWDIO`（U1 pin25）のテストパッド 2 点**（銅パッドのみ・部品費 0・ファームのデバッグに要る）。SPEC §6 / §10 に反映済み。回路図第 1 版（commit de18d95）では両ピンが no_connect のままで、再生成で反映する。**`hardware/out/kit5-check.md` の #15 が PASS（SWCLK: TP8+U1 / SWDIO: TP9+U1）になっているか**をここで見る |
 
 > **RUN(26) には外付け部品を足さないこと（2026-09-09 確定）。** RP2040 データシート Table 619 が RUN の Reset State を **Pull-Up** と明記し、ピン説明も「If no external reset is required, this pin can be tied directly to IOVDD」。**公式 Minimal design example にも RUN にはプルアップもコンデンサも付いていない**（ヘッダへ引き出すだけ）。**SW3 で GND に落とすだけで足りる。** チャタリング対策の 100nF を足したくなるが、公式が付けていないので初版では付けない。
 
@@ -434,3 +454,9 @@ rp2040-logic-analyzer.kicad_sch          ルート（シートシンボルだけ
 | SW1 | **C393948（THT・SP3T・shorting）を維持**。手はんだ組に追加。接点の並びは 3.3V ― EXT ― 5V | 2026-09-09 |
 | 水晶のダンピング抵抗 | **XOUT 側**（公式回路図で確定） | 2026-09-09 |
 | RUN(26) | **外付け部品なし**（内蔵プルアップ・公式回路図で確定） | 2026-09-09 |
+| スイッチのシンボル | **標準 `Switch:SW_SP3T` / `SW_Push` は使わず、`logicana:SW_SP3T_SK13D07VG5` / `logicana:SW_Push_TS1187A` を自作**（§1.2.4。標準のままだとコモンがパッド 3 に行く／タクト SW が常時短絡） | 2026-09-20 |
+| プロジェクトの置き場 | **`hardware/` 配下**。ライブラリのパスは `${KIPRJMOD}/../lib/...`（§1.4） | 2026-09-20 |
+| SWD | **出す**。TP8 = SWCLK、TP9 = SWDIO（§5-15） | 2026-09-20 |
+| VREF のバルク容量 | **C27 1µF（C21/C22 と同部品）を VREF–GND・SW1 コモン直近に追加**（SPEC §5.4 の「100nF ＋ 1µF」と整合）。C12 は予備 100nF のまま | 2026-09-20 |
+| TESTEN / SHIELD | **U1 TESTEN(19) → GND、J1 SHIELD → GND 直結**（§4.1） | 2026-09-20 |
+| LCSC のフィールド名 | **`LCSC Part #`** に統一（§2.1） | 2026-09-20 |

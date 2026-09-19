@@ -16,6 +16,7 @@
 |--:|:---|:---|
 | 1 | **[SPEC.md](SPEC.md)** | **何を作るのか。** ファーム選定・IC 選定・入力フロントエンド・ピン割り当て・レイアウト制約・BOM・費用見積り・実機チェックリスト・記事プラン・決定事項 |
 | 2 | **[KICAD-KIT.md](KICAD-KIT.md)** | **どう描き始めるか。** 部品ライブラリの所在表・JLCPCB 向け BOM/CPL の出し方・4 層の DRC とスタックアップ・ネット名とシート構成・回路図チェックリスト |
+| 3 | **[hardware/out/schematic.pdf](hardware/out/schematic.pdf)** | **回路図 第 1 版**（A3・1 ページ・kicad-cli 出力）。ソースは `hardware/rp2040-logic-analyzer.kicad_sch`、生成元は `tools/gen_schematic.py`（下記「回路図の再現手順」） |
 
 **先に SPEC.md の §14（決定事項）を読むと速い。** 何がもう決まっていて、何がまだ決まっていないかが 1 画面で分かる。
 
@@ -27,8 +28,8 @@
 |:---|:---|
 | 仕様の確定 | **完了**（SPEC §14 の 11 項目中、未決はプローブケーブルの商品選定のみ） |
 | KiCad の準備 | **完了**（KICAD-KIT.md ＋ `lib/`） |
-| 回路図 | **これから**（人間が KiCad 10 で描く） |
-| レイアウト | 未着手 |
+| 回路図 | **第 1 版を生成済み**（2026-09-20・`tools/gen_schematic.py` → `hardware/`・kicad-cli 10.0.3 の ERC = error 0 / warning 0・KICAD-KIT §4.1 のネット 86 本と照合 86/86）。**人間が KiCad GUI で確認・整形中。** 2026-09-20 決定分（TP8/TP9 = SWD・C27 1µF）はスクリプト側に入れて再生成で反映（レイアウト工程と並行） |
+| レイアウト | **着手**（PCB を生成スクリプトで作成中・チーム内タスク t-71292a56） |
 | 発注 | 未着手（**JLCPCB のクーポン発行前に注文を確定しない**） |
 
 ---
@@ -38,10 +39,39 @@
 ```
 SPEC.md              仕様書
 KICAD-KIT.md         KiCad 着手キット
+hardware/            KiCad 10 プロジェクト（回路図 第 1 版・生成物）
+  rp2040-logic-analyzer.kicad_pro   最小プロジェクト（KICAD-KIT §3.3 のネットクラス 5 種入り）
+  rp2040-logic-analyzer.kicad_sch   回路図（平面 1 シート A3・生成スクリプトの出力）
+  sym-lib-table / fp-lib-table      logicana / lcsc の登録（${KIPRJMOD}/../lib/...）
+  out/                              schematic.pdf・BOM CSV 3 種・erc.rpt・netlist-check.md・kit5-check.md
+tools/
+  gen_schematic.py   回路図の生成スクリプト（Python 3.12・標準ライブラリのみ）
+  verify_netlist.py  kicad-cli のネットリストを KICAD-KIT §4.1 の期待表と照合
+  check_kit5.py      KICAD-KIT §5 の 15 項目をネットリストから機械検査
 lib/
-  logicana.kicad_sym TXU0104PWR のシンボル（自作・追跡対象）
+  logicana.kicad_sym 自作シンボル 4 個（TXU0104PWR / SW_SP3T_SK13D07VG5 / SW_Push_TS1187A / VREF・追跡対象）
   lcsc/              LCSC から取り込んだライブラリ（.gitignore・下記参照）
 ```
+
+---
+
+## 回路図の再現手順
+
+回路図は手描きではなく `tools/gen_schematic.py` の出力。**部品の位置・結線・ネット名はすべてスクリプトに書いてあり、再実行すると同じファイルになる**（UUID は固定名前空間の uuid5）。前提は `uv`（cpython 3.12 を自動で使う）と KiCad 10.0.3（`kicad-cli` は `C:\Program Files\KiCad\10.0\bin\kicad-cli.exe`）。
+
+```
+cd <repo>
+uv run tools/gen_schematic.py                # hardware/ に .kicad_sch / .kicad_pro / sym-lib-table / fp-lib-table を出力
+uv run tools/gen_schematic.py --check        # 既存出力と一致するか（冪等性の確認）
+uv run tools/gen_schematic.py --selftest     # R と電源シンボルを 0/90/180/270° で置き、ピン位置を kicad-cli のネットリストで実測 → PASS 10/10
+kicad-cli sch erc --severity-all --format report -o hardware/out/erc.rpt hardware/rp2040-logic-analyzer.kicad_sch
+uv run tools/verify_netlist.py               # → hardware/out/netlist-check.md（KICAD-KIT §4.1 の期待表と照合。第 1 版 de18d95 は 86 OK / NG 0。TP8/TP9 反映後は 88 本）
+uv run tools/check_kit5.py                   # → hardware/out/kit5-check.md（KICAD-KIT §5 の 15 項目。第 1 版は PASS 15 / FAIL 0 / 要決定 1（SWD）→ TP8/TP9・C27 反映後は要決定 0）
+kicad-cli sch export pdf -o hardware/out/schematic.pdf hardware/rp2040-logic-analyzer.kicad_sch
+kicad-cli sch export bom --fields "Reference,Value,Footprint,LCSC Part #,QUANTITY,DNP" --labels "Designator,Comment,Footprint,LCSC Part #,Qty,DNP" --group-by "Value,Footprint,LCSC Part #,DNP" -o hardware/out/bom-grouped.csv hardware/rp2040-logic-analyzer.kicad_sch
+```
+
+生成の要点: KiCad 標準ライブラリと `lib/logicana.kicad_sym` からシンボルを読み、`extends` を KiCad の Flatten と同じ規則で平坦化して `lib_symbols` に埋め込む（ERC の lib_symbol_issues = 0 が「ライブラリと一致」の判定）。結線はピン端のスタブ＋ローカルラベル（KICAD-KIT §4.1 の名前そのまま）、電源レールは電源シンボル。**部品を GUI で動かしても接続はラベルで決まるので変わらない。** ネットが変わる変更（TP8/TP9・C27 など）はスクリプト側に入れて再生成する。
 
 ---
 
@@ -60,8 +90,8 @@ py -m easyeda2kicad --full --project-relative --lcsc_id C165948 --output <repo>/
 
 | LCSC | 部品 | 何に要るか |
 |:---|:---|:---|
-| C318884 | タクトスイッチ | SW2 / SW3 のフットプリント（**必須**） |
-| C393948 | スライドスイッチ SK13D07VG5 | SW1 のフットプリント（**必須**） |
+| C318884 | タクトスイッチ | SW2 / SW3 のフットプリント（**必須**。シンボルは `logicana:SW_Push_TS1187A` を使う） |
+| C393948 | スライドスイッチ SK13D07VG5 | SW1 のフットプリント（**必須**。シンボルは `logicana:SW_SP3T_SK13D07VG5` を使う） |
 | C2286 | LED 赤 0603 | 照合用（**任意** — 標準の `LED_SMD:LED_0603_1608Metric` を使う） |
 | C165948 | USB-C 16P | 照合用（**任意** — 標準の `Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12` を使う） |
 
@@ -72,7 +102,7 @@ kicad-cli fp  upgrade <repo>/lib/lcsc/lcsc.pretty
 kicad-cli sym upgrade <repo>/lib/lcsc/lcsc.kicad_sym
 ```
 
-登録先とニックネームは [KICAD-KIT.md §1.4](KICAD-KIT.md) を参照。**`lib/logicana.kicad_sym`（TXU0104PWR）はリポジトリに入っているので、生成し直す必要はない。**
+登録は `hardware/sym-lib-table` / `hardware/fp-lib-table` に入っている（`${KIPRJMOD}/../lib/...`・[KICAD-KIT.md §1.4](KICAD-KIT.md)）ので、生成したらそのまま `hardware/rp2040-logic-analyzer.kicad_pro` を開けば通る。**`lib/logicana.kicad_sym`（TXU0104PWR・スイッチ 2 種・VREF の自作シンボル 4 個）はリポジトリに入っているので、生成し直す必要はない。**
 
 ---
 

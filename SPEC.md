@@ -283,7 +283,7 @@ TXU0104 の A 側しきい値は VCCA に追従する（VCCA 3V で VT+ = 1.48�
 
 - **SW1 は shorting（make-before-break）型。接点の並び順を「3.3V ― EXT ― 5V」にすること（2026-09-09 確定）。** SK13D07VG5 のデータシート（首韩科技・図面 2021-06-09 版）は図に **`SCHEMATIC (SHORTING)`** と明記している。**切り替えの途中で隣り合う 2 接点が短絡する**ので、両端に +3V3 と +5V を置くと**スライドするたびに LDO 出力と USB VBUS が直結**し、3.3V レールが RP2040 の絶対最大定格 3.63V を超えて持ち上がる。**間に EXT を挟めば、この 2 つは決して隣り合わない**（EXT は未接続が既定なので、途中で橋渡しされても無害）。**部品代 0 円の対策なので必ず守る**
 - **EXT 入力には過電圧保護が無い**（5.5V 上限）。シルクに書く
-- VCCA には 100nF ＋ 1µF のパスコン
+- VCCA には 100nF を各 IC の直近に 1 個（C13 / C15 / C17 / C19）、**VREF レールのバルクとして 1µF を 1 個（C27・C21/C22 と同部品・SW1 コモンの直近・§10 #27）**。1µF 程度なら SW1（shorting 型）の切り替え時の突入は問題にならない（2026-09-20 確定）
 - **VREF が 0V のときは全 ch が Hi-Z。**「スイッチを入れ忘れると何も映らない」が正常動作なので、**VREF レールに LED を 1 個**付けるとデバッグが早い
 
 ---
@@ -296,13 +296,16 @@ TXU0104 の A 側しきい値は VCCA に追従する（VCCA 3V で VT+ = 1.48�
 | **J2** | **ピンヘッダ 2×16 2.54mm** | **プローブヘッダ。内側 1 列が CH0〜CH15、外側 1 列は全部 GND** |
 | J3 | ピンヘッダ 1×3 | VREF EXT 入力（＋ GND ×2） |
 | J4 | ピンヘッダ 1×3（任意・DNF） | アナログ 3ch（GP26 / 27 / 28）。sigrok-pico baseline 用 |
-| J5 | パッドのみ | GP16〜GP22 のテストパッド（dgatf のデバッグ UART / コンフィグ用） |
+| **TP1〜TP7** | テストパッド（銅パッド 1.0mm 角・部品なし） | GP16〜GP22（dgatf のデバッグ UART / コンフィグ用）。KiCad の `Connector:TestPoint` は 1 点 1 シンボルなので、旧「J5」を TP1〜TP7 に改めた（2026-09-20） |
+| **TP8, TP9** | テストパッド（同上） | **SWCLK（U1 pin24）／ SWDIO（U1 pin25）**。ファームのデバッグ用（KICAD-KIT §5-15 で「出す」に決着・2026-09-20） |
 | SW1 | 3 接点スライドスイッチ（C393948・**THT / ライトアングル**） | VREF 選択。**接点の並びは 3.3V ― EXT ― 5V**（shorting 型のため・§5.4）。**ピン 1 = コモン**、ピン 2/3/4 = 3 接点 |
 | SW2 | タクトスイッチ（C318884・**Basic**） | BOOT（QSPI_SS を 1kΩ 経由で GND） |
 | SW3 | タクトスイッチ（C318884・**Basic**） | RUN（RESET） |
 | D1 | LED 0603（C2286・**Basic**） | 3.3V 通電表示 |
 | D2 | LED 0603（C2286・**Basic**） | VREF 通電表示 |
 | D3 | LED 0603（C2286・**Basic**） | GP25 ステータス（4 つのファームがいずれも点滅させる） |
+
+> TP8 / TP9 と C27 は 2026-09-20 の決定。回路図第 1 版（commit de18d95）は TP1〜TP7 のみ・C27 なし（SWCLK / SWDIO は no_connect）で、再生成で反映する（KICAD-KIT §5-15 で確認）。
 
 **GND を外側 1 列に全部並べる**のは公式の作法。「It is good practice to include many grounds on I/O connectors. This helps to maintain a low impedance ground, and also to provide plenty of potential return paths for currents travelling to and from the I/O connections.」（Hardware design with RP2040 §2.4.2）。100MS/s のリターン電流を素直に帰すため、**1ch につき GND 1 本**は譲らない。gusmanb V6 も 2×16 ヘッダ（C97095）を使っており、同じ結論に着いている。
 
@@ -333,6 +336,7 @@ TXU0104 の A 側しきい値は VCCA に追従する（VCCA 3V で VT+ = 1.48�
 | GP29 | 未使用 | — | — | — | — | — |
 | QSPI ×6 | W25Q128 へ直結 | | | | | |
 | USB_DP / DM | J1 へ（27Ω 直列） | | | | | |
+| SWCLK / SWDIO | **TP8 / TP9**（テストパッド・§6） | | | | | |
 
 出典: `pico_sdk_sigrok/sr_device.h`（`GPIO_D_MASK`: baseline = 0x7FFFFC = GP2〜22 ／ dig26 = 0x1C7FFFFF = GP0〜22 ＋ GP26〜28。GP23 / 24 / 25 は両方とも対象外）、μLA readme（「Input channels mapped to GPIO 0-15」）、dgatf README（「The 16 logic analyzer channels are available on GPIOs 0 to 15」「GPIOs 18 and 19 are used for boot-time configuration」）、`LogicAnalyzer_Board_Settings.h`（`INPUT_PIN_BASE 2`, `COMPLEX_TRIGGER_OUT_PIN 0`, `COMPLEX_TRIGGER_IN_PIN 1`）。
 
@@ -423,8 +427,8 @@ TXU0104 の A 側しきい値は VCCA に追従する（VCCA 3V で VT+ = 1.48�
 | スライドスイッチ | 1 | 5 | 5 |
 | LED 0603 | 3 | 2 | 6 |
 | 抵抗 0402 | 26 | 2 | 52 |
-| コンデンサ 0402 / 0805 | 26 | 2 | 52 |
-| **SMT 合計** | | | **約 278** |
+| コンデンサ 0402 / 0805 | 27 | 2 | 54 |
+| **SMT 合計** | | | **約 280**（2026-09-20 に C27 追加で 278 → 280） |
 | ピンヘッダ（THT） | 3 | — | **手はんだ推奨（§13）** |
 
 ### 9.2 JLCPCB の料金（**公式ページより。2026-09-09 時点**）
@@ -451,7 +455,7 @@ TXU0104 の A 側しきい値は VCCA に追従する（VCCA 3V で VT+ = 1.48�
 |:---|:---|--:|
 | セットアップ費（Economic） | | $8.18 |
 | ステンシル費 | | $1.53 |
-| SMT 実装費 | 278 joint × 5 枚 × $0.0016 | $2.22 |
+| SMT 実装費 | 280 joint × 5 枚 × $0.0016 | $2.24 |
 | フィーダ段取り費 | Extended 4 種 × $3.07 | $12.28 |
 | **PCBA 手数料 小計** | | **$24.21** |
 | 部品代（5 枚分） | RP2040 $0.90×5 ＋ フラッシュ $1.90×5 ＋ TXU0104 $0.61×20 ＋ 水晶・LDO・USB-C・ESD・SW・LED 約 $0.6×5 ＋ 0402 群 約 $1.5 | **約 $31** |
@@ -465,7 +469,7 @@ TXU0104 の A 側しきい値は VCCA に追従する（VCCA 3V で VT+ = 1.48�
 
 ---
 
-## 10. BOM（16ch 版・**§14 の確定を受けた確定版**。点数・金額は変更なし）
+## 10. BOM（16ch 版・**§14 の確定を受けた確定版**。2026-09-20 に回路図第 1 版の実態に合わせて **#27 C27（1µF）と TP1〜TP9 を追加**し、Value 表記を追記）
 
 価格は 100+ 単価（小ロットでは上がる）。**在庫は発注時に必ず再確認すること。**
 
@@ -492,12 +496,29 @@ TXU0104 の A 側しきい値は VCCA に追従する（VCCA 3V で VT+ = 1.48�
 | 19 | R23 | 10kΩ（**DNF**） | 0402 | 1 | 汎用 | Basic | 〜$0.002 | QSPI_SS プルアップ |
 | 20 | R24 | 10kΩ | 0402 | 1 | 汎用 | Basic | 〜$0.002 | OE プルアップ |
 | 21 | R25–R27 | 1kΩ | 0402 | 3 | 汎用 | Basic | 〜$0.002 | LED 電流制限 |
-| 22 | C1–C12 | 100nF X7R 16V | 0402 | 12 | 汎用 | Basic | 〜$0.003 | RP2040 電源ピン（IOVDD×6, DVDD×2, USB_VDD, ADC_AVDD, 予備×2） |
+| 22 | C1–C12 | 100nF X7R 16V | 0402 | 12 | 汎用 | Basic | 〜$0.003 | RP2040 電源ピン（IOVDD×6, DVDD×2, USB_VDD, ADC_AVDD）＋ C11 = U2 フラッシュ用 ＋ C12 = 予備（+3V3–GND） |
 | 23 | C13–C20 | 100nF X7R 16V | 0402 | 8 | 汎用 | Basic | 〜$0.003 | TXU0104 の VCCA / VCCB 各 1 |
 | 24 | C21, C22 | 1µF X5R | 0402 | 2 | 汎用 | Basic | 〜$0.005 | **VREG_VIN / VREG_VOUT。公式指定** |
 | 25 | C23, C24 | 15pF NP0 | 0402 | 2 | 汎用 | Basic | 〜$0.003 | 水晶負荷容量 |
 | 26 | C25, C26 | 10µF X5R 16V | 0805 | 2 | 汎用 | Basic | 〜$0.02 | LDO 入出力 |
+| 27 | **C27** | **1µF X5R**（C21/C22 と同部品） | 0402 | 1 | 汎用 | Basic | 〜$0.005 | **VREF–GND のバルク。SW1 コモンの直近**（§5.4・2026-09-20 追加） |
+| — | **TP1–TP9** | テストパッド（銅パッド 1.0×1.0mm・部品なし） | パッド | 9 | — | — | $0 | TP1–TP7 = GP16〜22、**TP8 = SWCLK、TP9 = SWDIO**（§6） |
 | | | | | | | | | |
+
+**回路図の Value（JLCPCB BOM の Comment 列にそのまま出る文字列・2026-09-20 確定）**
+
+| 参照 | Value | 参照 | Value |
+|:---|:---|:---|:---|
+| U1 | `RP2040` | J1 | `TYPE-C-31-M-12` |
+| U2 | `W25Q128JVSIQ` | J2 | `PROBE 2x16` |
+| U3–U6 | `TXU0104PWR` | J3 | `VREF_EXT` |
+| U7 | `AMS1117-3.3` | J4 | `ADC 1x3 (DNF)`（DNP） |
+| U8 | `USBLC6-2SC6` | SW1 | `SK13D07VG5` |
+| X1 | `ABM8-272-T3 12MHz` | SW2, SW3 | `TS-1187A-B-A-B` |
+| D1–D3 | `LED RED` | TP1–TP9 | `GP16`〜`GP22`・`SWCLK`・`SWDIO` |
+| R | `100Ω` `5.1kΩ` `27Ω` `1kΩ` `10kΩ`（UTF-8 の Ω） | C | `100nF` `1µF` `15pF` `10µF`（UTF-8 の µ） |
+
+部品は `LCSC Part #` フィールドの番号で確定するので、Comment は補助。J4 と R23 は DNP（JLCPCB 向け `bom-jlcpcb.csv` からは除外される）。
 
 **部品種別の集計**
 
@@ -754,7 +775,7 @@ electwork.net
 | 10 | プローブケーブル | **要確認（人間の商品選定待ち・唯一の未決）。** 2.54mm メス−メスのジャンパ＋フック型 IC クリップで足りるが、具体的な商品は人間が Amazon / 秋月で確認（**未確認**） |
 | 11 | アナログ 3ch ヘッダ（J4） | **✅ フットプリントを置いて DNF で確定。** sigrok-pico baseline のときだけ意味がある。実装しても部品 3 点。**保護回路は無いので 0〜3.3V 限定**とシルクに書く |
 
-**この確定を受けて、§10 の BOM 案（16ch）と §9.3 の見積り（16ch・4 層・5 枚）は確定版として扱ってよい**（点数・金額は変更なし）。
+**この確定を受けて、§10 の BOM 案（16ch）と §9.3 の見積り（16ch・4 層・5 枚）は確定版として扱ってよい**（点数・金額は変更なし。2026-09-20 に回路図第 1 版の実態を受けて C27 1µF と TP1〜TP9 を §10 に追加。金額への影響は SMT 2 joint 分のみ）。
 
 ---
 
