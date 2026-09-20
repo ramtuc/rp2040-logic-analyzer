@@ -3,7 +3,7 @@
 **ロジックアナライザを持っていないので、自分で作る。** RP2040 と JLCPCB の PCBA で 16ch のロジックアナライザ基板を起こし、PulseView（sigrok）から使えるところまで持っていくプロジェクト。
 
 - 入力は **1.8V 〜 5V 対応**。TXU0104（Schmitt 入力・内蔵プルダウン）で受けるので、1.8V ロジックも 5V ロジックもそのまま掴める
-- ファームは **sigrok-pico を主、μLA を保険**。GP0〜15 に並べたので 3 つのファームが無改造で動く
+- ファームは **sigrok-pico を主、μLA を保険**。GP0〜15 に並べたので 3 つのファームが無改造で動く。**書き込むのは `pico_dig26.uf2`。`pico_baseline.uf2` は GP0 を UART TX 出力にして CH0 と衝突するので書かない**（SPEC §2.3）
 - 基板は **4 層・16ch・2×16 のプローブヘッダ（内側が信号 / 外側が全部 GND）**
 
 設計・製造・立ち上げの過程は electwork.net で記事にする（全 3 本の予定）。**基板は JLCPCB から提供を受ける**ので、記事には景表法のステマ規制に基づく PR 表記を入れる。**ただし編集権は当方にあり、うまくいかなかった点もそのまま書く。**
@@ -16,7 +16,8 @@
 |--:|:---|:---|
 | 1 | **[SPEC.md](SPEC.md)** | **何を作るのか。** ファーム選定・IC 選定・入力フロントエンド・ピン割り当て・レイアウト制約・BOM・費用見積り・実機チェックリスト・記事プラン・決定事項 |
 | 2 | **[KICAD-KIT.md](KICAD-KIT.md)** | **どう描き始めるか。** 部品ライブラリの所在表・JLCPCB 向け BOM/CPL の出し方・4 層の DRC とスタックアップ・ネット名とシート構成・回路図チェックリスト |
-| 3 | **[hardware/out/schematic.pdf](hardware/out/schematic.pdf)** | **回路図 第 1 版**（A3・1 ページ・kicad-cli 出力）。ソースは `hardware/rp2040-logic-analyzer.kicad_sch`、生成元は `tools/gen_schematic.py`（下記「回路図の再現手順」） |
+| 3 | **[hardware/out/schematic.pdf](hardware/out/schematic.pdf)** | **回路図**（A3・1 ページ・kicad-cli 出力）。ソースは `hardware/rp2040-logic-analyzer.kicad_sch`、生成元は `tools/gen_schematic.py`（下記「回路図の再現手順」） |
+| 4 | **[hardware/out/](hardware/out/)** | **製造データ一式**（Gerber / ドリルの zip・JLCPCB 向け BOM / CPL・DRC・照合表・レンダ画像）。回路図レビューとその回答は `hardware/out/review/`（`REVIEW.md` / `RESPONSE.md`） |
 
 **先に SPEC.md の §14（決定事項）を読むと速い。** 何がもう決まっていて、何がまだ決まっていないかが 1 画面で分かる。
 
@@ -26,11 +27,12 @@
 
 | 工程 | 状態 |
 |:---|:---|
-| 仕様の確定 | **完了**（SPEC §14 の 11 項目中、未決はプローブケーブルの商品選定のみ） |
+| 仕様の確定 | **完了**（SPEC §14 の 12 項目中、未決はプローブケーブルの商品選定のみ） |
 | KiCad の準備 | **完了**（KICAD-KIT.md ＋ `lib/`） |
-| 回路図 | **第 1 版を生成済み**（2026-09-20・`tools/gen_schematic.py` → `hardware/`・kicad-cli 10.0.3 の ERC = error 0 / warning 0・KICAD-KIT §4.1 のネット 86 本と照合 86/86）。**人間が KiCad GUI で確認・整形中。** 2026-09-20 決定分（TP8/TP9 = SWD・C27 1µF）はスクリプト側に入れて再生成で反映（レイアウト工程と並行） |
-| レイアウト | **着手**（PCB を生成スクリプトで作成中・チーム内タスク t-71292a56） |
-| 発注 | 未着手（**JLCPCB のクーポン発行前に注文を確定しない**） |
+| 回路図 | **完了**（2026-09-20・TP8/TP9 = SWD・C27 1µF 反映済み・kicad-cli 10.0.3 の ERC = error 0 / warning 0・期待ネット 88/88・KICAD-KIT §5 の 17 項目 PASS）。**回路図レビュー（`hardware/out/review/REVIEW.md`・2026-09-20）を受けて文書のみ更新し、回路は変えていない**（回答: `hardware/out/review/RESPONSE.md`） |
+| レイアウト | **配線完了**（2026-09-20・4 層・DRC error 0・未配線 0・commit 9e2cc98） |
+| 製造データ | **一式あり**（`hardware/out/`・commit 70e5a8e）: Gerber / ドリルの zip・JLCPCB BOM（19 行・全行 LCSC 付き）・CPL（68 行）・照合表 `bom-cpl-check.md` |
+| 発注 | **JLCPCB アップロード待ち**（**クーポン発行前に注文を確定しない**）。届いたら書き込むのは `pico_dig26.uf2`（baseline は不可・SPEC §2.3）、立ち上げ手順は SPEC §11 |
 
 ---
 
@@ -39,11 +41,11 @@
 ```
 SPEC.md              仕様書
 KICAD-KIT.md         KiCad 着手キット
-hardware/            KiCad 10 プロジェクト（回路図 第 1 版・生成物）
+hardware/            KiCad 10 プロジェクト（回路図・配線済み PCB・製造データ）
   rp2040-logic-analyzer.kicad_pro   最小プロジェクト（KICAD-KIT §3.3 のネットクラス 5 種入り）
   rp2040-logic-analyzer.kicad_sch   回路図（平面 1 シート A3・生成スクリプトの出力）
   sym-lib-table / fp-lib-table      logicana / lcsc の登録（${KIPRJMOD}/../lib/...）
-  out/                              schematic.pdf・BOM CSV 3 種・erc.rpt・netlist-check.md・kit5-check.md
+  out/                              schematic.pdf・Gerber zip・JLCPCB BOM / CPL・DRC・照合表・review/（回路図レビューと回答）
 tools/
   gen_schematic.py   回路図の生成スクリプト（Python 3.12・標準ライブラリのみ）
   verify_netlist.py  kicad-cli のネットリストを KICAD-KIT §4.1 の期待表と照合

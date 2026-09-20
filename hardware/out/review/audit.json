@@ -1,0 +1,2499 @@
+{
+  "schematic_sha256": "4582be2e81e5fa87a214e2e6edb7966203ceb72debf77d06fb6f8987b06f97f8",
+  "expected_nets": 88,
+  "mismatches": [],
+  "components": {
+    "C1": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C2": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C3": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C4": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C5": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C6": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C7": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/DVDD",
+        "2": "GND"
+      }
+    },
+    "C8": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/DVDD",
+        "2": "GND"
+      }
+    },
+    "C9": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C10": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C11": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C12": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C13": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "GND",
+        "1": "VREF"
+      }
+    },
+    "C14": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C15": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "GND",
+        "1": "VREF"
+      }
+    },
+    "C16": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C17": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "GND",
+        "1": "VREF"
+      }
+    },
+    "C18": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C19": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "GND",
+        "1": "VREF"
+      }
+    },
+    "C20": {
+      "value": "100nF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C21": {
+      "value": "1µF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C22": {
+      "value": "1µF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/DVDD",
+        "2": "GND"
+      }
+    },
+    "C23": {
+      "value": "15pF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/XIN",
+        "2": "GND"
+      }
+    },
+    "C24": {
+      "value": "15pF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/XTAL_DRV",
+        "2": "GND"
+      }
+    },
+    "C25": {
+      "value": "10µF",
+      "footprint": "Capacitor_SMD:C_0805_2012Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+5V",
+        "2": "GND"
+      }
+    },
+    "C26": {
+      "value": "10µF",
+      "footprint": "Capacitor_SMD:C_0805_2012Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    "C27": {
+      "value": "1µF",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "GND",
+        "1": "VREF"
+      }
+    },
+    "D1": {
+      "value": "LED RED",
+      "footprint": "LED_SMD:LED_0603_1608Metric",
+      "dnp": false,
+      "lcsc": "C2286",
+      "pins": {
+        "1": "GND",
+        "2": "Net-(D1-A)"
+      }
+    },
+    "D2": {
+      "value": "LED RED",
+      "footprint": "LED_SMD:LED_0603_1608Metric",
+      "dnp": false,
+      "lcsc": "C2286",
+      "pins": {
+        "1": "GND",
+        "2": "Net-(D2-A)"
+      }
+    },
+    "D3": {
+      "value": "LED RED",
+      "footprint": "LED_SMD:LED_0603_1608Metric",
+      "dnp": false,
+      "lcsc": "C2286",
+      "pins": {
+        "1": "GND",
+        "2": "Net-(D3-A)"
+      }
+    },
+    "J1": {
+      "value": "TYPE-C-31-M-12",
+      "footprint": "Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12",
+      "dnp": false,
+      "lcsc": "C165948",
+      "pins": {
+        "B4": "+5V",
+        "A4": "+5V",
+        "A9": "+5V",
+        "B9": "+5V",
+        "A5": "/CC1",
+        "B5": "/CC2",
+        "B7": "/USB_DM",
+        "A7": "/USB_DM",
+        "B6": "/USB_DP",
+        "A6": "/USB_DP",
+        "A12": "GND",
+        "B1": "GND",
+        "B12": "GND",
+        "SH": "GND",
+        "A1": "GND",
+        "A8": "unconnected-(J1-SBU1-PadA8)",
+        "B8": "unconnected-(J1-SBU2-PadB8)"
+      }
+    },
+    "J2": {
+      "value": "PROBE 2x16",
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_2x16_P2.54mm_Vertical",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/CH0_IN",
+        "3": "/CH1_IN",
+        "5": "/CH2_IN",
+        "7": "/CH3_IN",
+        "9": "/CH4_IN",
+        "11": "/CH5_IN",
+        "13": "/CH6_IN",
+        "15": "/CH7_IN",
+        "17": "/CH8_IN",
+        "19": "/CH9_IN",
+        "21": "/CH10_IN",
+        "23": "/CH11_IN",
+        "25": "/CH12_IN",
+        "27": "/CH13_IN",
+        "29": "/CH14_IN",
+        "31": "/CH15_IN",
+        "18": "GND",
+        "4": "GND",
+        "10": "GND",
+        "22": "GND",
+        "32": "GND",
+        "30": "GND",
+        "12": "GND",
+        "6": "GND",
+        "24": "GND",
+        "26": "GND",
+        "14": "GND",
+        "2": "GND",
+        "8": "GND",
+        "28": "GND",
+        "20": "GND",
+        "16": "GND"
+      }
+    },
+    "J3": {
+      "value": "VREF_EXT",
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/VREF_EXT",
+        "1": "GND",
+        "3": "GND"
+      }
+    },
+    "J4": {
+      "value": "ADC 1x3 (DNF)",
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+      "dnp": true,
+      "lcsc": "",
+      "pins": {
+        "1": "/GP26_ADC0",
+        "2": "/GP27_ADC1",
+        "3": "/GP28_ADC2"
+      }
+    },
+    "R1": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH0_A",
+        "1": "/CH0_IN"
+      }
+    },
+    "R2": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH1_A",
+        "1": "/CH1_IN"
+      }
+    },
+    "R3": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH2_A",
+        "1": "/CH2_IN"
+      }
+    },
+    "R4": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH3_A",
+        "1": "/CH3_IN"
+      }
+    },
+    "R5": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH4_A",
+        "1": "/CH4_IN"
+      }
+    },
+    "R6": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH5_A",
+        "1": "/CH5_IN"
+      }
+    },
+    "R7": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH6_A",
+        "1": "/CH6_IN"
+      }
+    },
+    "R8": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH7_A",
+        "1": "/CH7_IN"
+      }
+    },
+    "R9": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH8_A",
+        "1": "/CH8_IN"
+      }
+    },
+    "R10": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH9_A",
+        "1": "/CH9_IN"
+      }
+    },
+    "R11": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH10_A",
+        "1": "/CH10_IN"
+      }
+    },
+    "R12": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH11_A",
+        "1": "/CH11_IN"
+      }
+    },
+    "R13": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH12_A",
+        "1": "/CH12_IN"
+      }
+    },
+    "R14": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH13_A",
+        "1": "/CH13_IN"
+      }
+    },
+    "R15": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH14_A",
+        "1": "/CH14_IN"
+      }
+    },
+    "R16": {
+      "value": "100Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "/CH15_A",
+        "1": "/CH15_IN"
+      }
+    },
+    "R17": {
+      "value": "5.1kΩ",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/CC1",
+        "2": "GND"
+      }
+    },
+    "R18": {
+      "value": "5.1kΩ",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/CC2",
+        "2": "GND"
+      }
+    },
+    "R19": {
+      "value": "27Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/USB_DP",
+        "2": "/USB_DP_MCU"
+      }
+    },
+    "R20": {
+      "value": "27Ω",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/USB_DM",
+        "2": "/USB_DM_MCU"
+      }
+    },
+    "R21": {
+      "value": "1kΩ",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/XOUT",
+        "2": "/XTAL_DRV"
+      }
+    },
+    "R22": {
+      "value": "1kΩ",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/QSPI_SS_N",
+        "2": "/USB_BOOT"
+      }
+    },
+    "R23": {
+      "value": "10kΩ",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": true,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "/QSPI_SS_N"
+      }
+    },
+    "R24": {
+      "value": "10kΩ",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "/TXU_OE"
+      }
+    },
+    "R25": {
+      "value": "1kΩ",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "+3V3",
+        "2": "Net-(D1-A)"
+      }
+    },
+    "R26": {
+      "value": "1kΩ",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "2": "Net-(D2-A)",
+        "1": "VREF"
+      }
+    },
+    "R27": {
+      "value": "1kΩ",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/LED_STATUS",
+        "2": "Net-(D3-A)"
+      }
+    },
+    "SW1": {
+      "value": "SK13D07VG5",
+      "footprint": "lcsc:SW-TH_SK13D07VG5",
+      "dnp": false,
+      "lcsc": "C393948",
+      "pins": {
+        "2": "+3V3",
+        "4": "+5V",
+        "3": "/VREF_EXT",
+        "1": "VREF",
+        "5": "unconnected-(SW1-MNT-Pad5)",
+        "6": "unconnected-(SW1-MNT-Pad6)"
+      }
+    },
+    "SW2": {
+      "value": "TS-1187A-B-A-B",
+      "footprint": "lcsc:SW-SMD_4P-L5.1-W5.1-P3.70-LS6.5-TL_H1.5",
+      "dnp": false,
+      "lcsc": "C318884",
+      "pins": {
+        "2": "/USB_BOOT",
+        "1": "/USB_BOOT",
+        "3": "GND",
+        "4": "GND"
+      }
+    },
+    "SW3": {
+      "value": "TS-1187A-B-A-B",
+      "footprint": "lcsc:SW-SMD_4P-L5.1-W5.1-P3.70-LS6.5-TL_H1.5",
+      "dnp": false,
+      "lcsc": "C318884",
+      "pins": {
+        "2": "/RUN",
+        "1": "/RUN",
+        "3": "GND",
+        "4": "GND"
+      }
+    },
+    "TP1": {
+      "value": "GP16",
+      "footprint": "TestPoint:TestPoint_Pad_1.0x1.0mm",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/GP16"
+      }
+    },
+    "TP2": {
+      "value": "GP17",
+      "footprint": "TestPoint:TestPoint_Pad_1.0x1.0mm",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/GP17"
+      }
+    },
+    "TP3": {
+      "value": "GP18",
+      "footprint": "TestPoint:TestPoint_Pad_1.0x1.0mm",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/GP18"
+      }
+    },
+    "TP4": {
+      "value": "GP19",
+      "footprint": "TestPoint:TestPoint_Pad_1.0x1.0mm",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/GP19"
+      }
+    },
+    "TP5": {
+      "value": "GP20",
+      "footprint": "TestPoint:TestPoint_Pad_1.0x1.0mm",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/GP20"
+      }
+    },
+    "TP6": {
+      "value": "GP21",
+      "footprint": "TestPoint:TestPoint_Pad_1.0x1.0mm",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/GP21"
+      }
+    },
+    "TP7": {
+      "value": "GP22",
+      "footprint": "TestPoint:TestPoint_Pad_1.0x1.0mm",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/GP22"
+      }
+    },
+    "TP8": {
+      "value": "SWCLK",
+      "footprint": "TestPoint:TestPoint_Pad_1.0x1.0mm",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/SWCLK"
+      }
+    },
+    "TP9": {
+      "value": "SWDIO",
+      "footprint": "TestPoint:TestPoint_Pad_1.0x1.0mm",
+      "dnp": false,
+      "lcsc": "",
+      "pins": {
+        "1": "/SWDIO"
+      }
+    },
+    "U1": {
+      "value": "RP2040",
+      "footprint": "Package_DFN_QFN:QFN-56-1EP_7x7mm_P0.4mm_EP3.2x3.2mm",
+      "dnp": false,
+      "lcsc": "C2040",
+      "pins": {
+        "1": "+3V3",
+        "43": "+3V3",
+        "10": "+3V3",
+        "33": "+3V3",
+        "22": "+3V3",
+        "42": "+3V3",
+        "48": "+3V3",
+        "44": "+3V3",
+        "49": "+3V3",
+        "2": "/D0",
+        "3": "/D1",
+        "4": "/D2",
+        "5": "/D3",
+        "6": "/D4",
+        "7": "/D5",
+        "8": "/D6",
+        "9": "/D7",
+        "11": "/D8",
+        "12": "/D9",
+        "13": "/D10",
+        "14": "/D11",
+        "15": "/D12",
+        "16": "/D13",
+        "17": "/D14",
+        "18": "/D15",
+        "23": "/DVDD",
+        "45": "/DVDD",
+        "50": "/DVDD",
+        "27": "/GP16",
+        "28": "/GP17",
+        "29": "/GP18",
+        "30": "/GP19",
+        "31": "/GP20",
+        "32": "/GP21",
+        "34": "/GP22",
+        "38": "/GP26_ADC0",
+        "39": "/GP27_ADC1",
+        "40": "/GP28_ADC2",
+        "37": "/LED_STATUS",
+        "52": "/QSPI_SCLK",
+        "53": "/QSPI_SD0",
+        "55": "/QSPI_SD1",
+        "54": "/QSPI_SD2",
+        "51": "/QSPI_SD3",
+        "56": "/QSPI_SS_N",
+        "26": "/RUN",
+        "24": "/SWCLK",
+        "25": "/SWDIO",
+        "35": "/TXU_OE",
+        "46": "/USB_DM_MCU",
+        "47": "/USB_DP_MCU",
+        "20": "/XIN",
+        "21": "/XOUT",
+        "57": "GND",
+        "19": "GND",
+        "36": "unconnected-(U1-GPIO24-Pad36)",
+        "41": "unconnected-(U1-GPIO29{slash}ADC3-Pad41)"
+      }
+    },
+    "U2": {
+      "value": "W25Q128JVSIQ",
+      "footprint": "Package_SO:SOIC-8_5.3x5.3mm_P1.27mm",
+      "dnp": false,
+      "lcsc": "C97521",
+      "pins": {
+        "8": "+3V3",
+        "6": "/QSPI_SCLK",
+        "5": "/QSPI_SD0",
+        "2": "/QSPI_SD1",
+        "3": "/QSPI_SD2",
+        "7": "/QSPI_SD3",
+        "1": "/QSPI_SS_N",
+        "4": "GND"
+      }
+    },
+    "U3": {
+      "value": "TXU0104PWR",
+      "footprint": "Package_SO:TSSOP-14_4.4x5mm_P0.65mm",
+      "dnp": false,
+      "lcsc": "C2938871",
+      "pins": {
+        "14": "+3V3",
+        "2": "/CH0_A",
+        "3": "/CH1_A",
+        "4": "/CH2_A",
+        "5": "/CH3_A",
+        "13": "/D0",
+        "12": "/D1",
+        "11": "/D2",
+        "10": "/D3",
+        "8": "/TXU_OE",
+        "7": "GND",
+        "1": "VREF",
+        "6": "unconnected-(U3-NC-Pad6)",
+        "9": "unconnected-(U3-NC-Pad9)"
+      }
+    },
+    "U4": {
+      "value": "TXU0104PWR",
+      "footprint": "Package_SO:TSSOP-14_4.4x5mm_P0.65mm",
+      "dnp": false,
+      "lcsc": "C2938871",
+      "pins": {
+        "14": "+3V3",
+        "2": "/CH4_A",
+        "3": "/CH5_A",
+        "4": "/CH6_A",
+        "5": "/CH7_A",
+        "13": "/D4",
+        "12": "/D5",
+        "11": "/D6",
+        "10": "/D7",
+        "8": "/TXU_OE",
+        "7": "GND",
+        "1": "VREF",
+        "6": "unconnected-(U4-NC-Pad6)",
+        "9": "unconnected-(U4-NC-Pad9)"
+      }
+    },
+    "U5": {
+      "value": "TXU0104PWR",
+      "footprint": "Package_SO:TSSOP-14_4.4x5mm_P0.65mm",
+      "dnp": false,
+      "lcsc": "C2938871",
+      "pins": {
+        "14": "+3V3",
+        "2": "/CH8_A",
+        "3": "/CH9_A",
+        "4": "/CH10_A",
+        "5": "/CH11_A",
+        "13": "/D8",
+        "12": "/D9",
+        "11": "/D10",
+        "10": "/D11",
+        "8": "/TXU_OE",
+        "7": "GND",
+        "1": "VREF",
+        "6": "unconnected-(U5-NC-Pad6)",
+        "9": "unconnected-(U5-NC-Pad9)"
+      }
+    },
+    "U6": {
+      "value": "TXU0104PWR",
+      "footprint": "Package_SO:TSSOP-14_4.4x5mm_P0.65mm",
+      "dnp": false,
+      "lcsc": "C2938871",
+      "pins": {
+        "14": "+3V3",
+        "2": "/CH12_A",
+        "3": "/CH13_A",
+        "4": "/CH14_A",
+        "5": "/CH15_A",
+        "13": "/D12",
+        "12": "/D13",
+        "11": "/D14",
+        "10": "/D15",
+        "8": "/TXU_OE",
+        "7": "GND",
+        "1": "VREF",
+        "6": "unconnected-(U6-NC-Pad6)",
+        "9": "unconnected-(U6-NC-Pad9)"
+      }
+    },
+    "U7": {
+      "value": "AMS1117-3.3",
+      "footprint": "Package_TO_SOT_SMD:SOT-223-3_TabPin2",
+      "dnp": false,
+      "lcsc": "C6186",
+      "pins": {
+        "2": "+3V3",
+        "3": "+5V",
+        "1": "GND"
+      }
+    },
+    "U8": {
+      "value": "USBLC6-2SC6",
+      "footprint": "Package_TO_SOT_SMD:SOT-23-6",
+      "dnp": false,
+      "lcsc": "C7519",
+      "pins": {
+        "5": "+5V",
+        "3": "/USB_DM",
+        "4": "/USB_DM",
+        "6": "/USB_DP",
+        "1": "/USB_DP",
+        "2": "GND"
+      }
+    },
+    "X1": {
+      "value": "ABM8-272-T3 12MHz",
+      "footprint": "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm",
+      "dnp": false,
+      "lcsc": "C20625731",
+      "pins": {
+        "1": "/XIN",
+        "3": "/XTAL_DRV",
+        "2": "GND",
+        "4": "GND"
+      }
+    }
+  },
+  "nets": {
+    "+3V3": [
+      [
+        "C1",
+        "1"
+      ],
+      [
+        "C10",
+        "1"
+      ],
+      [
+        "C11",
+        "1"
+      ],
+      [
+        "C12",
+        "1"
+      ],
+      [
+        "C14",
+        "1"
+      ],
+      [
+        "C16",
+        "1"
+      ],
+      [
+        "C18",
+        "1"
+      ],
+      [
+        "C2",
+        "1"
+      ],
+      [
+        "C20",
+        "1"
+      ],
+      [
+        "C21",
+        "1"
+      ],
+      [
+        "C26",
+        "1"
+      ],
+      [
+        "C3",
+        "1"
+      ],
+      [
+        "C4",
+        "1"
+      ],
+      [
+        "C5",
+        "1"
+      ],
+      [
+        "C6",
+        "1"
+      ],
+      [
+        "C9",
+        "1"
+      ],
+      [
+        "R23",
+        "1"
+      ],
+      [
+        "R24",
+        "1"
+      ],
+      [
+        "R25",
+        "1"
+      ],
+      [
+        "SW1",
+        "2"
+      ],
+      [
+        "U1",
+        "1"
+      ],
+      [
+        "U1",
+        "10"
+      ],
+      [
+        "U1",
+        "22"
+      ],
+      [
+        "U1",
+        "33"
+      ],
+      [
+        "U1",
+        "42"
+      ],
+      [
+        "U1",
+        "43"
+      ],
+      [
+        "U1",
+        "44"
+      ],
+      [
+        "U1",
+        "48"
+      ],
+      [
+        "U1",
+        "49"
+      ],
+      [
+        "U2",
+        "8"
+      ],
+      [
+        "U3",
+        "14"
+      ],
+      [
+        "U4",
+        "14"
+      ],
+      [
+        "U5",
+        "14"
+      ],
+      [
+        "U6",
+        "14"
+      ],
+      [
+        "U7",
+        "2"
+      ]
+    ],
+    "+5V": [
+      [
+        "C25",
+        "1"
+      ],
+      [
+        "J1",
+        "A4"
+      ],
+      [
+        "J1",
+        "A9"
+      ],
+      [
+        "J1",
+        "B4"
+      ],
+      [
+        "J1",
+        "B9"
+      ],
+      [
+        "SW1",
+        "4"
+      ],
+      [
+        "U7",
+        "3"
+      ],
+      [
+        "U8",
+        "5"
+      ]
+    ],
+    "/CC1": [
+      [
+        "J1",
+        "A5"
+      ],
+      [
+        "R17",
+        "1"
+      ]
+    ],
+    "/CC2": [
+      [
+        "J1",
+        "B5"
+      ],
+      [
+        "R18",
+        "1"
+      ]
+    ],
+    "/CH0_A": [
+      [
+        "R1",
+        "2"
+      ],
+      [
+        "U3",
+        "2"
+      ]
+    ],
+    "/CH0_IN": [
+      [
+        "J2",
+        "1"
+      ],
+      [
+        "R1",
+        "1"
+      ]
+    ],
+    "/CH1_A": [
+      [
+        "R2",
+        "2"
+      ],
+      [
+        "U3",
+        "3"
+      ]
+    ],
+    "/CH1_IN": [
+      [
+        "J2",
+        "3"
+      ],
+      [
+        "R2",
+        "1"
+      ]
+    ],
+    "/CH2_A": [
+      [
+        "R3",
+        "2"
+      ],
+      [
+        "U3",
+        "4"
+      ]
+    ],
+    "/CH2_IN": [
+      [
+        "J2",
+        "5"
+      ],
+      [
+        "R3",
+        "1"
+      ]
+    ],
+    "/CH3_A": [
+      [
+        "R4",
+        "2"
+      ],
+      [
+        "U3",
+        "5"
+      ]
+    ],
+    "/CH3_IN": [
+      [
+        "J2",
+        "7"
+      ],
+      [
+        "R4",
+        "1"
+      ]
+    ],
+    "/CH4_A": [
+      [
+        "R5",
+        "2"
+      ],
+      [
+        "U4",
+        "2"
+      ]
+    ],
+    "/CH4_IN": [
+      [
+        "J2",
+        "9"
+      ],
+      [
+        "R5",
+        "1"
+      ]
+    ],
+    "/CH5_A": [
+      [
+        "R6",
+        "2"
+      ],
+      [
+        "U4",
+        "3"
+      ]
+    ],
+    "/CH5_IN": [
+      [
+        "J2",
+        "11"
+      ],
+      [
+        "R6",
+        "1"
+      ]
+    ],
+    "/CH6_A": [
+      [
+        "R7",
+        "2"
+      ],
+      [
+        "U4",
+        "4"
+      ]
+    ],
+    "/CH6_IN": [
+      [
+        "J2",
+        "13"
+      ],
+      [
+        "R7",
+        "1"
+      ]
+    ],
+    "/CH7_A": [
+      [
+        "R8",
+        "2"
+      ],
+      [
+        "U4",
+        "5"
+      ]
+    ],
+    "/CH7_IN": [
+      [
+        "J2",
+        "15"
+      ],
+      [
+        "R8",
+        "1"
+      ]
+    ],
+    "/CH8_A": [
+      [
+        "R9",
+        "2"
+      ],
+      [
+        "U5",
+        "2"
+      ]
+    ],
+    "/CH8_IN": [
+      [
+        "J2",
+        "17"
+      ],
+      [
+        "R9",
+        "1"
+      ]
+    ],
+    "/CH9_A": [
+      [
+        "R10",
+        "2"
+      ],
+      [
+        "U5",
+        "3"
+      ]
+    ],
+    "/CH9_IN": [
+      [
+        "J2",
+        "19"
+      ],
+      [
+        "R10",
+        "1"
+      ]
+    ],
+    "/CH10_A": [
+      [
+        "R11",
+        "2"
+      ],
+      [
+        "U5",
+        "4"
+      ]
+    ],
+    "/CH10_IN": [
+      [
+        "J2",
+        "21"
+      ],
+      [
+        "R11",
+        "1"
+      ]
+    ],
+    "/CH11_A": [
+      [
+        "R12",
+        "2"
+      ],
+      [
+        "U5",
+        "5"
+      ]
+    ],
+    "/CH11_IN": [
+      [
+        "J2",
+        "23"
+      ],
+      [
+        "R12",
+        "1"
+      ]
+    ],
+    "/CH12_A": [
+      [
+        "R13",
+        "2"
+      ],
+      [
+        "U6",
+        "2"
+      ]
+    ],
+    "/CH12_IN": [
+      [
+        "J2",
+        "25"
+      ],
+      [
+        "R13",
+        "1"
+      ]
+    ],
+    "/CH13_A": [
+      [
+        "R14",
+        "2"
+      ],
+      [
+        "U6",
+        "3"
+      ]
+    ],
+    "/CH13_IN": [
+      [
+        "J2",
+        "27"
+      ],
+      [
+        "R14",
+        "1"
+      ]
+    ],
+    "/CH14_A": [
+      [
+        "R15",
+        "2"
+      ],
+      [
+        "U6",
+        "4"
+      ]
+    ],
+    "/CH14_IN": [
+      [
+        "J2",
+        "29"
+      ],
+      [
+        "R15",
+        "1"
+      ]
+    ],
+    "/CH15_A": [
+      [
+        "R16",
+        "2"
+      ],
+      [
+        "U6",
+        "5"
+      ]
+    ],
+    "/CH15_IN": [
+      [
+        "J2",
+        "31"
+      ],
+      [
+        "R16",
+        "1"
+      ]
+    ],
+    "/D0": [
+      [
+        "U1",
+        "2"
+      ],
+      [
+        "U3",
+        "13"
+      ]
+    ],
+    "/D1": [
+      [
+        "U1",
+        "3"
+      ],
+      [
+        "U3",
+        "12"
+      ]
+    ],
+    "/D2": [
+      [
+        "U1",
+        "4"
+      ],
+      [
+        "U3",
+        "11"
+      ]
+    ],
+    "/D3": [
+      [
+        "U1",
+        "5"
+      ],
+      [
+        "U3",
+        "10"
+      ]
+    ],
+    "/D4": [
+      [
+        "U1",
+        "6"
+      ],
+      [
+        "U4",
+        "13"
+      ]
+    ],
+    "/D5": [
+      [
+        "U1",
+        "7"
+      ],
+      [
+        "U4",
+        "12"
+      ]
+    ],
+    "/D6": [
+      [
+        "U1",
+        "8"
+      ],
+      [
+        "U4",
+        "11"
+      ]
+    ],
+    "/D7": [
+      [
+        "U1",
+        "9"
+      ],
+      [
+        "U4",
+        "10"
+      ]
+    ],
+    "/D8": [
+      [
+        "U1",
+        "11"
+      ],
+      [
+        "U5",
+        "13"
+      ]
+    ],
+    "/D9": [
+      [
+        "U1",
+        "12"
+      ],
+      [
+        "U5",
+        "12"
+      ]
+    ],
+    "/D10": [
+      [
+        "U1",
+        "13"
+      ],
+      [
+        "U5",
+        "11"
+      ]
+    ],
+    "/D11": [
+      [
+        "U1",
+        "14"
+      ],
+      [
+        "U5",
+        "10"
+      ]
+    ],
+    "/D12": [
+      [
+        "U1",
+        "15"
+      ],
+      [
+        "U6",
+        "13"
+      ]
+    ],
+    "/D13": [
+      [
+        "U1",
+        "16"
+      ],
+      [
+        "U6",
+        "12"
+      ]
+    ],
+    "/D14": [
+      [
+        "U1",
+        "17"
+      ],
+      [
+        "U6",
+        "11"
+      ]
+    ],
+    "/D15": [
+      [
+        "U1",
+        "18"
+      ],
+      [
+        "U6",
+        "10"
+      ]
+    ],
+    "/DVDD": [
+      [
+        "C22",
+        "1"
+      ],
+      [
+        "C7",
+        "1"
+      ],
+      [
+        "C8",
+        "1"
+      ],
+      [
+        "U1",
+        "23"
+      ],
+      [
+        "U1",
+        "45"
+      ],
+      [
+        "U1",
+        "50"
+      ]
+    ],
+    "/GP16": [
+      [
+        "TP1",
+        "1"
+      ],
+      [
+        "U1",
+        "27"
+      ]
+    ],
+    "/GP17": [
+      [
+        "TP2",
+        "1"
+      ],
+      [
+        "U1",
+        "28"
+      ]
+    ],
+    "/GP18": [
+      [
+        "TP3",
+        "1"
+      ],
+      [
+        "U1",
+        "29"
+      ]
+    ],
+    "/GP19": [
+      [
+        "TP4",
+        "1"
+      ],
+      [
+        "U1",
+        "30"
+      ]
+    ],
+    "/GP20": [
+      [
+        "TP5",
+        "1"
+      ],
+      [
+        "U1",
+        "31"
+      ]
+    ],
+    "/GP21": [
+      [
+        "TP6",
+        "1"
+      ],
+      [
+        "U1",
+        "32"
+      ]
+    ],
+    "/GP22": [
+      [
+        "TP7",
+        "1"
+      ],
+      [
+        "U1",
+        "34"
+      ]
+    ],
+    "/GP26_ADC0": [
+      [
+        "J4",
+        "1"
+      ],
+      [
+        "U1",
+        "38"
+      ]
+    ],
+    "/GP27_ADC1": [
+      [
+        "J4",
+        "2"
+      ],
+      [
+        "U1",
+        "39"
+      ]
+    ],
+    "/GP28_ADC2": [
+      [
+        "J4",
+        "3"
+      ],
+      [
+        "U1",
+        "40"
+      ]
+    ],
+    "/LED_STATUS": [
+      [
+        "R27",
+        "1"
+      ],
+      [
+        "U1",
+        "37"
+      ]
+    ],
+    "/QSPI_SCLK": [
+      [
+        "U1",
+        "52"
+      ],
+      [
+        "U2",
+        "6"
+      ]
+    ],
+    "/QSPI_SD0": [
+      [
+        "U1",
+        "53"
+      ],
+      [
+        "U2",
+        "5"
+      ]
+    ],
+    "/QSPI_SD1": [
+      [
+        "U1",
+        "55"
+      ],
+      [
+        "U2",
+        "2"
+      ]
+    ],
+    "/QSPI_SD2": [
+      [
+        "U1",
+        "54"
+      ],
+      [
+        "U2",
+        "3"
+      ]
+    ],
+    "/QSPI_SD3": [
+      [
+        "U1",
+        "51"
+      ],
+      [
+        "U2",
+        "7"
+      ]
+    ],
+    "/QSPI_SS_N": [
+      [
+        "R22",
+        "1"
+      ],
+      [
+        "R23",
+        "2"
+      ],
+      [
+        "U1",
+        "56"
+      ],
+      [
+        "U2",
+        "1"
+      ]
+    ],
+    "/RUN": [
+      [
+        "SW3",
+        "1"
+      ],
+      [
+        "SW3",
+        "2"
+      ],
+      [
+        "U1",
+        "26"
+      ]
+    ],
+    "/SWCLK": [
+      [
+        "TP8",
+        "1"
+      ],
+      [
+        "U1",
+        "24"
+      ]
+    ],
+    "/SWDIO": [
+      [
+        "TP9",
+        "1"
+      ],
+      [
+        "U1",
+        "25"
+      ]
+    ],
+    "/TXU_OE": [
+      [
+        "R24",
+        "2"
+      ],
+      [
+        "U1",
+        "35"
+      ],
+      [
+        "U3",
+        "8"
+      ],
+      [
+        "U4",
+        "8"
+      ],
+      [
+        "U5",
+        "8"
+      ],
+      [
+        "U6",
+        "8"
+      ]
+    ],
+    "/USB_BOOT": [
+      [
+        "R22",
+        "2"
+      ],
+      [
+        "SW2",
+        "1"
+      ],
+      [
+        "SW2",
+        "2"
+      ]
+    ],
+    "/USB_DM": [
+      [
+        "J1",
+        "A7"
+      ],
+      [
+        "J1",
+        "B7"
+      ],
+      [
+        "R20",
+        "1"
+      ],
+      [
+        "U8",
+        "3"
+      ],
+      [
+        "U8",
+        "4"
+      ]
+    ],
+    "/USB_DM_MCU": [
+      [
+        "R20",
+        "2"
+      ],
+      [
+        "U1",
+        "46"
+      ]
+    ],
+    "/USB_DP": [
+      [
+        "J1",
+        "A6"
+      ],
+      [
+        "J1",
+        "B6"
+      ],
+      [
+        "R19",
+        "1"
+      ],
+      [
+        "U8",
+        "1"
+      ],
+      [
+        "U8",
+        "6"
+      ]
+    ],
+    "/USB_DP_MCU": [
+      [
+        "R19",
+        "2"
+      ],
+      [
+        "U1",
+        "47"
+      ]
+    ],
+    "/VREF_EXT": [
+      [
+        "J3",
+        "2"
+      ],
+      [
+        "SW1",
+        "3"
+      ]
+    ],
+    "/XIN": [
+      [
+        "C23",
+        "1"
+      ],
+      [
+        "U1",
+        "20"
+      ],
+      [
+        "X1",
+        "1"
+      ]
+    ],
+    "/XOUT": [
+      [
+        "R21",
+        "1"
+      ],
+      [
+        "U1",
+        "21"
+      ]
+    ],
+    "/XTAL_DRV": [
+      [
+        "C24",
+        "1"
+      ],
+      [
+        "R21",
+        "2"
+      ],
+      [
+        "X1",
+        "3"
+      ]
+    ],
+    "GND": [
+      [
+        "C1",
+        "2"
+      ],
+      [
+        "C10",
+        "2"
+      ],
+      [
+        "C11",
+        "2"
+      ],
+      [
+        "C12",
+        "2"
+      ],
+      [
+        "C13",
+        "2"
+      ],
+      [
+        "C14",
+        "2"
+      ],
+      [
+        "C15",
+        "2"
+      ],
+      [
+        "C16",
+        "2"
+      ],
+      [
+        "C17",
+        "2"
+      ],
+      [
+        "C18",
+        "2"
+      ],
+      [
+        "C19",
+        "2"
+      ],
+      [
+        "C2",
+        "2"
+      ],
+      [
+        "C20",
+        "2"
+      ],
+      [
+        "C21",
+        "2"
+      ],
+      [
+        "C22",
+        "2"
+      ],
+      [
+        "C23",
+        "2"
+      ],
+      [
+        "C24",
+        "2"
+      ],
+      [
+        "C25",
+        "2"
+      ],
+      [
+        "C26",
+        "2"
+      ],
+      [
+        "C27",
+        "2"
+      ],
+      [
+        "C3",
+        "2"
+      ],
+      [
+        "C4",
+        "2"
+      ],
+      [
+        "C5",
+        "2"
+      ],
+      [
+        "C6",
+        "2"
+      ],
+      [
+        "C7",
+        "2"
+      ],
+      [
+        "C8",
+        "2"
+      ],
+      [
+        "C9",
+        "2"
+      ],
+      [
+        "D1",
+        "1"
+      ],
+      [
+        "D2",
+        "1"
+      ],
+      [
+        "D3",
+        "1"
+      ],
+      [
+        "J1",
+        "A1"
+      ],
+      [
+        "J1",
+        "A12"
+      ],
+      [
+        "J1",
+        "B1"
+      ],
+      [
+        "J1",
+        "B12"
+      ],
+      [
+        "J1",
+        "SH"
+      ],
+      [
+        "J2",
+        "10"
+      ],
+      [
+        "J2",
+        "12"
+      ],
+      [
+        "J2",
+        "14"
+      ],
+      [
+        "J2",
+        "16"
+      ],
+      [
+        "J2",
+        "18"
+      ],
+      [
+        "J2",
+        "2"
+      ],
+      [
+        "J2",
+        "20"
+      ],
+      [
+        "J2",
+        "22"
+      ],
+      [
+        "J2",
+        "24"
+      ],
+      [
+        "J2",
+        "26"
+      ],
+      [
+        "J2",
+        "28"
+      ],
+      [
+        "J2",
+        "30"
+      ],
+      [
+        "J2",
+        "32"
+      ],
+      [
+        "J2",
+        "4"
+      ],
+      [
+        "J2",
+        "6"
+      ],
+      [
+        "J2",
+        "8"
+      ],
+      [
+        "J3",
+        "1"
+      ],
+      [
+        "J3",
+        "3"
+      ],
+      [
+        "R17",
+        "2"
+      ],
+      [
+        "R18",
+        "2"
+      ],
+      [
+        "SW2",
+        "3"
+      ],
+      [
+        "SW2",
+        "4"
+      ],
+      [
+        "SW3",
+        "3"
+      ],
+      [
+        "SW3",
+        "4"
+      ],
+      [
+        "U1",
+        "19"
+      ],
+      [
+        "U1",
+        "57"
+      ],
+      [
+        "U2",
+        "4"
+      ],
+      [
+        "U3",
+        "7"
+      ],
+      [
+        "U4",
+        "7"
+      ],
+      [
+        "U5",
+        "7"
+      ],
+      [
+        "U6",
+        "7"
+      ],
+      [
+        "U7",
+        "1"
+      ],
+      [
+        "U8",
+        "2"
+      ],
+      [
+        "X1",
+        "2"
+      ],
+      [
+        "X1",
+        "4"
+      ]
+    ],
+    "Net-(D1-A)": [
+      [
+        "D1",
+        "2"
+      ],
+      [
+        "R25",
+        "2"
+      ]
+    ],
+    "Net-(D2-A)": [
+      [
+        "D2",
+        "2"
+      ],
+      [
+        "R26",
+        "2"
+      ]
+    ],
+    "Net-(D3-A)": [
+      [
+        "D3",
+        "2"
+      ],
+      [
+        "R27",
+        "2"
+      ]
+    ],
+    "VREF": [
+      [
+        "C13",
+        "1"
+      ],
+      [
+        "C15",
+        "1"
+      ],
+      [
+        "C17",
+        "1"
+      ],
+      [
+        "C19",
+        "1"
+      ],
+      [
+        "C27",
+        "1"
+      ],
+      [
+        "R26",
+        "1"
+      ],
+      [
+        "SW1",
+        "1"
+      ],
+      [
+        "U3",
+        "1"
+      ],
+      [
+        "U4",
+        "1"
+      ],
+      [
+        "U5",
+        "1"
+      ],
+      [
+        "U6",
+        "1"
+      ]
+    ],
+    "unconnected-(J1-SBU1-PadA8)": [
+      [
+        "J1",
+        "A8"
+      ]
+    ],
+    "unconnected-(J1-SBU2-PadB8)": [
+      [
+        "J1",
+        "B8"
+      ]
+    ],
+    "unconnected-(SW1-MNT-Pad5)": [
+      [
+        "SW1",
+        "5"
+      ]
+    ],
+    "unconnected-(SW1-MNT-Pad6)": [
+      [
+        "SW1",
+        "6"
+      ]
+    ],
+    "unconnected-(U1-GPIO24-Pad36)": [
+      [
+        "U1",
+        "36"
+      ]
+    ],
+    "unconnected-(U1-GPIO29{slash}ADC3-Pad41)": [
+      [
+        "U1",
+        "41"
+      ]
+    ],
+    "unconnected-(U3-NC-Pad6)": [
+      [
+        "U3",
+        "6"
+      ]
+    ],
+    "unconnected-(U3-NC-Pad9)": [
+      [
+        "U3",
+        "9"
+      ]
+    ],
+    "unconnected-(U4-NC-Pad6)": [
+      [
+        "U4",
+        "6"
+      ]
+    ],
+    "unconnected-(U4-NC-Pad9)": [
+      [
+        "U4",
+        "9"
+      ]
+    ],
+    "unconnected-(U5-NC-Pad6)": [
+      [
+        "U5",
+        "6"
+      ]
+    ],
+    "unconnected-(U5-NC-Pad9)": [
+      [
+        "U5",
+        "9"
+      ]
+    ],
+    "unconnected-(U6-NC-Pad6)": [
+      [
+        "U6",
+        "6"
+      ]
+    ],
+    "unconnected-(U6-NC-Pad9)": [
+      [
+        "U6",
+        "9"
+      ]
+    ]
+  }
+}
