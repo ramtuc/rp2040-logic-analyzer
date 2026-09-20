@@ -32,3 +32,12 @@ hardware/out/step3/02-*
 hardware/out/step3/*-cleaned.kicad_pcb
 hardware/out/step3/drc-0[012]*.json
 hardware/out/step3/*.kicad_prl
+# 人間の配線完了作業の試行物（RESULT.md・md・png・スクリプトだけ残す）
+hardware/out/completion/*.jar
+hardware/out/completion/pass*/
+hardware/out/completion/*.kicad_pcb
+hardware/out/completion/*.kicad_pro
+hardware/out/completion/*.kicad_prl
+hardware/out/completion/*.json
+hardware/out/completion/original-before-routing/
+hardware/out/*.json
