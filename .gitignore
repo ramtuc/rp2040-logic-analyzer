@@ -24,3 +24,11 @@ __pycache__/
 # freerouting の中間ファイル
 hardware/out/route/*.dsn
 hardware/out/route/*.ses
+# 第3工程の試行物（最良版 03-final-* と md/png/rpt だけ残す）
+build/
+hardware/out/step3/route-*/
+hardware/out/step3/01*.kicad_*
+hardware/out/step3/02-*
+hardware/out/step3/*-cleaned.kicad_pcb
+hardware/out/step3/drc-0[012]*.json
+hardware/out/step3/*.kicad_prl

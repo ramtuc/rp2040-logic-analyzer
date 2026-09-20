@@ -1,0 +1,1674 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-09-20T10:51:22",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.3",
+    "schematic_parity": [
+        {
+            "description": "フットプリントの属性がシンボルと一致しない: '部品表(BOM)から除外' の設定が異なります",
+            "items": [
+                {
+                    "description": "フットプリント TP1",
+                    "pos": {
+                        "x": 134.0,
+                        "y": 141.5
+                    },
+                    "uuid": "518a4a5f-2947-5453-a047-192268c8cb27"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_mismatch"
+        },
+        {
+            "description": "フットプリントの属性がシンボルと一致しない: '部品表(BOM)から除外' の設定が異なります",
+            "items": [
+                {
+                    "description": "フットプリント TP2",
+                    "pos": {
+                        "x": 136.5,
+                        "y": 141.5
+                    },
+                    "uuid": "f83f58cf-fd71-57c6-b484-ea5ca1c4066b"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_mismatch"
+        },
+        {
+            "description": "フットプリントの属性がシンボルと一致しない: '部品表(BOM)から除外' の設定が異なります",
+            "items": [
+                {
+                    "description": "フットプリント TP3",
+                    "pos": {
+                        "x": 139.0,
+                        "y": 141.5
+                    },
+                    "uuid": "a4f7b78e-c004-58e5-8600-b66ea237cfa5"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_mismatch"
+        },
+        {
+            "description": "フットプリントの属性がシンボルと一致しない: '部品表(BOM)から除外' の設定が異なります",
+            "items": [
+                {
+                    "description": "フットプリント TP4",
+                    "pos": {
+                        "x": 141.5,
+                        "y": 141.5
+                    },
+                    "uuid": "ad982613-db72-5bf4-82ea-22cf4230af03"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_mismatch"
+        },
+        {
+            "description": "フットプリントの属性がシンボルと一致しない: '部品表(BOM)から除外' の設定が異なります",
+            "items": [
+                {
+                    "description": "フットプリント TP5",
+                    "pos": {
+                        "x": 144.0,
+                        "y": 141.5
+                    },
+                    "uuid": "600f7162-bba5-5519-9809-8f04cb738506"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_mismatch"
+        },
+        {
+            "description": "フットプリントの属性がシンボルと一致しない: '部品表(BOM)から除外' の設定が異なります",
+            "items": [
+                {
+                    "description": "フットプリント TP6",
+                    "pos": {
+                        "x": 146.5,
+                        "y": 141.5
+                    },
+                    "uuid": "7874a4e2-779a-5e2c-b4a5-dc1347c5c4f3"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_mismatch"
+        },
+        {
+            "description": "フットプリントの属性がシンボルと一致しない: '部品表(BOM)から除外' の設定が異なります",
+            "items": [
+                {
+                    "description": "フットプリント TP7",
+                    "pos": {
+                        "x": 149.0,
+                        "y": 141.5
+                    },
+                    "uuid": "e8002a1a-810a-50ac-88ba-cca1871b8098"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_mismatch"
+        },
+        {
+            "description": "フットプリントの属性がシンボルと一致しない: '部品表(BOM)から除外' の設定が異なります",
+            "items": [
+                {
+                    "description": "フットプリント TP8",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 141.5
+                    },
+                    "uuid": "1cfc6ff9-873b-5c47-a899-a24ac30ed082"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_mismatch"
+        },
+        {
+            "description": "フットプリントの属性がシンボルと一致しない: '部品表(BOM)から除外' の設定が異なります",
+            "items": [
+                {
+                    "description": "フットプリント TP9",
+                    "pos": {
+                        "x": 154.0,
+                        "y": 141.5
+                    },
+                    "uuid": "48b72a40-17c3-55ce-8287-0779a372f667"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_mismatch"
+        }
+    ],
+    "source": "03-final-E.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 1 [/CC1] - R17 ( F.Cu 上)",
+                    "pos": {
+                        "x": 157.49,
+                        "y": 130.5
+                    },
+                    "uuid": "958f7a3a-eeb7-593c-a8f0-d53d15f80e10"
+                },
+                {
+                    "description": "パッド A5 [/CC1] - J1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 157.805,
+                        "y": 123.25
+                    },
+                    "uuid": "93953890-acba-456b-bb6d-b1e79179ffa0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 24 [/SWCLK] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 128.0
+                    },
+                    "uuid": "70648ea6-5c03-5da2-aade-235ded29ca5b"
+                },
+                {
+                    "description": "パッド 1 [/SWCLK] - TP8 ( F.Cu 上)",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 141.5
+                    },
+                    "uuid": "465f630c-2010-411e-a9e6-b75afc06f515"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド B9 [+5V] - J1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 157.805,
+                        "y": 124.45
+                    },
+                    "uuid": "70539c09-2020-4a42-a156-43d1513170d0"
+                },
+                {
+                    "description": "配線 [+5V] ( B.Cu 上、長さ: 16.8096 mm )",
+                    "pos": {
+                        "x": 154.6647,
+                        "y": 121.4904
+                    },
+                    "uuid": "c060883f-dddb-4046-a6b5-b6c684975a29"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド B9 [+5V] - J1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 157.805,
+                        "y": 124.45
+                    },
+                    "uuid": "70539c09-2020-4a42-a156-43d1513170d0"
+                },
+                {
+                    "description": "パッド 5 [+5V] - U8 ( F.Cu 上)",
+                    "pos": {
+                        "x": 154.6375,
+                        "y": 129.5
+                    },
+                    "uuid": "2385b603-5731-5db3-ad32-dfd9963b170e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "配線 [VREF] ( F.Cu 上、長さ: 4.6716 mm )",
+                    "pos": {
+                        "x": 117.7908,
+                        "y": 113.0992
+                    },
+                    "uuid": "4eab929a-e655-4a65-b568-804e64c6c5a2"
+                },
+                {
+                    "description": "パッド 1 [VREF] - R26 ( F.Cu 上)",
+                    "pos": {
+                        "x": 102.49,
+                        "y": 135.0
+                    },
+                    "uuid": "2e9f87c5-1b21-526e-bf60-a1e08d283567"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 2 [/CH8_A] - R9 ( F.Cu 上)",
+                    "pos": {
+                        "x": 132.32,
+                        "y": 107.09
+                    },
+                    "uuid": "fd6ead9a-0484-5975-9d3c-c4f8945ff1da"
+                },
+                {
+                    "description": "パッド 2 [/CH8_A] - U5 ( F.Cu 上)",
+                    "pos": {
+                        "x": 137.43,
+                        "y": 110.7375
+                    },
+                    "uuid": "630e52d6-5034-5c1e-ae8d-9cc723a8b5b5"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 11 [/D8] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 129.6,
+                        "y": 123.5625
+                    },
+                    "uuid": "b0e11fe2-a8ca-507f-9698-4cf5d448d9b0"
+                },
+                {
+                    "description": "パッド 13 [/D8] - U5 ( F.Cu 上)",
+                    "pos": {
+                        "x": 137.43,
+                        "y": 116.4625
+                    },
+                    "uuid": "ab717c47-707a-543e-91f2-9a28415d2ee1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 51 [/QSPI_SD3] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 134.4375,
+                        "y": 126.4
+                    },
+                    "uuid": "e1e3b585-4eb2-5961-a70c-caaf21a3605c"
+                },
+                {
+                    "description": "パッド 7 [/QSPI_SD3] - U2 ( F.Cu 上)",
+                    "pos": {
+                        "x": 148.0875,
+                        "y": 124.165
+                    },
+                    "uuid": "9beefde7-f17d-5da6-bbe9-75c63e543ea9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 1 [/LED_STATUS] - R27 ( F.Cu 上)",
+                    "pos": {
+                        "x": 125.49,
+                        "y": 141.5
+                    },
+                    "uuid": "77c0917e-575a-5aa4-8aae-4b4869e4711d"
+                },
+                {
+                    "description": "パッド 37 [/LED_STATUS] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 131.6,
+                        "y": 130.4375
+                    },
+                    "uuid": "ee9fad0a-156a-5724-9a35-da15291519c9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 32 [/GP21] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 129.6,
+                        "y": 130.4375
+                    },
+                    "uuid": "eb050b00-6e11-5e98-be9a-9bbd762c3c81"
+                },
+                {
+                    "description": "パッド 1 [/GP21] - TP6 ( F.Cu 上)",
+                    "pos": {
+                        "x": 146.5,
+                        "y": 141.5
+                    },
+                    "uuid": "68f7b4e4-0392-4f0d-9d9f-b514c3c3a54e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 13 [/D0] - U3 ( F.Cu 上)",
+                    "pos": {
+                        "x": 117.11,
+                        "y": 116.4625
+                    },
+                    "uuid": "842afdc2-9044-5ec0-a3d9-89fab4fa5614"
+                },
+                {
+                    "description": "パッド 2 [/D0] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 133.2,
+                        "y": 123.5625
+                    },
+                    "uuid": "68be5a41-0934-5449-8b67-f35554e7a59c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 11 [/D6] - U4 ( F.Cu 上)",
+                    "pos": {
+                        "x": 125.97,
+                        "y": 116.4625
+                    },
+                    "uuid": "dfae7c8d-9ebd-57f8-943a-5ffd6c6c97ed"
+                },
+                {
+                    "description": "パッド 8 [/D6] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 130.8,
+                        "y": 123.5625
+                    },
+                    "uuid": "4c993348-f0ff-5af9-b780-0ba71dd9daf9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 10 [/D7] - U4 ( F.Cu 上)",
+                    "pos": {
+                        "x": 125.32,
+                        "y": 116.4625
+                    },
+                    "uuid": "e5b02103-1c8c-5cf0-bc85-8547f515b1aa"
+                },
+                {
+                    "description": "パッド 9 [/D7] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 130.4,
+                        "y": 123.5625
+                    },
+                    "uuid": "76527405-a948-5ea6-ac49-63c74de73f07"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 18 [/D15] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 125.6
+                    },
+                    "uuid": "5bc68c8a-d8aa-5ce6-aa58-a84b4c95f730"
+                },
+                {
+                    "description": "パッド 10 [/D15] - U6 ( F.Cu 上)",
+                    "pos": {
+                        "x": 145.64,
+                        "y": 116.4625
+                    },
+                    "uuid": "c2a6152f-23e6-5752-9691-a861c160c083"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 1 [/XOUT] - R21 ( F.Cu 上)",
+                    "pos": {
+                        "x": 123.49,
+                        "y": 131.5
+                    },
+                    "uuid": "ece335d8-ce46-5e12-9437-c6289c6b6e1e"
+                },
+                {
+                    "description": "パッド 21 [/XOUT] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 126.8
+                    },
+                    "uuid": "098346ba-f063-5a84-bf94-12863b552fb4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 23 [/DVDD] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 127.5625,
+                        "y": 127.6
+                    },
+                    "uuid": "8fb662c2-c090-58a9-ab98-9c0715dcb1cd"
+                },
+                {
+                    "description": "配線 [/DVDD] ( F.Cu 上、長さ: 3.9955 mm )",
+                    "pos": {
+                        "x": 126.3,
+                        "y": 129.88
+                    },
+                    "uuid": "91192da0-5773-4175-aa70-1e92cad975d5"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 50 [/DVDD] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 134.4375,
+                        "y": 126.8
+                    },
+                    "uuid": "fd3f1979-cde1-59e2-8047-591c7489f940"
+                },
+                {
+                    "description": "パッド 45 [/DVDD] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 134.4375,
+                        "y": 128.8
+                    },
+                    "uuid": "f124f2d5-7d09-562f-9acf-ee73cd2dad16"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "配線 [/DVDD] ( F.Cu 上、長さ: 6.1344 mm )",
+                    "pos": {
+                        "x": 136.2171,
+                        "y": 133.6573
+                    },
+                    "uuid": "57ed1a16-d901-4db3-839c-7fef594be982"
+                },
+                {
+                    "description": "パッド 45 [/DVDD] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 134.4375,
+                        "y": 128.8
+                    },
+                    "uuid": "f124f2d5-7d09-562f-9acf-ee73cd2dad16"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "パッド 34 [/GP22] - U1 ( F.Cu 上)",
+                    "pos": {
+                        "x": 130.4,
+                        "y": 130.4375
+                    },
+                    "uuid": "ff0ce0c5-7cdc-5f78-a38c-5e9b255f0ad2"
+                },
+                {
+                    "description": "パッド 1 [/GP22] - TP7 ( F.Cu 上)",
+                    "pos": {
+                        "x": 149.0,
+                        "y": 141.5
+                    },
+                    "uuid": "816e044b-65ca-4c9f-bf70-17af2e0db0d7"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "矩形 (Edge.Cuts 上)",
+                    "pos": {
+                        "x": 100.0,
+                        "y": 100.0
+                    },
+                    "uuid": "327a3464-4099-52b8-b7cd-69e2ad0420ff"
+                },
+                {
+                    "description": "セグメント of SW1 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 100.05,
+                        "y": 110.0
+                    },
+                    "uuid": "6a598960-1669-4a6d-8f9c-fca0fab96e00"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "矩形 (Edge.Cuts 上)",
+                    "pos": {
+                        "x": 100.0,
+                        "y": 100.0
+                    },
+                    "uuid": "327a3464-4099-52b8-b7cd-69e2ad0420ff"
+                },
+                {
+                    "description": "セグメント of SW1 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 100.05,
+                        "y": 112.0
+                    },
+                    "uuid": "beba6e26-81ef-4bae-8f80-fb6c7c22274d"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "矩形 (Edge.Cuts 上)",
+                    "pos": {
+                        "x": 100.0,
+                        "y": 100.0
+                    },
+                    "uuid": "327a3464-4099-52b8-b7cd-69e2ad0420ff"
+                },
+                {
+                    "description": "セグメント of SW1 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 105.09,
+                        "y": 109.99
+                    },
+                    "uuid": "29959da6-cfcb-4407-ae0c-ce186d091f52"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "矩形 (Edge.Cuts 上)",
+                    "pos": {
+                        "x": 100.0,
+                        "y": 100.0
+                    },
+                    "uuid": "327a3464-4099-52b8-b7cd-69e2ad0420ff"
+                },
+                {
+                    "description": "セグメント of J1 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 163.85,
+                        "y": 117.3
+                    },
+                    "uuid": "bd122681-67e3-4c23-b564-57e345c7c818"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "矩形 (Edge.Cuts 上)",
+                    "pos": {
+                        "x": 100.0,
+                        "y": 100.0
+                    },
+                    "uuid": "327a3464-4099-52b8-b7cd-69e2ad0420ff"
+                },
+                {
+                    "description": "セグメント of J1 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 163.85,
+                        "y": 126.7
+                    },
+                    "uuid": "7abeef8d-db92-4e88-b3d6-7c7e4efa4938"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "フットプリントライブラリ 'lcsc' は現在の設定では有効化されていません",
+            "items": [
+                {
+                    "description": "フットプリント SW1",
+                    "pos": {
+                        "x": 107.35,
+                        "y": 113.0
+                    },
+                    "uuid": "6150bab5-6d73-55c0-8dbc-9b241f474e9e"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "フットプリントライブラリ 'lcsc' は現在の設定では有効化されていません",
+            "items": [
+                {
+                    "description": "フットプリント SW2",
+                    "pos": {
+                        "x": 112.0,
+                        "y": 141.5
+                    },
+                    "uuid": "6d48d611-975a-5fb4-a63d-2d8e34e0bc35"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "フットプリントライブラリ 'lcsc' は現在の設定では有効化されていません",
+            "items": [
+                {
+                    "description": "フットプリント SW3",
+                    "pos": {
+                        "x": 120.5,
+                        "y": 141.5
+                    },
+                    "uuid": "8daf47bc-cc3d-54a7-aa26-55944d9186bb"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "C24のリファレンスフィールド",
+                    "pos": {
+                        "x": 121.4,
+                        "y": 128.14
+                    },
+                    "uuid": "30807f94-4388-5759-a622-f4bca6fb7e3d"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "R23のリファレンスフィールド",
+                    "pos": {
+                        "x": 151.13,
+                        "y": 125.3
+                    },
+                    "uuid": "080a8365-2939-59f3-ae19-01cc93aa79e2"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "R19のリファレンスフィールド",
+                    "pos": {
+                        "x": 138.0,
+                        "y": 128.97
+                    },
+                    "uuid": "174d4a24-b2f8-5a36-8c5a-0f6f6f447fda"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "C7のリファレンスフィールド",
+                    "pos": {
+                        "x": 125.14,
+                        "y": 129.4
+                    },
+                    "uuid": "03e57113-729b-5941-91bf-7519d322dc66"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "X1のリファレンスフィールド",
+                    "pos": {
+                        "x": 121.4,
+                        "y": 123.95
+                    },
+                    "uuid": "3fea029d-fa0d-548b-8161-c836edd36a2e"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "C11のリファレンスフィールド",
+                    "pos": {
+                        "x": 148.84,
+                        "y": 122.6
+                    },
+                    "uuid": "50392f61-39bb-570d-bfd6-654fba8f029c"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "J4のリファレンスフィールド",
+                    "pos": {
+                        "x": 154.62,
+                        "y": 141.5
+                    },
+                    "uuid": "f7d912cf-c3f3-5bb6-b3b5-f6b818b5e039"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "C23のリファレンスフィールド",
+                    "pos": {
+                        "x": 121.4,
+                        "y": 122.34
+                    },
+                    "uuid": "6ff76ddc-e2b7-5490-8d3c-42d876b28edf"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C7のリファレンスフィールド",
+                    "pos": {
+                        "x": 125.14,
+                        "y": 129.4
+                    },
+                    "uuid": "03e57113-729b-5941-91bf-7519d322dc66"
+                },
+                {
+                    "description": "R21のリファレンスフィールド",
+                    "pos": {
+                        "x": 124.0,
+                        "y": 130.33
+                    },
+                    "uuid": "bd069bfd-7c2d-5d38-9d54-671ff6ea13d7"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C7のリファレンスフィールド",
+                    "pos": {
+                        "x": 125.14,
+                        "y": 129.4
+                    },
+                    "uuid": "03e57113-729b-5941-91bf-7519d322dc66"
+                },
+                {
+                    "description": "セグメント of C3 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 124.64,
+                        "y": 129.007836
+                    },
+                    "uuid": "7b6929c5-de3b-533e-a56a-11fc7947d808"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C7のリファレンスフィールド",
+                    "pos": {
+                        "x": 125.14,
+                        "y": 129.4
+                    },
+                    "uuid": "03e57113-729b-5941-91bf-7519d322dc66"
+                },
+                {
+                    "description": "セグメント of C3 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 125.36,
+                        "y": 129.007836
+                    },
+                    "uuid": "29c29d9b-a71a-58c7-863c-b21848faf7ff"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C3のリファレンスフィールド",
+                    "pos": {
+                        "x": 123.84,
+                        "y": 128.9
+                    },
+                    "uuid": "0995c607-e4ce-5f99-9320-447ca22dae1e"
+                },
+                {
+                    "description": "R21のリファレンスフィールド",
+                    "pos": {
+                        "x": 124.0,
+                        "y": 130.33
+                    },
+                    "uuid": "bd069bfd-7c2d-5d38-9d54-671ff6ea13d7"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C24のリファレンスフィールド",
+                    "pos": {
+                        "x": 121.4,
+                        "y": 128.14
+                    },
+                    "uuid": "30807f94-4388-5759-a622-f4bca6fb7e3d"
+                },
+                {
+                    "description": "セグメント of X1 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 119.34,
+                        "y": 128.11
+                    },
+                    "uuid": "c9a9bfdb-6c45-5cba-a21c-7314e809f3c1"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C3のリファレンスフィールド",
+                    "pos": {
+                        "x": 123.84,
+                        "y": 128.9
+                    },
+                    "uuid": "0995c607-e4ce-5f99-9320-447ca22dae1e"
+                },
+                {
+                    "description": "セグメント of X1 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 119.34,
+                        "y": 128.11
+                    },
+                    "uuid": "c9a9bfdb-6c45-5cba-a21c-7314e809f3c1"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "セグメント of U7 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 154.15,
+                        "y": 139.41
+                    },
+                    "uuid": "6e43f798-7915-403c-b947-4851bde35045"
+                },
+                {
+                    "description": "TP9のリファレンスフィールド",
+                    "pos": {
+                        "x": 154.0,
+                        "y": 140.052
+                    },
+                    "uuid": "8f7cca37-570f-45b3-b171-67bf5210ceb8"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "TP7のリファレンスフィールド",
+                    "pos": {
+                        "x": 149.0,
+                        "y": 140.052
+                    },
+                    "uuid": "5053e4f2-215c-4d44-8cff-61ed18a88530"
+                },
+                {
+                    "description": "TP8のリファレンスフィールド",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 140.052
+                    },
+                    "uuid": "66456f0e-e2d1-4057-8552-877972b0df9d"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "セグメント of TP9 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 153.3,
+                        "y": 140.8
+                    },
+                    "uuid": "1c40f169-5684-45ad-aaf2-1ee0886485b0"
+                },
+                {
+                    "description": "J4のリファレンスフィールド",
+                    "pos": {
+                        "x": 154.62,
+                        "y": 141.5
+                    },
+                    "uuid": "f7d912cf-c3f3-5bb6-b3b5-f6b818b5e039"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "セグメント of TP9 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 154.7,
+                        "y": 140.8
+                    },
+                    "uuid": "39afeae0-cc0e-42bc-9fd7-6ee008bb7221"
+                },
+                {
+                    "description": "J4のリファレンスフィールド",
+                    "pos": {
+                        "x": 154.62,
+                        "y": 141.5
+                    },
+                    "uuid": "f7d912cf-c3f3-5bb6-b3b5-f6b818b5e039"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "TP5のリファレンスフィールド",
+                    "pos": {
+                        "x": 144.0,
+                        "y": 140.052
+                    },
+                    "uuid": "747a9e81-90e6-49c0-a7fe-972cd36d092e"
+                },
+                {
+                    "description": "TP6のリファレンスフィールド",
+                    "pos": {
+                        "x": 146.5,
+                        "y": 140.052
+                    },
+                    "uuid": "ab37567f-a8d0-4546-a4f8-61da86b43772"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "TP3のリファレンスフィールド",
+                    "pos": {
+                        "x": 139.0,
+                        "y": 140.052
+                    },
+                    "uuid": "ad83afb4-8113-43af-8936-0155e36b192f"
+                },
+                {
+                    "description": "TP4のリファレンスフィールド",
+                    "pos": {
+                        "x": 141.5,
+                        "y": 140.052
+                    },
+                    "uuid": "e09b2f5a-c8de-4428-b6c4-d448547466fe"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "R19のリファレンスフィールド",
+                    "pos": {
+                        "x": 138.0,
+                        "y": 128.97
+                    },
+                    "uuid": "174d4a24-b2f8-5a36-8c5a-0f6f6f447fda"
+                },
+                {
+                    "description": "R20のリファレンスフィールド",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 129.57
+                    },
+                    "uuid": "fcec9907-d6e6-5aaf-870b-beb26235171c"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C21のリファレンスフィールド",
+                    "pos": {
+                        "x": 141.6,
+                        "y": 130.94
+                    },
+                    "uuid": "59f2ffdd-df68-51ab-8f79-49841a4c8064"
+                },
+                {
+                    "description": "C22のリファレンスフィールド",
+                    "pos": {
+                        "x": 144.0,
+                        "y": 130.94
+                    },
+                    "uuid": "fb4a17a7-ab49-52ca-b5bc-cc341ce5938a"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C10のリファレンスフィールド",
+                    "pos": {
+                        "x": 146.4,
+                        "y": 130.94
+                    },
+                    "uuid": "394250e9-9a6f-5687-a7aa-c087585a0156"
+                },
+                {
+                    "description": "C22のリファレンスフィールド",
+                    "pos": {
+                        "x": 144.0,
+                        "y": 130.94
+                    },
+                    "uuid": "fb4a17a7-ab49-52ca-b5bc-cc341ce5938a"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C20のリファレンスフィールド",
+                    "pos": {
+                        "x": 149.13,
+                        "y": 116.4
+                    },
+                    "uuid": "7284119e-d525-536b-934f-d1bc54641dd0"
+                },
+                {
+                    "description": "セグメント of U6 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 148.9,
+                        "y": 111.29
+                    },
+                    "uuid": "aafe2abc-3b46-5467-9ac2-1760e2d24b9a"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C18のリファレンスフィールド",
+                    "pos": {
+                        "x": 138.97,
+                        "y": 116.4
+                    },
+                    "uuid": "03589a0a-d57e-5ff5-9b90-5c4e2ddb4283"
+                },
+                {
+                    "description": "セグメント of U5 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 138.74,
+                        "y": 111.29
+                    },
+                    "uuid": "0ecc4004-cd07-57aa-8c9a-faf18ed766da"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "セグメント of U6 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 148.7,
+                        "y": 111.29
+                    },
+                    "uuid": "e086ea4d-696c-5c66-a3c6-46e7e18639d0"
+                },
+                {
+                    "description": "C19のリファレンスフィールド",
+                    "pos": {
+                        "x": 149.13,
+                        "y": 110.6
+                    },
+                    "uuid": "fe0bb86f-e456-5d53-9bc1-44270c303f11"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "セグメント of U6 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 148.9,
+                        "y": 111.29
+                    },
+                    "uuid": "aafe2abc-3b46-5467-9ac2-1760e2d24b9a"
+                },
+                {
+                    "description": "C19のリファレンスフィールド",
+                    "pos": {
+                        "x": 149.13,
+                        "y": 110.6
+                    },
+                    "uuid": "fe0bb86f-e456-5d53-9bc1-44270c303f11"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "ポリゴン of U6 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 148.7,
+                        "y": 110.65
+                    },
+                    "uuid": "829142dc-5a1c-540e-b8e9-a38d370a1780"
+                },
+                {
+                    "description": "C19のリファレンスフィールド",
+                    "pos": {
+                        "x": 149.13,
+                        "y": 110.6
+                    },
+                    "uuid": "fe0bb86f-e456-5d53-9bc1-44270c303f11"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "セグメント of U5 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 138.74,
+                        "y": 111.29
+                    },
+                    "uuid": "0ecc4004-cd07-57aa-8c9a-faf18ed766da"
+                },
+                {
+                    "description": "C17のリファレンスフィールド",
+                    "pos": {
+                        "x": 138.97,
+                        "y": 110.6
+                    },
+                    "uuid": "19ca60bf-9587-5f01-8176-f778beaf0fd7"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C17のリファレンスフィールド",
+                    "pos": {
+                        "x": 138.97,
+                        "y": 110.6
+                    },
+                    "uuid": "19ca60bf-9587-5f01-8176-f778beaf0fd7"
+                },
+                {
+                    "description": "セグメント of U5 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 138.54,
+                        "y": 111.29
+                    },
+                    "uuid": "22a0c79d-44b0-56dd-9a83-097a93ddae60"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C17のリファレンスフィールド",
+                    "pos": {
+                        "x": 138.97,
+                        "y": 110.6
+                    },
+                    "uuid": "19ca60bf-9587-5f01-8176-f778beaf0fd7"
+                },
+                {
+                    "description": "ポリゴン of U5 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 138.54,
+                        "y": 110.65
+                    },
+                    "uuid": "1adba11b-615c-5994-8162-8dfd4405576a"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "セグメント of U4 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 128.58,
+                        "y": 111.29
+                    },
+                    "uuid": "7c905c6d-bfe1-51f9-84b2-50212862e4c4"
+                },
+                {
+                    "description": "C15のリファレンスフィールド",
+                    "pos": {
+                        "x": 128.81,
+                        "y": 110.6
+                    },
+                    "uuid": "d6b2fa86-2164-5e46-8a0f-e9a942d3c3e6"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "セグメント of U4 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 128.58,
+                        "y": 111.29
+                    },
+                    "uuid": "7c905c6d-bfe1-51f9-84b2-50212862e4c4"
+                },
+                {
+                    "description": "C16のリファレンスフィールド",
+                    "pos": {
+                        "x": 128.81,
+                        "y": 116.4
+                    },
+                    "uuid": "d5cbc5b5-52b4-57aa-ae58-2ee6d00ffb1d"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "セグメント of U4 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 128.38,
+                        "y": 111.29
+                    },
+                    "uuid": "7e811c65-f297-5cfb-87e1-d5007539aad7"
+                },
+                {
+                    "description": "C15のリファレンスフィールド",
+                    "pos": {
+                        "x": 128.81,
+                        "y": 110.6
+                    },
+                    "uuid": "d6b2fa86-2164-5e46-8a0f-e9a942d3c3e6"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "ポリゴン of U4 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 128.38,
+                        "y": 110.65
+                    },
+                    "uuid": "2550056a-8a4f-519e-a826-a6cd66b3ae42"
+                },
+                {
+                    "description": "C15のリファレンスフィールド",
+                    "pos": {
+                        "x": 128.81,
+                        "y": 110.6
+                    },
+                    "uuid": "d6b2fa86-2164-5e46-8a0f-e9a942d3c3e6"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "R23のリファレンスフィールド",
+                    "pos": {
+                        "x": 151.13,
+                        "y": 125.3
+                    },
+                    "uuid": "080a8365-2939-59f3-ae19-01cc93aa79e2"
+                },
+                {
+                    "description": "セグメント of R22 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 150.62,
+                        "y": 125.453641
+                    },
+                    "uuid": "448025e5-00af-52d2-9166-def48b4b3d9a"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "R23のリファレンスフィールド",
+                    "pos": {
+                        "x": 151.13,
+                        "y": 125.3
+                    },
+                    "uuid": "080a8365-2939-59f3-ae19-01cc93aa79e2"
+                },
+                {
+                    "description": "セグメント of R22 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 151.38,
+                        "y": 125.453641
+                    },
+                    "uuid": "d83e5072-b28a-5124-8ec8-67a7ae510bb5"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "セグメント of SW1 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 109.6,
+                        "y": 106.6
+                    },
+                    "uuid": "8e23da33-0a5c-49de-9197-e57600b6b88b"
+                },
+                {
+                    "description": "C27のリファレンスフィールド",
+                    "pos": {
+                        "x": 109.34,
+                        "y": 110.0
+                    },
+                    "uuid": "c4add706-9ec5-5cf3-94a0-0f82b1b4bb6a"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "セグメント of U3 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 118.42,
+                        "y": 111.29
+                    },
+                    "uuid": "a47df1a0-9a8c-5f28-854e-e28a30a1e6d2"
+                },
+                {
+                    "description": "C14のリファレンスフィールド",
+                    "pos": {
+                        "x": 118.65,
+                        "y": 116.4
+                    },
+                    "uuid": "bf9df039-cf5d-50a6-9d56-22aa27711ffb"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C13のリファレンスフィールド",
+                    "pos": {
+                        "x": 118.65,
+                        "y": 110.6
+                    },
+                    "uuid": "7524a3a1-9cd0-53d7-92fa-1af1f2ccf800"
+                },
+                {
+                    "description": "セグメント of U3 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 118.22,
+                        "y": 111.29
+                    },
+                    "uuid": "d75cca4d-5178-5861-9f67-bee3feadf1e7"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C13のリファレンスフィールド",
+                    "pos": {
+                        "x": 118.65,
+                        "y": 110.6
+                    },
+                    "uuid": "7524a3a1-9cd0-53d7-92fa-1af1f2ccf800"
+                },
+                {
+                    "description": "ポリゴン of U3 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 118.22,
+                        "y": 110.65
+                    },
+                    "uuid": "dbefb448-f48d-5847-9f52-bbd73e8e5c6f"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C13のリファレンスフィールド",
+                    "pos": {
+                        "x": 118.65,
+                        "y": 110.6
+                    },
+                    "uuid": "7524a3a1-9cd0-53d7-92fa-1af1f2ccf800"
+                },
+                {
+                    "description": "セグメント of U3 、F.Silkscreen 上",
+                    "pos": {
+                        "x": 118.42,
+                        "y": 111.29
+                    },
+                    "uuid": "a47df1a0-9a8c-5f28-854e-e28a30a1e6d2"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        }
+    ]
+}
