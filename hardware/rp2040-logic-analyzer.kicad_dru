@@ -1,0 +1,8 @@
+(version 1)
+
+# JLCPCB specifies 0.20 mm via-hole-to-copper clearance. Use 0.225 mm,
+# retaining 0.15 mm copper spacing with 0.30/0.45 mm drilled vias.
+# Other hole constraints retain the existing board-wide minimum.
+(rule "0.30 mm vias - hole to copper"
+  (condition "A.Type == 'Via' || B.Type == 'Via'")
+  (constraint hole_clearance (min 0.225mm)))
