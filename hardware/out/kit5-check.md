@@ -11,7 +11,7 @@
 | 9 | USBLC6 はコネクタ側ネット（27Ω の外側）・VBUS/GND 接続 | **PASS** | U8 pins: 1→/USB_DP 6→/USB_DP 3→/USB_DM 4→/USB_DM 5→+5V |
 | 10 | TXU_OE = GP23 ＋ 10kΩ プルアップは +3V3（VREF ではない） | **PASS** | R24: +3V3↔/TXU_OE / TXU_OE: ['R24', 'U1', 'U3', 'U4', 'U5', 'U6'] |
 | 11 | VCCA/VCCB に 100nF 各 1 ×4（C13–C20）・A 入力に外付け無し・NC(6,9) 未接続 | **PASS** | U3: VCCA←C13(VREF) VCCB←C14(+3V3) NC6/9 未接続 / U4: VCCA←C15(VREF) VCCB←C16(+3V3) NC6/9 未接続 / U5: VCCA←C17(VREF) VCCB←C18(+3V3) NC6/9 未接続 / U6: VCCA←C19(VREF) VCCB←C20(+3V3) NC6/9 未接続 |
-| 12 | SW1: ピン1 = VREF(コモン)・2 = +3V3・3 = EXT・4 = +5V（+3V3 と +5V が隣接しない） | **PASS** | SW1 {1: 'VREF', 2: '+3V3', 3: '/VREF_EXT', 4: '+5V', 5: 'unconnected-(SW1-MNT-Pad5)', 6: 'unconnected-(SW1-MNT-Pad6)'}（5/6 = 固定ラグ・未接続） |
+| 12 | SW1: ピン2 = VREF(コモン)・1 = +3V3・3 = EXT・4 = +5V（+3V3 と +5V が隣接しない） | **PASS** | SW1 {1: '+3V3', 2: 'VREF', 3: '/VREF_EXT', 4: '+5V', 5: 'unconnected-(SW1-MNT-Pad5)', 6: 'unconnected-(SW1-MNT-Pad6)'}（5/6 = 固定ラグ・未接続） |
 | 13 | R1–R16 = 100Ω、J2 と TXU0104 A ピンの間（1kΩ ではない） | **PASS** | R1–R16 すべて 100Ω・CHn_IN(J2 奇数ピン)↔CHn_A |
 | 14 | D1 = +3V3、D2 = VREF、D3 = LED_STATUS(GP25)、各 1kΩ | **PASS** | D1←+3V3 / D2←VREF / D3←/LED_STATUS |
 | 15 | SWD を出す（決定: TP8 = SWCLK・TP9 = SWDIO のテストパッド） | **PASS** | SWCLK: ['TP8', 'U1'] / SWDIO: ['TP9', 'U1'] |

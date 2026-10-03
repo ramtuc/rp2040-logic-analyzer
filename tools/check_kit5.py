@@ -133,8 +133,8 @@ def main() -> int:
 
     # 12. SW1 の並び
     sw = {p: net_of(nets, "SW1", p) for p in (1, 2, 3, 4, 5, 6)}
-    ok = sw[1] == "VREF" and sw[2] == "+3V3" and sw[3] == "/VREF_EXT" and sw[4] == "+5V"
-    item(12, "SW1: ピン1 = VREF(コモン)・2 = +3V3・3 = EXT・4 = +5V（+3V3 と +5V が隣接しない）", ok,
+    ok = sw[2] == "VREF" and sw[1] == "+3V3" and sw[3] == "/VREF_EXT" and sw[4] == "+5V"
+    item(12, "SW1: ピン2 = VREF(コモン)・1 = +3V3・3 = EXT・4 = +5V（+3V3 と +5V が隣接しない）", ok,
          f"SW1 {sw}（5/6 = 固定ラグ・未接続）")
 
     # 13. 入力直列抵抗 100Ω
