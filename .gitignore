@@ -41,3 +41,6 @@ hardware/out/completion/*.kicad_prl
 hardware/out/completion/*.json
 hardware/out/completion/original-before-routing/
 hardware/out/*.json
+
+# freerouting のログ（ローカルのパスを含む）
+hardware/out/route/*.log

@@ -481,7 +481,7 @@ TXU0104 の A 側しきい値は VCCA に追従する（VCCA 3V で VT+ = 1.48�
 | 抵抗 0402 | 26 | 2 | 52 |
 | コンデンサ 0402 / 0805 | 27 | 2 | 54 |
 | **SMT 合計** | | | **約 280**（2026-09-20 に C27 追加で 278 → 280） |
-| ピンヘッダ（THT） | 3 | — | **手はんだ推奨（§13）** |
+| ピンヘッダ（THT） | 3 | — | **手はんだ推奨（§14-5）** |
 
 ### 9.2 JLCPCB の料金（**公式ページより。2026-09-09 時点**）
 
@@ -715,108 +715,17 @@ TXU0104 の A 側しきい値は VCCA に追従する（VCCA 3V で VT+ = 1.48�
 
 ---
 
-## 12. 記事プラン 3 本
+## 12. 記事（electwork.net）
 
-### 記事① 「ロジアナが無いので作る — RP2040 と JLCPCB PCBA で 16ch ロジックアナライザを起こす」
-
-| 項目 | 内容 |
-|:---|:---|
-| 位置づけ | 設計編。JLCPCB 提供の告知はここで最初に出す |
-| 見せ場 | ①**「RP2040 の VIH は 2.0V だから 1.8V ロジックは直結では読めない」**という、選定が数字で決まる瞬間 ②ファームウェア 4 種の比較表（PulseView に本当に繋がるのはどれか） ③**GP0〜15 に並べると 3 つのファームが同居できる**というピン配置の設計 ④0.4mm ピッチ QFN と中央 GND パッドを PCBA に投げる話 |
-| 必要な写真 / 画面 | KiCad の回路図・レイアウト画面、3D ビュー、**JLCPCB のアップロード画面と PCBA の部品配置プレビュー**、Extended / Basic の表示、カートの内訳（金額が見える形で） |
-| 注意 | 価格は「分かる範囲を正確に」。分からない項目は書かない |
-
-### 記事② 「届いた 16ch ロジアナを立ち上げる — PulseView が RP2040 を掴むまで」
-
-| 項目 | 内容 |
-|:---|:---|
-| 位置づけ | 立ち上げ編。§11 のチェックリストがそのまま記事の骨になる |
-| 見せ場 | ①**開梱と実装品質の確認**（QFN の中央パッドが本当に付いているか。X 線は無いのでヒートアップして動くかで判断） ②**オシロだけでフロントエンドのしきい値を実測**する手順（VT+ / VT− / ヒステリシス）— ロジアナを持っていない人でも追える ③**PulseView 0.4.2 では動かない**という落とし穴と nightly の入れ方 ④μLA（Apache-2.0・リリース版 PulseView で動く）に切り替えて動かす保険の実演 |
-| 必要な写真 / 画面 | 届いた基板の全景と QFN の拡大、オシロの XOUT 波形、しきい値実測のオシロ画面（DC を上げていく様子）、`SRPICO,A03D21,00` が返るターミナル、PulseView の接続ダイアログ、最初の波形 |
-| 取材が楽な理由 | オシロが USB PC オシロ（OWON VDS3102L）なので、**波形画面は Utility → Save Image で png、波形データは Pause Export で csv として PC に直接落とせる**（公式マニュアル「14. How to Implement the Utility setting」）。スマホでオシロの画面を撮る必要が無く、記事②③の波形画像がそのまま原寸で使える |
-| 注意 | 動かなかった点も書く（編集権は当方にある、と JLCPCB に先に伝えてある） |
-
-### 記事③ 「IC 実験室に実戦投入 — 自作ロジアナで I2C と SPI を覗く」
-
-| 項目 | 内容 |
-|:---|:---|
-| 位置づけ | 実戦編。既存の IC 実験室シリーズと接続する |
-| 見せ場 | ①**既存記事でオシロ波形しか出せなかった箇所に、デコード画面が入る** ②オシロとロジアナを**同じ信号に同時に当てて**、それぞれ何が見えるか / 見えないかを対比 ③16ch 全部を使って、アドレスバスやシフトレジスタのようなパラレルな動きを一望する ④取りこぼしの実測（何 MS/s から嘘をつき始めるか） |
-| 必要な写真 / 画面 | PulseView の I2C / SPI デコード画面、オシロとロジアナの並置写真、実験机の全景、ch 数とサンプルレートの限界を示すキャプチャ |
-| 注意 | 既存記事へのリンクを張り、既存記事側からもリンクを返す |
+- 記事① 設計と発注 — 回路・4 層基板・製造データ・JLCPCB PCBA の発注: https://electwork.net/posts/jlcpcb-rp2040-logic-analyzer-01-design-and-order/
+- 記事② 立ち上げ — 電源・水晶・入力しきい値の実測と、PulseView で最初の I2C デコード（§11 のチェックリストの実施記録）: https://electwork.net/posts/jlcpcb-rp2040-logic-analyzer-02-bringup-first-i2c-decode/
+- 記事③ 実戦投入（予定）— 手持ちの基板の I2C / SPI のデコード、オシロとの並置、サンプリング上限の実測
 
 ---
 
-## 13. JLCPCB に送る企画案の文面（案）
+## 13. JLCPCB との連絡
 
-> 角括弧 `[ ]` は人間が埋める。送信は協力用アドレス（`ram.tuckey.electron.azure@gmail.com`）から。
-
-```text
-件名: Collaboration proposal - RP2040 16-channel logic analyzer (PCBA)
-
-Dear [担当者名] ,
-
-Thank you for the guidance on the process. Here is our project proposal.
-
-1. What we will make
-   A 16-channel USB logic analyzer board based on the Raspberry Pi RP2040.
-   - RP2040 (LQFN-56) + W25Q128 QSPI flash + 12 MHz crystal + USB-C
-   - Input front end: 4 x TI TXU0104 level translators (LCSC C2938871),
-     selectable reference voltage 3.3 V / 5 V / external, so that targets
-     from 1.8 V to 5 V can be probed
-   - Firmware: open-source sigrok-pico (GPL-3.0), so the board works with
-     PulseView / sigrok on Windows, Linux and macOS
-   - Board: 4-layer, approx. 65 x 45 mm
-   - Assembly: JLCPCB Economic PCBA. Approx. 60 SMT components per board,
-     including a 0.4 mm pitch QFN-56 with a central thermal pad and 0402 parts.
-     This is exactly the kind of board a hobbyist cannot hand-solder, which is
-     the point we want to show our readers.
-   - Quantity: [枚数] pieces
-
-2. Why this project
-   We write electronics articles and we do not own a logic analyzer. Our
-   articles so far could only show oscilloscope traces, never protocol decode
-   screens. Building this board fixes that, and every future I2C / SPI / UART
-   article on our site will use it. Readers will be able to download the
-   Gerber, BOM and CPL files and order the same board from JLCPCB themselves.
-
-3. Where it will be published
-   - Site: electwork.net (Japanese, [月間PV] monthly page views)
-     [必要なら: 主要記事の URL を 2-3 本]
-   - Format: three articles
-     (1) Design and ordering, including screenshots of the JLCPCB PCBA flow
-     (2) Bring-up: unboxing, verification with an oscilloscope, connecting
-         PulseView
-     (3) Real use: decoding I2C and SPI on our own boards
-   - We will also post about them on X.
-
-4. Schedule (planned)
-   - Design and Gerber ready: [日付]
-   - Order: after your coupon is issued
-   - Article (1): within [N] weeks of ordering
-   - Article (2): within [N] weeks of delivery
-   - Article (3): within [N] weeks after that
-
-5. Our editorial policy
-   - Japan's Act against Unjustifiable Premiums and Misleading
-     Representations has required clear disclosure of advertising since
-     October 2023. Every article produced under this collaboration will
-     state, at the top of the article, that the board was manufactured with
-     boards / assembly provided by JLCPCB.
-   - Editorial control stays with us. We will describe what worked and what
-     did not, including any problems we hit. We are happy for you to check
-     factual statements about your manufacturing service before publication,
-     but we do not accept changes to our evaluation or conclusions.
-   - We will state prices only where we can quote them accurately from your
-     public pricing pages or from our own order.
-
-If this is acceptable, we will upload the board data and send you the
-screenshot of the cart with shipping configured, as you instructed.
-
-Best regards,
-[氏名]
-electwork.net
-```
+（非公開: 先方とのやり取りの文面は含めない）
 
 ---
 
