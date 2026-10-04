@@ -38,7 +38,7 @@ VREF 切替スイッチ SW1（SK13D07VG5・C393948）のコモンは**ピン 2**
 
 | 置き場所 | 中身 | 扱い |
 |:---|:---|:---|
-| **[hardware/jlcpcb/](hardware/jlcpcb/)** | JLCPCB の注文ページからダウンロードした BOM / CPL / Gerber | **実装の正（正規データ）**。配布のファイル名のまま置きます |
+| **[hardware/jlcpcb/](hardware/jlcpcb/)** | A0 の注文に実際に使った BOM / CPL / Gerber（Gerber は JLCPCB の注文ページからダウンロードしたもの、BOM / CPL は注文時にアップロードしたファイル） | **実装の正（正規データ）**。ファイル名はそのまま |
 | [hardware/out/](hardware/out/) | KiCad（kicad-cli）から出力した Gerber・ドリル・BOM（`bom-jlcpcb.csv`）・CPL（`cpl-jlcpcb.csv`）・DRC・照合表 | 設計側の出力。JLCPCB に上げる前のデータ |
 
 - A0 の発注では、**USB-C（J1）は注文時に部品が入手できなかったため、実装から外して手はんだ**にしました。正規データ（`hardware/jlcpcb/`）はその状態の注文を反映しています
@@ -96,7 +96,7 @@ hardware/            KiCad 10 プロジェクト
   rp2040-logic-analyzer.kicad_pro / .kicad_sch / .kicad_pcb
   sym-lib-table / fp-lib-table      logicana / lcsc の登録（${KIPRJMOD}/../lib/...）
   out/                              kicad-cli の出力（schematic.pdf・Gerber・BOM / CPL・DRC・照合表・review/）
-  jlcpcb/                           JLCPCB からダウンロードした正規の製造データ
+  jlcpcb/                           A0 の注文に使った正規の製造データ（Gerber・BOM・CPL）
 tools/
   gen_schematic.py   回路図の生成スクリプト（Python 3.12・標準ライブラリのみ）
   verify_netlist.py  kicad-cli のネットリストを期待表と照合
@@ -182,7 +182,7 @@ A 16-channel logic analyzer board based on the Raspberry Pi RP2040 and four TI T
 
 - **Status (2026-10-04):** Rev A0 boards are up and running (3.3 V rail, 12 MHz crystal and input thresholds measured; I2C decoded in PulseView).
 - **Known issue:** The common pin of SW1 (SK13D07VG5) is pin 2, not pin 1. The A0 PCB routes it incorrectly; A0 boards need a jumper rework on the switch side (switch pin 2 → pad1/VREF, switch pin 1 → pad2/3.3V). The schematic and symbol are corrected; the PCB will be fixed in Rev A1.
-- **Manufacturing data:** The authoritative BOM/CPL/Gerber are the files downloaded from JLCPCB, stored as-is in `hardware/jlcpcb/`. `hardware/out/` contains the KiCad outputs. In the A0 order, the USB-C connector (J1) was excluded from assembly because the part was unavailable, and was hand-soldered.
+- **Manufacturing data:** The authoritative BOM/CPL/Gerber are the files actually used for the A0 order (Gerbers downloaded from the JLCPCB order page, BOM/CPL as uploaded), stored as-is in `hardware/jlcpcb/`. `hardware/out/` contains the KiCad outputs. In the A0 order, the USB-C connector (J1) was excluded from assembly because the part was unavailable, and was hand-soldered.
 - Do not flash `pico_baseline.uf2` (it drives GP0 as UART TX and conflicts with CH0).
 - The boards were provided by JLCPCB (sponsored).
 - **License:** Not yet decided. All rights reserved until a LICENSE file is added.
