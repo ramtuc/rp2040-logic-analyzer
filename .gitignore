@@ -45,3 +45,4 @@ hardware/out/*.json
 # freerouting のログ（ローカルのパスを含む）
 hardware/out/route/*.log
 hardware/out/route/run.json
+hardware/out/a1/drc-refill.json

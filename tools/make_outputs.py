@@ -9,7 +9,7 @@
 
 出力（hardware/out/）
     drc.json / drc.rpt / drc-summary.md      kicad-cli pcb drc --severity-all --refill-zones
-    gerbers/                                  Gerber（Protel 拡張子・X2）＋ Excellon（PTH/NPTH 分離・mm・decimal）＋ map
+    gerbers/                                  Gerber（Protel 拡張子・X2）＋ Excellon（PTH/NPTH 分離・mm・decimal・長穴は route 記法）＋ map
     rp2040-logic-analyzer-gerbers.zip         JLCPCB アップロード用
     pos-kicad.csv / cpl-jlcpcb.csv            位置ファイル（KiCad 生・THT/DNP 込み）と JLCPCB 列名の CPL（SMD 実装対象のみ・回転補正済み）
     cpl-rotation-report.md                    回転補正の根拠（Fabrication Toolkit の transformations.csv と同じ規則）と CPL から除外した参照子
@@ -113,9 +113,12 @@ def gerbers():
             old.unlink()
     run([KICAD_CLI, "pcb", "export", "gerbers", "-o", str(gdir) + "/", "--layers", LAYERS, "--subtract-soldermask",
          "--check-zones", "--precision", "6", PCB])
+    # 長穴（USB-C シェルの脚 ×4・SW1 の固定脚 ×2）の記法は route（G00/M15/G01/M16 = GUI の「Use route command (recommended)」）。
+    # A0 の注文に使った GUI 出力と同じ記法で、JLCPCB で製造済み（実測 2026-10-10: kicad-cli 10.0.3 の既定 alternate は G85 スロット指令。
+    # JLCPCB の KiCad 手順は alternate を案内しているが、製造実績のある route に合わせる）
     run([KICAD_CLI, "pcb", "export", "drill", "-o", str(gdir) + "/", "--format", "excellon", "--excellon-separate-th",
-         "--excellon-units", "mm", "--excellon-zeros-format", "decimal", "--drill-origin", "absolute",
-         "--generate-map", "--map-format", "gerberx2", PCB])
+         "--excellon-units", "mm", "--excellon-zeros-format", "decimal", "--excellon-oval-format", "route",
+         "--drill-origin", "absolute", "--generate-map", "--map-format", "gerberx2", PCB])
     zpath = OUT / f"{PROJECT}-gerbers.zip"
     with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
         for f in sorted(gdir.iterdir()):

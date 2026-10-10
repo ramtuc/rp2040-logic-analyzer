@@ -22,9 +22,9 @@ RP2040 と TI の TXU0104（レベル変換 ×4）で作った、**16ch のロ�
   - **サンプリングレートの上限は 120MS/s です。** PulseView の一覧には 150M〜240M も出ますが、選ぶと取り込みに失敗します。12MHz・24MHz の矩形波は 120／60MS/s で正しく読め、20MS/s では 12MHz が 8MHz に化けます（エイリアス）
   - **16ch・120MS/s で一度に取れるのは 10 万サンプル（約 0.84ms）までです。** それ以上を指定すると、エラーなしで約 0.45ms に打ち切られます
   - SPI（74HC595 への 1 バイト・shiftOut とハードウェア SPI 1MHz）、UART（115200／9600bps）、サーボ PWM（50Hz・パルス幅 0.5〜2.4ms）を PulseView のデコーダで読めました
-- 次版 A1（SW1 の pad 割り当ての修正）は未着手です
+- **次版 A1 の基板データを作りました（2026-10-10）。** SW1 の pad1／pad2 のネットを回路図に合わせて入れ替え（pad1 = 3.3V・pad2 = VREF）、VREF の配線を pad2 へ引き直したものです。DRC エラー 0・未配線 0、基板と回路図のネット照合は 88 ネットすべて一致。`hardware/jlcpcb/` の製造データは A1 に更新してあります（A0 の注文データは `hardware/jlcpcb/a0/`）。**A1 はまだ製造していません。** 手元で検証した基板は A0 を改修したものです
 
-### 既知の問題：SW1 のコモンはピン 2（A0 の基板配線は誤り）
+### 既知の問題（A0）：SW1 のコモンはピン 2（A0 の基板配線は誤り・A1 で修正済み）
 
 VREF 切替スイッチ SW1（SK13D07VG5・C393948）のコモンは**ピン 2**（孤立したピン 1 の隣）です。A0 の基板は pad1 をコモン（VREF）として配線しており、誤りです。改修前の A0 では、
 
@@ -33,8 +33,8 @@ VREF 切替スイッチ SW1（SK13D07VG5・C393948）のコモンは**ピン 2**
 
 **A0 の改修方法（部品側）**: pad2（3.3V）は内層の電源プレーンに直結でパターンを切れないため、スイッチのピン 1 とピン 2 を基板の穴から切り離し、**スイッチのピン 2（コモン）→ pad1（VREF）、スイッチのピン 1 → pad2（3.3V）**をジャンパ線で交差させます。改修後の VREF は「3.3V」3.303V／「EXT」0V（J3 未接続）／「5V」4.895V でした。
 
-- 回路図と自作シンボル（`lib/logicana.kicad_sym`）は訂正済みです（[SPEC.md §17](SPEC.md)）
-- **PCB と製造データは A0 のまま**です。次版 A1 で pad1 と pad2 の割り当てを入れ替えます
+- 回路図と自作シンボル（`lib/logicana.kicad_sym`）は 2026-10-04 に、**PCB と製造データは A1（2026-10-10）で訂正済み**です（[SPEC.md §17](SPEC.md)）。A1 は pad1 = 3.3V・pad2 = VREF（コモン）で、改修なしで「3.3V／EXT／5V」の 3 位置が正しく切り替わります
+- A1 の基板はまだ製造していません。A0 の基板を使う場合は、上の改修が必要です
 
 ---
 
@@ -42,26 +42,29 @@ VREF 切替スイッチ SW1（SK13D07VG5・C393948）のコモンは**ピン 2**
 
 | 置き場所 | 中身 | 扱い |
 |:---|:---|:---|
-| **[hardware/jlcpcb/](hardware/jlcpcb/)** | A0 の注文に実際に使った BOM / CPL / Gerber（Gerber は JLCPCB の注文ページからダウンロードしたもの、BOM / CPL は注文時にアップロードしたファイル） | **実装の正（正規データ）**。ファイル名はそのまま |
-| [hardware/out/](hardware/out/) | KiCad（kicad-cli）から出力した Gerber・ドリル・BOM（`bom-jlcpcb.csv`）・CPL（`cpl-jlcpcb.csv`）・DRC・照合表 | 設計側の出力。JLCPCB に上げる前のデータ |
+| **[hardware/jlcpcb/](hardware/jlcpcb/)** | **A1** の製造データ（Gerber 16 ファイル・BOM・CPL）。`hardware/out/` の kicad-cli 出力をそのまま置いたもの | **発注に使う正規データ**。**A1 はまだ製造していません**（筆者はこのデータでの発注を行っていません） |
+| [hardware/jlcpcb/a0/](hardware/jlcpcb/a0/) | A0 の注文（2026-09-26）に実際に使った BOM / CPL / Gerber（Gerber は JLCPCB の注文ページからダウンロードしたもの、BOM / CPL は注文時にアップロードしたファイル） | A0 の記録。SW1 の配線が誤っているので、このデータで作った基板は改修が要ります |
+| [hardware/out/](hardware/out/) | KiCad（kicad-cli）から出力した現行（A1）の Gerber・ドリル・BOM（`bom-jlcpcb.csv`）・CPL（`cpl-jlcpcb.csv`）・DRC・照合表 | 設計側の出力。`uv run tools/make_outputs.py` で再生成 |
+| [hardware/out/a1/](hardware/out/a1/) | A1 の出力一式のスナップショット（Gerber zip・BOM・CPL・DRC・照合表・レンダ）と、A0 → A1 の修正スクリプト `apply_sw1_fix.py`・検算スクリプト | 記録 |
 
-- A0 の発注では、**USB-C（J1）は注文時に部品が入手できなかったため、実装から外して手はんだ**にしました。BOM / CPL のファイルには J1（C165948）が入ったままで、注文画面の部品照合で実装から外しています。正規データ（`hardware/jlcpcb/`）はアップロードしたファイルそのものです
+- **A1 と A0 の違いは SW1 まわりだけ**です。SW1 の pad1／pad2 のネットの入れ替え（pad1 = 3.3V・pad2 = VREF）、VREF の配線（表面 0.5mm）を pad1 から pad2 へ引き直し、内層 L3 の 3.3V プレーンの再充填、表シルク「RP2040 LA A1」、裏シルクに「CERN-OHL-P v2」。部品・配置・ほかの配線・穴（数と径）・BOM・CPL は A0 と同じです
+- A0 の発注では、**USB-C（J1）は注文時に部品が入手できなかったため、実装から外して手はんだ**にしました。BOM / CPL のファイルには J1（C165948）が入ったままで、注文画面の部品照合で実装から外しています。A1 の BOM / CPL は A0 と同一で、J1 も入ったままです（在庫があれば実装に含めて構いません）
 - SW1 とピンヘッダ J2・J3 は THT 部品なので、設計段階から手はんだの予定です
-- 上の既知の問題のとおり、A0 の PCB データは SW1 の配線が誤っています。同じデータで発注する場合は、届いた基板を上の方法で改修してください
+- A0 の製造データ（`hardware/jlcpcb/a0/`）で発注する場合は、届いた基板を上の方法で改修してください
 
 ---
 
 ## JLCPCB で発注する手順
 
-A0 と同じ基板は、`hardware/jlcpcb/` の製造データでそのまま発注できます。以下は A0 の注文（2026 年 9 月）で実際に選んだ項目です。JLCPCB の画面の項目名や並びは更新で変わることがあるので、見当たらないときは同じ意味の項目を探してください。発注の流れの一般的な説明は[第1回の記事](https://electwork.net/posts/jlcpcb-rp2040-logic-analyzer-01-design-and-order/)に、この基板での選び方は[第3回の記事](https://electwork.net/posts/jlcpcb-rp2040-logic-analyzer-03-field-test/)にもあります。
+A1 の基板は、`hardware/jlcpcb/` の製造データでそのまま発注できます。以下は A0 の注文（2026 年 9 月）で実際に選んだ項目で、A1 でも同じです（A1 のデータでの発注は、筆者はまだ行っていません）。JLCPCB の画面の項目名や並びは更新で変わることがあるので、見当たらないときは同じ意味の項目を探してください。発注の流れの一般的な説明は[第1回の記事](https://electwork.net/posts/jlcpcb-rp2040-logic-analyzer-01-design-and-order/)に、この基板での選び方は[第3回の記事](https://electwork.net/posts/jlcpcb-rp2040-logic-analyzer-03-field-test/)にもあります。
 
-> [!WARNING]
-> **A0 の製造データは SW1 の配線が誤っています。** コモンを pad1 と想定して配線しましたが、SK13D07VG5 のコモンはピン 2 で、pad2 は 3.3V プレーンにつながっています。**改修せずに SW1 を 3 番目の位置（5V）に入れると、LDO の 3.3V 出力と USB の 5V が短絡**し、RP2040・フラッシュ・TXU0104 の 3.3V 側が過電圧になります。2 番目の位置（EXT）では J3 に 3.3V が出ます。
-> 届いた基板は、上の「既知の問題」の改修（スイッチのピン 1・2 を基板から浮かせ、ジャンパで交差させる）を済ませるまで、**SW1 を 1 番目の位置（3.3V）から動かさないでください**。改修の手順と写真は[第2回の記事](https://electwork.net/posts/jlcpcb-rp2040-logic-analyzer-02-bringup-first-i2c-decode/)にあります。
+> [!NOTE]
+> **`hardware/jlcpcb/` は A1（SW1 の配線を直したデータ）です。** A1 の基板はスイッチの改修なしで使えます。A0 からの変更は SW1 の 2 パッドのネットと VREF の配線 1 本だけで、DRC（エラー 0・未配線 0）と基板 ↔ 回路図のネット照合（88 ネット一致）を通していますが、**A1 の実機はまだありません**。
+> A0 の製造データ（`hardware/jlcpcb/a0/`）で作った基板は SW1 の配線が誤っています。改修せずに SW1 を 3 番目の位置（5V）に入れると、LDO の 3.3V 出力と USB の 5V が短絡します。A0 の基板は、上の「既知の問題」の改修を済ませるまで **SW1 を 1 番目の位置（3.3V）から動かさないでください**。改修の手順と写真は[第2回の記事](https://electwork.net/posts/jlcpcb-rp2040-logic-analyzer-02-bringup-first-i2c-decode/)にあります。
 
 ### 手順
 
-1. **Gerber を zip にしてアップロード**: `hardware/jlcpcb/gerbers/` の 16 ファイルを 1 つの zip にまとめ、注文ページでアップロードします。層数 4・外形 65 × 45mm と読み取られれば、外形とドリルまで入っています
+1. **Gerber を zip にしてアップロード**: `hardware/jlcpcb/gerbers/` の 16 ファイルを 1 つの zip にまとめ（`hardware/out/rp2040-logic-analyzer-gerbers.zip` が同じ内容の zip です）、注文ページでアップロードします。層数 4・外形 65 × 45mm と読み取られれば、外形とドリルまで入っています
 2. **基板の仕様を選ぶ**: 下の表の項目が設計の前提に関わります。それ以外（表面処理・レジスト色など）は好みで構いません（A0 は HASL・緑）
 
    | 項目 | 選ぶ値 | 理由 |
@@ -87,7 +90,7 @@ A0 と同じ基板は、`hardware/jlcpcb/` の製造データでそのまま発�
 | 部品 | 種類 | 備考 |
 |:---|:---|:---|
 | J1 USB-C（TYPE-C-31-M-12・C165948） | SMD・0.5mm ピッチ | PCBA で在庫がなく外した場合だけ |
-| SW1 スライドスイッチ（SK13D07VG5・C393948） | THT・ライトアングル | JLCPCB では実装されないので別に用意する。取り付けと同時に上の改修をする |
+| SW1 スライドスイッチ（SK13D07VG5・C393948） | THT・ライトアングル | JLCPCB では実装されないので別に用意する。A1 の基板は改修不要。A0 の基板は取り付けと同時に上の改修をする |
 | J2 2×16 ピンヘッダ（2.54mm） | THT | プローブ入力。BOM に含めていないので別に用意する |
 | J3 1×3 ピンヘッダ（2.54mm） | THT | 外部 VREF（EXT）。同上 |
 
@@ -148,10 +151,13 @@ hardware/            KiCad 10 プロジェクト
   rp2040-logic-analyzer.kicad_pro / .kicad_sch / .kicad_pcb
   sym-lib-table / fp-lib-table      logicana / lcsc の登録（${KIPRJMOD}/../lib/...）
   out/                              kicad-cli の出力（schematic.pdf・Gerber・BOM / CPL・DRC・照合表・review/）と、配線作業で使った補助スクリプト（*.py）
-  jlcpcb/                           A0 の注文に使った正規の製造データ（Gerber・BOM・CPL）
+    a1/                             A1 の出力のスナップショットと A0 → A1 の修正スクリプト（apply_sw1_fix.py）・プレーンの検算（check_sw1_plane.py）
+  jlcpcb/                           A1 の製造データ（Gerber・BOM・CPL・未製造）。a0/ に A0 の注文に使ったデータ
 tools/
   gen_schematic.py   回路図の生成スクリプト（Python 3.12・標準ライブラリのみ）
   verify_netlist.py  kicad-cli のネットリストを期待表と照合
+  verify_pcb_netlist.py
+                     基板の全パッドのネットを回路図のネットリストと照合（→ hardware/out/pcb-netlist-check.md）
   check_kit5.py      回路図チェックリストをネットリストから機械検査
   gen_pcb.py         配置済み・未配線の基板を生成（配線は freerouting と手作業）
   fanout_planes.py / route_pcb.py / finish_pcb.py
@@ -180,7 +186,9 @@ uv run tools/gen_schematic.py --selftest     # 回転ごとのピン位置を ki
 kicad-cli sch erc --severity-all --format report -o hardware/out/erc.rpt hardware/rp2040-logic-analyzer.kicad_sch
 uv run tools/verify_netlist.py               # → hardware/out/netlist-check.md
 uv run tools/check_kit5.py                   # → hardware/out/kit5-check.md
+uv run tools/verify_pcb_netlist.py           # → hardware/out/pcb-netlist-check.md（基板の全パッド ↔ 回路図のネット）
 kicad-cli sch export pdf -o hardware/out/schematic.pdf hardware/rp2040-logic-analyzer.kicad_sch
+uv run tools/make_outputs.py                 # → hardware/out/（DRC・Gerber zip・BOM・CPL・照合表・レンダ）
 ```
 
 KiCad 標準ライブラリと `lib/logicana.kicad_sym` からシンボルを読み、`extends` を平坦化して `lib_symbols` に埋め込みます。結線はピン端のスタブ＋ローカルラベル、電源レールは電源シンボルです。ネットが変わる変更はスクリプト側に入れて再生成します。
@@ -254,9 +262,9 @@ SPDX 識別子: ハードウェア `CERN-OHL-P-2.0`／ソフトウェア `MIT`�
 
 A 16-channel logic analyzer board based on the Raspberry Pi RP2040 and four TI TXU0104 level translators. It accepts 1.8 V to 5 V logic (max 5.5 V) with a selectable reference voltage (VREF: 3.3 V / external / 5 V via slide switch SW1), and works with PulseView (sigrok) through the [sigrok-pico](https://github.com/pico-coder/sigrok-pico) firmware `pico_dig26.uf2` (requires a PulseView nightly build; channel CH n appears as D(n+2) in PulseView). 4-layer, 65 x 45 mm, assembled by JLCPCB PCBA.
 
-- **Status (2026-10-10):** Rev A0 is verified through Part 3 of the article series. Measured on A0 (SW1 reworked, `pico_dig26.uf2`): 1.8 V logic is readable with VREF = EXT (VT+ 1.399 V / VT− 0.732 V at VREF 1.806 V); with a low-noise input the 3.3 V position reads VT+ 2.401 V / VT− 1.395 V and the 5 V position VT+ 3.290 V / VT− 2.138 V (VT+ came out above the upper limit of the nearest TXU0104 datasheet row; cause not identified). The usable sample-rate ceiling is 120 MS/s (150 MS/s and above fail to capture); 12 MHz and 24 MHz square waves are read correctly at 120 and 60 MS/s, and 12 MHz aliases to 8 MHz at 20 MS/s. With 16 channels at 120 MS/s a single capture holds up to 100k samples (about 0.84 ms); larger settings are silently cut to about 0.45 ms. SPI (74HC595), UART (115200 / 9600 bps) and servo PWM (50 Hz, 0.5–2.4 ms) were decoded in PulseView. Rev A1 (SW1 pad fix) has not been started.
-- **Known issue:** The common pin of SW1 (SK13D07VG5) is pin 2, not pin 1. The A0 PCB routes it incorrectly; A0 boards need a jumper rework on the switch side (switch pin 2 → pad1/VREF, switch pin 1 → pad2/3.3V). The schematic and symbol are corrected; the PCB will be fixed in Rev A1. **Until the rework is done, keep SW1 in position 1 (3.3 V): position 3 (5 V) shorts the 3.3 V LDO output to USB 5 V, and position 2 (EXT) puts 3.3 V on J3.**
-- **Manufacturing data:** The authoritative BOM/CPL/Gerber are the files actually used for the A0 order (Gerbers downloaded from the JLCPCB order page, BOM/CPL as uploaded), stored as-is in `hardware/jlcpcb/`. `hardware/out/` contains the KiCad outputs. The BOM/CPL files still contain the USB-C connector J1 (C165948); for the A0 order it was deselected at the parts-matching step because it was out of stock, and hand-soldered.
+- **Status (2026-10-10):** Rev A0 is verified through Part 3 of the article series. Measured on A0 (SW1 reworked, `pico_dig26.uf2`): 1.8 V logic is readable with VREF = EXT (VT+ 1.399 V / VT− 0.732 V at VREF 1.806 V); with a low-noise input the 3.3 V position reads VT+ 2.401 V / VT− 1.395 V and the 5 V position VT+ 3.290 V / VT− 2.138 V (VT+ came out above the upper limit of the nearest TXU0104 datasheet row; cause not identified). The usable sample-rate ceiling is 120 MS/s (150 MS/s and above fail to capture); 12 MHz and 24 MHz square waves are read correctly at 120 and 60 MS/s, and 12 MHz aliases to 8 MHz at 20 MS/s. With 16 channels at 120 MS/s a single capture holds up to 100k samples (about 0.84 ms); larger settings are silently cut to about 0.45 ms. SPI (74HC595), UART (115200 / 9600 bps) and servo PWM (50 Hz, 0.5–2.4 ms) were decoded in PulseView. **Rev A1 board data (2026-10-10)** fixes the SW1 pad assignment (pad1 = 3.3 V, pad2 = VREF/common, VREF trace re-routed to pad2) with DRC 0 errors / 0 unconnected and a full PCB-vs-schematic net match (88/88 nets). **A1 has not been manufactured yet.**
+- **Known issue (A0):** The common pin of SW1 (SK13D07VG5) is pin 2, not pin 1. The A0 PCB routes it incorrectly; A0 boards need a jumper rework on the switch side (switch pin 2 → pad1/VREF, switch pin 1 → pad2/3.3V). The schematic and symbol were corrected on 2026-10-04 and the PCB in Rev A1 (2026-10-10); A1 boards need no rework. **On an A0 board, until the rework is done, keep SW1 in position 1 (3.3 V): position 3 (5 V) shorts the 3.3 V LDO output to USB 5 V, and position 2 (EXT) puts 3.3 V on J3.**
+- **Manufacturing data:** `hardware/jlcpcb/` holds the Rev A1 files (16 Gerber/drill files, BOM, CPL; kicad-cli output, not yet ordered by the author). The files actually used for the A0 order (Gerbers downloaded from the JLCPCB order page, BOM/CPL as uploaded) are kept as-is in `hardware/jlcpcb/a0/`. `hardware/out/` contains the current KiCad outputs. A1 differs from A0 only around SW1 (two pad nets, one VREF trace, the L3 3.3 V plane refill, silkscreen "A1" and a "CERN-OHL-P v2" mark on the back); parts, placement, holes, BOM and CPL are identical. The BOM/CPL files still contain the USB-C connector J1 (C165948); for the A0 order it was deselected at the parts-matching step because it was out of stock, and hand-soldered.
 - **Ordering from JLCPCB** (the choices actually made for the A0 order, September 2026; UI labels may change):
   1. Zip the 16 files in `hardware/jlcpcb/gerbers/` and upload them. The board should be recognized as 4 layers, 65 x 45 mm.
   2. PCB options: 4 layers, 1.6 mm, stackup **JLC04161H-7628** (the USB pair 0.30 / 0.15 mm was calculated for it), minimum via **0.3 mm/(0.4/0.45 mm)**, quantity 5. Surface finish and color do not affect the design (A0: HASL, green).
@@ -265,7 +273,7 @@ A 16-channel logic analyzer board based on the Raspberry Pi RP2040 and four TI T
   5. Parts matching: 12 Basic and 6 Extended types (RP2040, TXU0104, USB-C, USBLC6, crystal ABM8-272-T3, 27 Ω); each Extended type adds a feeder fee. If a line is out of stock, deselect it and hand-solder it (this is what happened to J1 for A0); replace generic R/C with a Basic part of the same value and size. SW1 is in the BOM but has no CPL entry (THT), so JLCPCB treats it as not assembled.
   6. Check orientation in the placement preview: U1 pin 1, U3–U6, the U7 (SOT-223) tab, J1 and LED polarity. Fix rotation there if needed.
   7. Choose shipping and order. A0: DHL Express, delivered 5 days after order confirmation. Actual A0 cost: $73.10 for 5 boards (PCB + Economic PCBA, USB-C not assembled) + $17.04 shipping = $90.14.
-  - Hand-soldered parts: SW1 (SK13D07VG5, C393948, THT, buy separately), J2 (2x16 header), J3 (1x3 header), and J1 only if it was not assembled.
+  - Hand-soldered parts: SW1 (SK13D07VG5, C393948, THT, buy separately; no rework needed on A1), J2 (2x16 header), J3 (1x3 header), and J1 only if it was not assembled.
 - Do not flash `pico_baseline.uf2` (it drives GP0 as UART TX and conflicts with CH0).
 - The boards were provided by JLCPCB (sponsored).
 - **License:** Hardware design data (`hardware/`, `lib/logicana.kicad_sym`, `SPEC.md`, `KICAD-KIT.md`) is licensed under **CERN-OHL-P-2.0** ([LICENSE](LICENSE)). Software (`tools/` Python scripts and Arduino sketches, Python scripts in `hardware/out/`) is licensed under **MIT** ([LICENSE-MIT](LICENSE-MIT)). The article text and images on electwork.net and the photos in `docs/images/` are not covered by either license. Source location: https://github.com/ramtuc/rp2040-logic-analyzer

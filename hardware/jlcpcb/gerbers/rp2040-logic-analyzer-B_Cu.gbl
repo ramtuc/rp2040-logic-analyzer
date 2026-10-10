@@ -1,12 +1,12 @@
 %TF.GenerationSoftware,KiCad,Pcbnew,10.0.3*%
-%TF.CreationDate,2026-09-21T22:40:58+09:00*%
-%TF.ProjectId,rp2040-logic-analyzer,72703230-3430-42d6-9c6f-6769632d616e,A0*%
+%TF.CreationDate,2026-10-10T22:03:14+09:00*%
+%TF.ProjectId,rp2040-logic-analyzer,72703230-3430-42d6-9c6f-6769632d616e,A1*%
 %TF.SameCoordinates,Original*%
 %TF.FileFunction,Copper,L4,Bot*%
 %TF.FilePolarity,Positive*%
 %FSLAX46Y46*%
 G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
-G04 Created by KiCad (PCBNEW 10.0.3) date 2026-09-21 22:40:58*
+G04 Created by KiCad (PCBNEW 10.0.3) date 2026-10-10 22:03:14*
 %MOMM*%
 %LPD*%
 G01*
@@ -158,10 +158,10 @@ X150100000Y-101900000D03*
 %TD*%
 D12*
 %TO.P,SW1,1*%
-%TO.N,VREF*%
+%TO.N,+3V3*%
 X107350000Y-109000000D03*
 %TO.P,SW1,2*%
-%TO.N,+3V3*%
+%TO.N,VREF*%
 X107350000Y-113000000D03*
 %TO.P,SW1,3*%
 %TO.N,/VREF_EXT*%

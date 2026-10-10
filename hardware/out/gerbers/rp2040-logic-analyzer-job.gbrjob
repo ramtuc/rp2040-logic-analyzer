@@ -5,13 +5,13 @@
       "Application": "Pcbnew",
       "Version": "10.0.3"
     },
-    "CreationDate": "2026-09-22T13:25:22+09:00"
+    "CreationDate": "2026-10-10T22:03:14+09:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
       "Name": "rp2040-logic-analyzer",
       "GUID": "72703230-3430-42d6-9c6f-6769632d616e",
-      "Revision": "A0"
+      "Revision": "A1"
     },
     "Size": {
       "X": 65.05,
